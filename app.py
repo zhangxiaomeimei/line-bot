@@ -81,6 +81,8 @@ def handle_message(event):
     
 
     message = TextSendMessage(text=text2) 
+
+    message = StickerSendMessage(package_id=1,sticker_id=2)
     
     replay_message(event,message)
  
