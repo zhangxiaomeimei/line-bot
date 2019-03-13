@@ -83,6 +83,9 @@ def handle_message(event):
     message = TextSendMessage(text=text2) 
 
     message = StickerSendMessage(package_id=1,sticker_id=2)
+
+    message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
+    replay_message(event,message)
     
     replay_message(event,message)
  
