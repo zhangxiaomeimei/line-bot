@@ -9,7 +9,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent,TextMessage,TextSendMessage,ImageSendMessage,StickerSendMessage,TemplateSendMessage,VideoSendMessage,ButtonsTemplate,PostbackTemplateAction
+    MessageEvent,TextMessage,TextSendMessage,ImageSendMessage,StickerSendMessage,TemplateSendMessage,VideoSendMessage,AudioSendMessage,ButtonsTemplate,PostbackTemplateAction
 )
 import os
 app = Flask(__name__)
@@ -88,7 +88,10 @@ def handle_message(event):
     
     Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4',preview_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png')
 
-    replay_message(event,Video_Message)
+    Audio_Massaeg = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a',durotion=100000)
+
+
+    replay_message(event,Audio_Massaeg)
  
 def replay_message(event,text):
     #text = 'According to your input, my answer is ' + text
