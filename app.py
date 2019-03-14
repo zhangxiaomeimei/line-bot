@@ -91,13 +91,13 @@ def handle_message(event):
 
     replay_message(event,Video_Message)
  
-def replay_message(event,text):
+def replay_message(event,Video_Message):
     #text = 'According to your input, my answer is ' + text
     line_bot_api.reply_message(
         event.reply_token,
          text)
         
-def push_message(event,text):
+def push_message(event,Video_Message):
     #text = 'According to your input, my answer is ' + text
     line_bot_api.reply_message(
         event.source.user_id,
