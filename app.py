@@ -88,10 +88,10 @@ def handle_message(event):
     
     Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4',preview_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png')
 
-    Audio_Massaeg = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a',durotion=100000)
+    Audio_Massage = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a',duration=100000)
 
 
-    replay_message(event,Audio_Massaeg)
+    replay_message(event,Audio_Massage)
  
 def replay_message(event,text):
     #text = 'According to your input, my answer is ' + text
