@@ -86,9 +86,9 @@ def handle_message(event):
 
     message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
     
-    message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4',preview_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png')
+    Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4',preview_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png')
 
-    replay_message(event,message)
+    replay_message(event,Video_Message)
  
 def replay_message(event,text):
     #text = 'According to your input, my answer is ' + text
