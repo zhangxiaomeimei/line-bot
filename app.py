@@ -90,7 +90,7 @@ def handle_message(event):
     elif event.message.text =="影片":
        line_bot_api.reply_message(event.reply_token,VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4',preview_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'))
 
-    replay_message(event,message)
+    
  
 def replay_message(event,text):
     #text = 'According to your input, my answer is ' + text
