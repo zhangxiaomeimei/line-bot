@@ -82,14 +82,14 @@ def handle_message(event):
     #傳送圖片
     Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
 
-    #傳送影片
-    # Video_Message = VideoSendMessage(original_content_url='影片網址', preview_image_url='預覽的圖片網址')
+    傳送影片
+    Video_Message = VideoSendMessage(original_content_url='影片網址', preview_image_url='預覽的圖片網址')
 
-    # #傳送音訊
-    # Audio_Message = AudioSendMessage(original_content_url='音訊網址', duration=100000)
+    #傳送音訊
+    Audio_Message = AudioSendMessage(original_content_url='音訊網址', duration=100000)
 
-    # #傳送位址
-    # Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
+    #傳送位址
+    Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
 
     # Imagemap_Message = ImagemapSendMessage(
     #     base_url='',
@@ -230,7 +230,7 @@ def handle_message(event):
     #     )
     # )
 
-    replay_message(event,Image_Message)
+    replay_message(event,Location_Message)
 
  
 def replay_message(event,text):
