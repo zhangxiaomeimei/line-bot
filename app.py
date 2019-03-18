@@ -8,9 +8,12 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
-    MessageEvent,TextMessage,TextSendMessage,ImageSendMessage,StickerSendMessage,TemplateSendMessage,VideoSendMessage,AudioSendMessage,ButtonsTemplate,PostbackTemplateAction
-)
+#from linebot.models import (
+#    MessageEvent,TextMessage,TextSendMessage,StickerSendMessage,ImageSendMessage,TemplateSendMessage,ButtonsTemplate,PostbackTemplateAction
+#)
+
+from linebot.models import *
+
 import os
 app = Flask(__name__)
 
@@ -67,31 +70,165 @@ def handle_message(event):
         text2 = "林仁彥老師的專長為最佳化，辦公室在理工大樓八樓A16-815，辦公室電話05-271-7880。"
     if event.message.text.find("彭振昌")>=0:
         text2 = "彭振昌老師的專長為動態系統，辦公室在理工大樓八樓A16-822，辦公室電話05-271-7878。"
-    # conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=mathLineBot user=mathLineBot password=mk8559")
-    # cur = conn.cursor()
-    # sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-    # cur.execute(sql)
-    # rows = cur.fetchall()
-    # #text2 = "According to your input, my answer is "
-    # text2 = ""
-    # for row in rows:
-    #     text2 = text2 + str(row[2]) 
-    # if text2 == "":
-    #     text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
     
 
     message = TextSendMessage(text=text2) 
-
-    message = StickerSendMessage(package_id=1,sticker_id=2)
-
-    message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
     
-    Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4',preview_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png')
+    
+    #傳送貼圖
+    Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
+    
+    #傳送圖片
+    Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
 
-    Audio_Massage = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a',duration=100000)
+    Video_Message = VideoSendMessage(original_content_url='影片網址', preview_image_url='預覽的圖片網址')
+
+    # Audio_Message = AudioSendMessage(original_content_url='音訊網址', duration=100000)
+
+    Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
+
+    # Imagemap_Message = ImagemapSendMessage(
+    #     base_url='',
+    #     alt_text='this is an imagemap',
+    #     base_size=BaseSize(height=520, width=520),
+    #     actions=[
+    #         URIImagemapAction(
+    #             link_uri='',
+    #             area=ImagemapArea(
+    #                 x=174, y=65, width=707, height=416
+    #             )
+    #         ),
+    #         MessageImagemapAction(
+    #             text='hello',
+    #             area=ImagemapArea(
+    #                 x=520, y=0, width=520, height=520
+    #             )
+    #         )
+    #     ]
+    # )
 
 
-    replay_message(event,Audio_Massage)
+    #Buttons_Template = TemplateSendMessage(
+    #    alt_text='Buttons Template',
+    #   template=ButtonsTemplate(
+    #        title='這是ButtonsTemplate',
+    #            text='ButtonsTemplate可以傳送text,uri',
+    #         thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #         actions=[
+    #             MessageTemplateAction(
+
+    #                 label='ButtonsTemplate',
+    #                 text='ButtonsTemplate'
+    #             ),
+    #             URITemplateAction(
+    #                 label='VIDEO1',
+    #                 uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
+    #             ),
+    #             PostbackTemplateAction(
+    #                 label='postback',
+    #                 text='postback text',
+    #                 data='postback1'
+    #             )
+    #         ]
+    #     )
+    # )
+
+      
+    # Confirm_Template = TemplateSendMessage(
+    #     alt_text='目錄 template',
+    #     template=ConfirmTemplate(
+    #         title='這是ConfirmTemplate',
+    #         text='這就是ConfirmTemplate,用於兩種按鈕選擇',
+    #         actions=[                              
+    #             PostbackTemplateAction(
+    #                 label='Y',
+    #                 text='Y',
+    #                 data='action=buy&itemid=1'
+
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='N',
+    #                 text='N'
+    #             )
+    #         ]
+    #     )
+    # )
+
+    # Carousel_Template = TemplateSendMessage(
+    #     alt_text='Carousel template',
+    #     template=CarouselTemplate(
+    #         columns=[
+    #             CarouselColumn(
+    #                 thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 title='this is menu1',
+    #                 text='description1',
+    #                 actions=[
+    #                     PostbackTemplateAction(
+    #                         label='postback1',
+    #                         text='postback text1',
+    #                         data='action=buy&itemid=1'
+    #                     ),
+    #                     MessageTemplateAction(
+    #                         label='message1',
+    #                         text='message text1'
+    #                     ),
+    #                     URITemplateAction(
+    #                         label='uri1',
+    #                         uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
+    #                     )
+    #                 ]
+    #             ),
+    #             CarouselColumn(
+    #                 thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 title='this is menu2',
+    #                 text='description2',
+    #                 actions=[
+    #                     PostbackTemplateAction(
+    #                         label='postback2',
+    #                         text='postback text2',
+    #                         data='action=buy&itemid=2'
+    #                     ),
+    #                     MessageTemplateAction(
+    #                         label='message2',
+    #                         text='message text2'
+    #                     ),
+    #                     URITemplateAction(
+    #                         label='連結2',
+    #                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
+    #                     )
+    #                 ]
+    #             )
+    #         ]
+    #     )
+    # )
+
+    # Image_Carousel = TemplateSendMessage(
+    #     alt_text='目錄 template',
+    #     template=ImageCarouselTemplate(
+    #         columns=[
+    #             ImageCarouselColumn(
+    #                 image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 action=PostbackTemplateAction(
+    #                     label='postback1',
+    #                     text='postback text1',
+    #                     data='action=buy&itemid=1'
+    #                 )
+    #             ),
+    #             ImageCarouselColumn(
+    #                 image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 action=PostbackTemplateAction(
+    #                     label='postback2',
+    #                     text='postback text2',
+    #                     data='action=buy&itemid=2'
+    #                 )
+    #             )
+    #         ]
+    #     )
+    # )
+
+    replay_message(event,Image_Carousel)
+
  
 def replay_message(event,text):
     #text = 'According to your input, my answer is ' + text
@@ -104,7 +241,6 @@ def push_message(event,text):
     line_bot_api.reply_message(
         event.source.user_id,
         text)        
-
     
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
