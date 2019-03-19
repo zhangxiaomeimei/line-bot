@@ -85,8 +85,8 @@ def handle_message(event):
     # 傳送影片
     Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4', preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
 
-    # #傳送音訊
-    # Audio_Message = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a', duration=100000)
+    #傳送音訊
+    Audio_Message = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a', duration=100000)
 
     #傳送位址
     #Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
@@ -233,7 +233,7 @@ def handle_message(event):
     #     )
     # )
 
-    replay_message(event,Video_Message)
+    replay_message(event,AudioSendMessage)
 
  
 def replay_message(event,text):
