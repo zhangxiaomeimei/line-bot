@@ -93,12 +93,12 @@ def handle_message(event):
 
     #傳送圖片
     Imagemap_Message = ImagemapSendMessage(
-        base_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',
+        base_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png#',
         alt_text='this is an imagemap',
         base_size=BaseSize(height=520, width=520),
         actions=[
             URIImagemapAction(
-                link_uri='',
+                link_uri='https://www.youtube.com/',
                 area=ImagemapArea(
                     x=174, y=65, width=707, height=416
                 )
