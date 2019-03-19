@@ -89,8 +89,9 @@ def handle_message(event):
     # Audio_Message = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a', duration=100000)
 
     #傳送位址
-    Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
+    #Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
 
+    #傳送圖片
     Imagemap_Message = ImagemapSendMessage(
         base_url='',
         alt_text='this is an imagemap',
