@@ -112,126 +112,126 @@ def handle_message(event):
         ]
     )
 
-    #單一按鈕模板
-    Buttons_Template = TemplateSendMessage(
-       alt_text='Buttons Template',
-      template=ButtonsTemplate(
-           title='這是ButtonsTemplate',
-               text='ButtonsTemplate可以傳送text,uri',
-            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-            actions=[
-                MessageTemplateAction(
+    # #單一按鈕模板
+    # Buttons_Template = TemplateSendMessage(
+    #    alt_text='Buttons Template',
+    #   template=ButtonsTemplate(
+    #        title='這是ButtonsTemplate',
+    #            text='ButtonsTemplate可以傳送text,uri',
+    #         thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #         actions=[
+    #             MessageTemplateAction(
 
-                    label='ButtonsTemplate',
-                    text='ButtonsTemplate'
-                ),
-                URITemplateAction(
-                    label='VIDEO1',
-                    uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
-                ),
-                PostbackTemplateAction(
-                    label='postback',
-                    text='postback text',
-                    data='postback1'
-                )
-            ]
-        )
-    )
+    #                 label='ButtonsTemplate',
+    #                 text='ButtonsTemplate'
+    #             ),
+    #             URITemplateAction(
+    #                 label='VIDEO1',
+    #                 uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
+    #             ),
+    #             PostbackTemplateAction(
+    #                 label='postback',
+    #                 text='postback text',
+    #                 data='postback1'
+    #             )
+    #         ]
+    #     )
+    # )
 
-    #兩種按鈕選擇Y OR N
-    Confirm_Template = TemplateSendMessage(
-        alt_text='目錄 template',
-        template=ConfirmTemplate(
-            title='這是ConfirmTemplate',
-            text='這就是ConfirmTemplate,用於兩種按鈕選擇',
-            actions=[                              
-                PostbackTemplateAction(
-                    label='Y',
-                    text='Y',
-                    data='action=buy&itemid=1'
+    # #兩種按鈕選擇Y OR N
+    # Confirm_Template = TemplateSendMessage(
+    #     alt_text='目錄 template',
+    #     template=ConfirmTemplate(
+    #         title='這是ConfirmTemplate',
+    #         text='這就是ConfirmTemplate,用於兩種按鈕選擇',
+    #         actions=[                              
+    #             PostbackTemplateAction(
+    #                 label='Y',
+    #                 text='Y',
+    #                 data='action=buy&itemid=1'
 
-                ),
-                MessageTemplateAction(
-                    label='N',
-                    text='N'
-                )
-            ]
-        )
-    )
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='N',
+    #                 text='N'
+    #             )
+    #         ]
+    #     )
+    # )
 
-    #兩個按鈕模板，多增加一個模板APP CRACHED
-    Carousel_Template = TemplateSendMessage(
-        alt_text='Carousel template',
-        template=CarouselTemplate(
-            columns=[
-                CarouselColumn(
-                    thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    title='this is menu1',
-                    text='description1',
-                    actions=[
-                        PostbackTemplateAction(
-                            label='postback1',
-                            text='postback text1',
-                            data='action=buy&itemid=1'
-                        ),
-                        MessageTemplateAction(
-                            label='message1',
-                            text='message text1'
-                        ),
-                        URITemplateAction(
-                            label='uri1',
-                            uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
-                        )
-                    ]
-                ),
-                CarouselColumn(
-                    thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    title='this is menu2',
-                    text='description2',
-                    actions=[
-                        PostbackTemplateAction(
-                            label='postback2',
-                            text='postback text2',
-                            data='action=buy&itemid=2'
-                        ),
-                        MessageTemplateAction(
-                            label='message2',
-                            text='message text2'
-                        ),
-                        URITemplateAction(
-                            label='連結2',
-                            uri='https://www.youtube.com/watch?v=GuqY5OViunk'
-                        )
-                    ]
-                )
-            ]
-        )
-    )
+    # #兩個按鈕模板，多增加一個模板APP CRACHED
+    # Carousel_Template = TemplateSendMessage(
+    #     alt_text='Carousel template',
+    #     template=CarouselTemplate(
+    #         columns=[
+    #             CarouselColumn(
+    #                 thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 title='this is menu1',
+    #                 text='description1',
+    #                 actions=[
+    #                     PostbackTemplateAction(
+    #                         label='postback1',
+    #                         text='postback text1',
+    #                         data='action=buy&itemid=1'
+    #                     ),
+    #                     MessageTemplateAction(
+    #                         label='message1',
+    #                         text='message text1'
+    #                     ),
+    #                     URITemplateAction(
+    #                         label='uri1',
+    #                         uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
+    #                     )
+    #                 ]
+    #             ),
+    #             CarouselColumn(
+    #                 thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 title='this is menu2',
+    #                 text='description2',
+    #                 actions=[
+    #                     PostbackTemplateAction(
+    #                         label='postback2',
+    #                         text='postback text2',
+    #                         data='action=buy&itemid=2'
+    #                     ),
+    #                     MessageTemplateAction(
+    #                         label='message2',
+    #                         text='message text2'
+    #                     ),
+    #                     URITemplateAction(
+    #                         label='連結2',
+    #                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
+    #                     )
+    #                 ]
+    #             )
+    #         ]
+    #     )
+    # )
 
-    #多張圖片
-    Image_Carousel = TemplateSendMessage(
-        alt_text='目錄 template',
-        template=ImageCarouselTemplate(
-            columns=[
-                ImageCarouselColumn(
-                    image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    action=PostbackTemplateAction(
-                        label='postback1',
-                        text='postback text1',
-                        data='action=buy&itemid=1'
-                    )
-                ),
-                ImageCarouselColumn(
-                    image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    action=PostbackTemplateAction(
-                        label='postback2',
-                        text='postback text2',
-                        data='action=buy&itemid=2'
-                    )
-                )
-            ]
-        )
-    )
+    # #多張圖片
+    # Image_Carousel = TemplateSendMessage(
+    #     alt_text='目錄 template',
+    #     template=ImageCarouselTemplate(
+    #         columns=[
+    #             ImageCarouselColumn(
+    #                 image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 action=PostbackTemplateAction(
+    #                     label='postback1',
+    #                     text='postback text1',
+    #                     data='action=buy&itemid=1'
+    #                 )
+    #             ),
+    #             ImageCarouselColumn(
+    #                 image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 action=PostbackTemplateAction(
+    #                     label='postback2',
+    #                     text='postback text2',
+    #                     data='action=buy&itemid=2'
+    #                 )
+    #             )
+    #         ]
+    #     )
+    # )
 
     replay_message(event,Imagemap_Message)
 
