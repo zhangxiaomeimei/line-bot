@@ -112,7 +112,7 @@ def handle_message(event):
         ]
     )
 
-
+    #單一按鈕模板
     Buttons_Template = TemplateSendMessage(
        alt_text='Buttons Template',
       template=ButtonsTemplate(
@@ -139,25 +139,25 @@ def handle_message(event):
     )
 
       
-    # Confirm_Template = TemplateSendMessage(
-    #     alt_text='目錄 template',
-    #     template=ConfirmTemplate(
-    #         title='這是ConfirmTemplate',
-    #         text='這就是ConfirmTemplate,用於兩種按鈕選擇',
-    #         actions=[                              
-    #             PostbackTemplateAction(
-    #                 label='Y',
-    #                 text='Y',
-    #                 data='action=buy&itemid=1'
+    Confirm_Template = TemplateSendMessage(
+        alt_text='目錄 template',
+        template=ConfirmTemplate(
+            title='這是ConfirmTemplate',
+            text='這就是ConfirmTemplate,用於兩種按鈕選擇',
+            actions=[                              
+                PostbackTemplateAction(
+                    label='Y',
+                    text='Y',
+                    data='action=buy&itemid=1'
 
-    #             ),
-    #             MessageTemplateAction(
-    #                 label='N',
-    #                 text='N'
-    #             )
-    #         ]
-    #     )
-    # )
+                ),
+                MessageTemplateAction(
+                    label='N',
+                    text='N'
+                )
+            ]
+        )
+    )
 
     # Carousel_Template = TemplateSendMessage(
     #     alt_text='Carousel template',
@@ -231,7 +231,7 @@ def handle_message(event):
     #     )
     # )
 
-    replay_message(event,Buttons_Template)
+    replay_message(event,Confirm_Template)
 
  
 def replay_message(event,text):
