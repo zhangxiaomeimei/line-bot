@@ -89,7 +89,7 @@ def handle_message(event):
     # Audio_Message = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a', duration=100000)
 
     #傳送位址
-    #Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
+    Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
 
     #傳送圖片
     Imagemap_Message = ImagemapSendMessage(
@@ -113,30 +113,30 @@ def handle_message(event):
     )
 
 
-    # Buttons_Template = TemplateSendMessage(
-    #    alt_text='Buttons Template',
-    #   template=ButtonsTemplate(
-    #        title='這是ButtonsTemplate',
-    #            text='ButtonsTemplate可以傳送text,uri',
-    #         thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-    #         actions=[
-    #             MessageTemplateAction(
+    Buttons_Template = TemplateSendMessage(
+       alt_text='Buttons Template',
+      template=ButtonsTemplate(
+           title='這是ButtonsTemplate',
+               text='ButtonsTemplate可以傳送text,uri',
+            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+            actions=[
+                MessageTemplateAction(
 
-    #                 label='ButtonsTemplate',
-    #                 text='ButtonsTemplate'
-    #             ),
-    #             URITemplateAction(
-    #                 label='VIDEO1',
-    #                 uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
-    #             ),
-    #             PostbackTemplateAction(
-    #                 label='postback',
-    #                 text='postback text',
-    #                 data='postback1'
-    #             )
-    #         ]
-    #     )
-    # )
+                    label='ButtonsTemplate',
+                    text='ButtonsTemplate'
+                ),
+                URITemplateAction(
+                    label='VIDEO1',
+                    uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
+                ),
+                PostbackTemplateAction(
+                    label='postback',
+                    text='postback text',
+                    data='postback1'
+                )
+            ]
+        )
+    )
 
       
     # Confirm_Template = TemplateSendMessage(
@@ -231,7 +231,7 @@ def handle_message(event):
     #     )
     # )
 
-    replay_message(event,Imagemap_Message)
+    replay_message(event,Buttons_Template)
 
  
 def replay_message(event,text):
