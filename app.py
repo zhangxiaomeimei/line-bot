@@ -159,6 +159,7 @@ def handle_message(event):
         )
     )
 
+    #兩個按鈕模板
     Carousel_Template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -183,6 +184,26 @@ def handle_message(event):
                         )
                     ]
                 ),
+                CarouselColumn(
+                    thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                    title='this is menu2',
+                    text='description2',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='postback2',
+                            text='postback text2',
+                            data='action=buy&itemid=2'
+                        ),
+                        MessageTemplateAction(
+                            label='message2',
+                            text='message text2'
+                        ),
+                        URITemplateAction(
+                            label='連結2',
+                            uri='https://www.youtube.com/watch?v=GuqY5OViunk'
+                        )
+                    ]
+                )
                 CarouselColumn(
                     thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
                     title='this is menu2',
