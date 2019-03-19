@@ -159,7 +159,7 @@ def handle_message(event):
         )
     )
 
-    #兩個按鈕模板
+    #兩個按鈕模板，多增加一個模板APP CRACHED
     Carousel_Template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -208,31 +208,31 @@ def handle_message(event):
         )
     )
 
-    # Image_Carousel = TemplateSendMessage(
-    #     alt_text='目錄 template',
-    #     template=ImageCarouselTemplate(
-    #         columns=[
-    #             ImageCarouselColumn(
-    #                 image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-    #                 action=PostbackTemplateAction(
-    #                     label='postback1',
-    #                     text='postback text1',
-    #                     data='action=buy&itemid=1'
-    #                 )
-    #             ),
-    #             ImageCarouselColumn(
-    #                 image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-    #                 action=PostbackTemplateAction(
-    #                     label='postback2',
-    #                     text='postback text2',
-    #                     data='action=buy&itemid=2'
-    #                 )
-    #             )
-    #         ]
-    #     )
-    # )
+    Image_Carousel = TemplateSendMessage(
+        alt_text='目錄 template',
+        template=ImageCarouselTemplate(
+            columns=[
+                ImageCarouselColumn(
+                    image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                    action=PostbackTemplateAction(
+                        label='postback1',
+                        text='postback text1',
+                        data='action=buy&itemid=1'
+                    )
+                ),
+                ImageCarouselColumn(
+                    image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                    action=PostbackTemplateAction(
+                        label='postback2',
+                        text='postback text2',
+                        data='action=buy&itemid=2'
+                    )
+                )
+            ]
+        )
+    )
 
-    replay_message(event,Carousel_Template)
+    replay_message(event,Image_Carousel)
 
  
 def replay_message(event,text):
