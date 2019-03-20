@@ -160,53 +160,53 @@ def handle_message(event):
     # )
 
     #兩個按鈕模板，多增加一個模板APP CRACHED
-    # Carousel_Template = TemplateSendMessage(
-    #     alt_text='Carousel template',
-    #     template=CarouselTemplate(
-    #         columns=[
-    #             CarouselColumn(
-    #                 thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-    #                 title='this is menu1',
-    #                 text='description1',
-    #                 actions=[
-    #                     PostbackTemplateAction(
-    #                         label='postback1',
-    #                         text='postback text1',
-    #                         data='action=buy&itemid=1'
-    #                     ),
-    #                     MessageTemplateAction(
-    #                         label='message1',
-    #                         text='message text1'
-    #                     ),
-    #                     URITemplateAction(
-    #                         label='uri1',
-    #                         uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
-    #                     )
-    #                 ]
-    #             ),
-    #             CarouselColumn(
-    #                 thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-    #                 title='this is menu2',
-    #                 text='description2',
-    #                 actions=[
-    #                     PostbackTemplateAction(
-    #                         label='postback2',
-    #                         text='postback text2',
-    #                         data='action=buy&itemid=2'
-    #                     ),
-    #                     MessageTemplateAction(
-    #                         label='message2',
-    #                         text='message text2'
-    #                     ),
-    #                     URITemplateAction(
-    #                         label='連結2',
-    #                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
-    #                     )
-    #                 ]
-    #             )
-    #         ]
-    #     )
-    # )
+    Carousel_Template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                    thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                    title='this is menu1',
+                    text='description1',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='postback1',
+                            text='postback text1',
+                            data='action=buy&itemid=1'
+                        ),
+                        MessageTemplateAction(
+                            label='message1',
+                            text='message text1'
+                        ),
+                        URITemplateAction(
+                            label='uri1',
+                            uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
+                        )
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                    title='this is menu2',
+                    text='description2',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='postback2',
+                            text='postback text2',
+                            data='action=buy&itemid=2'
+                        ),
+                        MessageTemplateAction(
+                            label='message2',
+                            text='message text2'
+                        ),
+                        URITemplateAction(
+                            label='連結2',
+                            uri='https://www.youtube.com/watch?v=GuqY5OViunk'
+                        )
+                    ]
+                )
+            ]
+        )
+    )
 
     #多張圖片
     # Image_Carousel = TemplateSendMessage(
@@ -233,7 +233,7 @@ def handle_message(event):
     #     )
     # )
 
-    replay_message(event,Buttons_Template)
+    replay_message(event,Carousel_Template)
 
  
 def replay_message(event,text):
