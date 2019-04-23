@@ -114,10 +114,10 @@ def handle_message(event):
 
     #單一按鈕模板
     Buttons_Template = TemplateSendMessage(
-       alt_text='Buttons Template',
-      template=ButtonsTemplate(
-           title='這是ButtonsTemplate',
-               text='ButtonsTemplate可以傳送text,uri',
+        alt_text='Buttons Template',
+        template=ButtonsTemplate(
+            title='這是ButtonsTemplate',
+            text='ButtonsTemplate可以傳送text,uri',
             thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
             actions=[
                 MessageTemplateAction(
@@ -139,69 +139,69 @@ def handle_message(event):
 
     if event.message.text == "專題海報":
         Imagemap_Message = ImagemapSendMessage(
-          base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-          alt_text='this is an imagemap',
-          base_size=BaseSize(height=520, width=520),
-          actions=[
-              URIImagemapAction(
-                  link_uri='https://www.youtube.com/',
-                  area=ImagemapArea(
-                      x=174, y=65, width=707, height=416
-                  )
-              ),
-              MessageImagemapAction(
-                  text='hello',
-                  area=ImagemapArea(
-                      x=520, y=0, width=520, height=520
-                  )
-              )
-          ]
+            base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(height=520, width=520),
+            actions=[
+                URIImagemapAction(
+                    link_uri='https://www.youtube.com/',
+                    area=ImagemapArea(
+                        x=174, y=65, width=707, height=416
+                    )
+                ),
+                MessageImagemapAction(
+                    text='hello',
+                    area=ImagemapArea(
+                        x=520, y=0, width=520, height=520
+                    )
+                )
+            ]
         )
         replay_message(event,Imagemap_Message)
         return 0
 
     if event.message.text == "微積分習題":
      	Imagemap_Message = ImagemapSendMessage(
-          base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-          alt_text='this is an imagemap',
-          base_size=BaseSize(height=520, width=520),
-          actions=[
-              URIImagemapAction(
-                  link_uri='https://www.youtube.com/',
-                  area=ImagemapArea(
-                      x=174, y=65, width=707, height=416
-                  )
-              ),
-              MessageImagemapAction(
-                  text='hello',
-                  area=ImagemapArea(
-                      x=520, y=0, width=520, height=520
-                  )
-              )
-          ]
+            base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(height=520, width=520),
+            actions=[
+                URIImagemapAction(
+                    link_uri='https://www.youtube.com/',
+                    area=ImagemapArea(
+                        x=174, y=65, width=707, height=416
+                    )
+                ),
+                MessageImagemapAction(
+                    text='hello',
+                    area=ImagemapArea(
+                        x=520, y=0, width=520, height=520
+                    )
+                )
+            ]
         )
         replay_message(event,Imagemap_Message)
         return 0
 
     if event.message.text == "講義":
      	Imagemap_Message = ImagemapSendMessage(
-          base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-          alt_text='this is an imagemap',
-          base_size=BaseSize(height=520, width=520),
-          actions=[
-              URIImagemapAction(
-                  link_uri='https://www.youtube.com/',
-                  area=ImagemapArea(
-                      x=174, y=65, width=707, height=416
-                  )
-              ),
-              MessageImagemapAction(
-                  text='hello',
-                  area=ImagemapArea(
-                      x=520, y=0, width=520, height=520
-                  )
-              )
-          ]
+            base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(height=520, width=520),
+            actions=[
+                URIImagemapAction(
+                    link_uri='https://www.youtube.com/',
+                    area=ImagemapArea(
+                        x=174, y=65, width=707, height=416
+                    )
+                ),
+                MessageImagemapAction(
+                    text='嗨老師',
+                    area=ImagemapArea(
+                        x=520, y=0, width=520, height=520
+                    )
+                )
+            ]
         )
         replay_message(event,Imagemap_Message)
         return 0
