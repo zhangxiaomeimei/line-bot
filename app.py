@@ -8,9 +8,9 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-#from linebot.models import (
-#    MessageEvent,TextMessage,TextSendMessage,StickerSendMessage,ImageSendMessage,TemplateSendMessage,ButtonsTemplate,Imagemap_Message,PostbackTemplateAction
-#)
+from linebot.models import (
+   MessageEvent,TextMessage,TextSendMessage,StickerSendMessage,ImageSendMessage,TemplateSendMessage,ButtonsTemplate,Imagemap_Message,PostbackTemplateAction
+)
 
 from linebot.models import *
 
@@ -122,24 +122,90 @@ def handle_message(event):
             actions=[
                 MessageTemplateAction(
 
-                    label='ButtonsTemplate',
-                    text='ButtonsTemplate'
+                    label='專題海報',
+                    text='專題海報'
                 ),
-                URITemplateAction(
-                    label='VIDEO1',
-                    uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
+                MessageTemplateAction(
+                    label='微積分習題',
+                    text='微積分習題'
                 ),
-                PostbackTemplateAction(
-                    label='postback',
-                    text='postback text',
-                    data='postback1'
+                MessageTemplateAction(
+                    label='講義',
+                    text='講義'
                 )
             ]
         )
     )
 
-    #兩種按鈕選擇Y OR N
-    Confirm_Template = TemplateSendMessage(
+     if event.message.text == "專題海報":
+     	 Imagemap_Message = ImagemapSendMessage(
+        base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+        alt_text='this is an imagemap',
+        base_size=BaseSize(height=520, width=520),
+        actions=[
+            URIImagemapAction(
+                link_uri='https://www.youtube.com/',
+                area=ImagemapArea(
+                    x=174, y=65, width=707, height=416
+                )
+            ),
+            MessageImagemapAction(
+                text='hello',
+                area=ImagemapArea(
+                    x=520, y=0, width=520, height=520
+                )
+            )
+        ]
+    )
+     replay_message(event,Imagemap_Message)
+        return 0
+
+     if event.message.text == "微積分習題":
+     	 Imagemap_Message = ImagemapSendMessage(
+        base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+        alt_text='this is an imagemap',
+        base_size=BaseSize(height=520, width=520),
+        actions=[
+            URIImagemapAction(
+                link_uri='https://www.youtube.com/',
+                area=ImagemapArea(
+                    x=174, y=65, width=707, height=416
+                )
+            ),
+            MessageImagemapAction(
+                text='hello',
+                area=ImagemapArea(
+                    x=520, y=0, width=520, height=520
+                )
+            )
+        ]
+    )
+     replay_message(event,Imagemap_Message)
+        return 0
+     if event.message.text == "講義":
+     	 Imagemap_Message = ImagemapSendMessage(
+        base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+        alt_text='this is an imagemap',
+        base_size=BaseSize(height=520, width=520),
+        actions=[
+            URIImagemapAction(
+                link_uri='https://www.youtube.com/',
+                area=ImagemapArea(
+                    x=174, y=65, width=707, height=416
+                )
+            ),
+            MessageImagemapAction(
+                text='hello',
+                area=ImagemapArea(
+                    x=520, y=0, width=520, height=520
+                )
+            )
+        ]
+    )
+     replay_message(event,Imagemap_Message)
+        return 0
+    if event.message.text == "嗨老師":
+    	Confirm_Template = TemplateSendMessage(
         alt_text='目錄 template',
         template=ConfirmTemplate(
             title='這是ConfirmTemplate',
@@ -158,6 +224,32 @@ def handle_message(event):
             ]
         )
     )
+     replay_message(event,Confirm_Template)
+        return 0
+
+
+
+
+    #兩種按鈕選擇Y OR N
+    # Confirm_Template = TemplateSendMessage(
+    #     alt_text='目錄 template',
+    #     template=ConfirmTemplate(
+    #         title='這是ConfirmTemplate',
+    #         text='這就是ConfirmTemplate,用於兩種按鈕選擇',
+    #         actions=[                              
+    #             PostbackTemplateAction(
+    #                 label='Y',
+    #                 text='Y',
+    #                 data='action=buy&itemid=1'
+
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='N',
+    #                 text='N'
+    #             )
+    #         ]
+    #     )
+    # )
 
     #兩個按鈕模板，多增加一個模板APP CRACHED
     # Carousel_Template = TemplateSendMessage(
@@ -209,31 +301,31 @@ def handle_message(event):
     # )
 
     #多張圖片
-    Image_Carousel = TemplateSendMessage(
-        alt_text='目錄 template',
-        template=ImageCarouselTemplate(
-            columns=[
-                ImageCarouselColumn(
-                    image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    action=PostbackTemplateAction(
-                        label='postback1',
-                        text='postback text1',
-                        data='action=buy&itemid=1'
-                    )
-                ),
-                ImageCarouselColumn(
-                    image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    action=PostbackTemplateAction(
-                        label='postback2',
-                        text='postback text2',
-                        data='action=buy&itemid=2'
-                    )
-                )
-            ]
-        )
-    )
+    # Image_Carousel = TemplateSendMessage(
+    #     alt_text='目錄 template',
+    #     template=ImageCarouselTemplate(
+    #         columns=[
+    #             ImageCarouselColumn(
+    #                 image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 action=PostbackTemplateAction(
+    #                     label='postback1',
+    #                     text='postback text1',
+    #                     data='action=buy&itemid=1'
+    #                 )
+    #             ),
+    #             ImageCarouselColumn(
+    #                 image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 action=PostbackTemplateAction(
+    #                     label='postback2',
+    #                     text='postback text2',
+    #                     data='action=buy&itemid=2'
+    #                 )
+    #             )
+    #         ]
+    #     )
+    # )
 
-    replay_message(event,Image_Carousel)
+    replay_message(event,Buttons_Template)
 
  
 def replay_message(event,text):
