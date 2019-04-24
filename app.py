@@ -92,49 +92,49 @@ def handle_message(event):
     # Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
 
     #傳送圖片
-    # Imagemap_Message = ImagemapSendMessage(
-    #     base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-    #     alt_text='this is an imagemap',
-    #     base_size=BaseSize(height=520, width=520),
-    #     actions=[
-    #         URIImagemapAction(
-    #             link_uri='https://www.youtube.com/',
-    #             area=ImagemapArea(
-    #                 x=174, y=65, width=707, height=416
-    #             )
-    #         ),
-    #         MessageImagemapAction(
-    #             text='hello',
-    #             area=ImagemapArea(
-    #                 x=520, y=0, width=520, height=520
-    #             )
-    #         )
-    #     ]
-    # )
+    Imagemap_Message = ImagemapSendMessage(
+        base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+        alt_text='this is an imagemap',
+        base_size=BaseSize(height=520, width=520),
+        actions=[
+            URIImagemapAction(
+                link_uri='https://www.youtube.com/',
+                area=ImagemapArea(
+                    x=174, y=65, width=707, height=416
+                )
+            ),
+            MessageImagemapAction(
+                text='hello',
+                area=ImagemapArea(
+                    x=520, y=0, width=520, height=520
+                )
+            )
+        ]
+    )
 
     #單一按鈕模板
-    Buttons_Template = TemplateSendMessage(
-        alt_text='Buttons Template',
-        template=ButtonsTemplate(
-            title='這是ButtonsTemplate',
-            text='ButtonsTemplate可以傳送text,uri',
-            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-            actions=[
-                MessageTemplateAction(
-                    label='專題海報',
-                    text='專題海報'
-                ),
-                MessageTemplateAction(
-                    label='微積分習題',
-                    text='微積分習題'
-                ),
-                MessageTemplateAction(
-                    label='講義',
-                    text='講義'
-                )
-            ]
-        )
-    )
+    # Buttons_Template = TemplateSendMessage(
+    #     alt_text='Buttons Template',
+    #     template=ButtonsTemplate(
+    #         title='這是ButtonsTemplate',
+    #         text='ButtonsTemplate可以傳送text,uri',
+    #         thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #         actions=[
+    #             MessageTemplateAction(
+    #                 label='專題海報',
+    #                 text='專題海報'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='微積分習題',
+    #                 text='微積分習題'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='講義',
+    #                 text='講義'
+    #             )
+    #         ]
+    #     )
+    # )
 
     # if event.message.text == "專題海報":
     #     Imagemap_Message = ImagemapSendMessage(
@@ -325,7 +325,7 @@ def handle_message(event):
     #     )
     # )
 
-    replay_message(event,Buttons_Template)
+    replay_message(event,Imagemap_Message)
 
  
 def replay_message(event,text):
