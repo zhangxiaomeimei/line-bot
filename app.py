@@ -136,96 +136,96 @@ def handle_message(event):
         )
     )
 
-    if event.message.text == "專題海報":
-        Imagemap_Message = ImagemapSendMessage(
-            base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(height=520, width=520),
-            actions=[
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/',
-                    area=ImagemapArea(
-                        x=174, y=65, width=707, height=416
-                    )
-                ),
-                MessageImagemapAction(
-                    text='hello',
-                    area=ImagemapArea(
-                        x=520, y=0, width=520, height=520
-                    )
-                )
-            ]
-        )
-        replay_message(event,Imagemap_Message)
-        return 0
+    # if event.message.text == "專題海報":
+    #     Imagemap_Message = ImagemapSendMessage(
+    #         base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+    #         alt_text='this is an imagemap',
+    #         base_size=BaseSize(height=520, width=520),
+    #         actions=[
+    #             URIImagemapAction(
+    #                 link_uri='https://www.youtube.com/',
+    #                 area=ImagemapArea(
+    #                     x=174, y=65, width=707, height=416
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='hello',
+    #                 area=ImagemapArea(
+    #                     x=520, y=0, width=520, height=520
+    #                 )
+    #             )
+    #         ]
+    #     )
+    #     replay_message(event,Imagemap_Message)
+    #     return 0
 
-    if event.message.text == "微積分習題":
-     	Imagemap_Message = ImagemapSendMessage(
-            base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(height=520, width=520),
-            actions=[
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/',
-                    area=ImagemapArea(
-                        x=174, y=65, width=707, height=416
-                    )
-                ),
-                MessageImagemapAction(
-                    text='hello',
-                    area=ImagemapArea(
-                        x=520, y=0, width=520, height=520
-                    )
-                )
-            ]
-        )
-        replay_message(event,Imagemap_Message)
-        return 0
+    # if event.message.text == "微積分習題":
+    #  	Imagemap_Message = ImagemapSendMessage(
+    #         base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+    #         alt_text='this is an imagemap',
+    #         base_size=BaseSize(height=520, width=520),
+    #         actions=[
+    #             URIImagemapAction(
+    #                 link_uri='https://www.youtube.com/',
+    #                 area=ImagemapArea(
+    #                     x=174, y=65, width=707, height=416
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='hello',
+    #                 area=ImagemapArea(
+    #                     x=520, y=0, width=520, height=520
+    #                 )
+    #             )
+    #         ]
+    #     )
+    #     replay_message(event,Imagemap_Message)
+    #     return 0
 
-    if event.message.text == "講義":
-     	Imagemap_Message = ImagemapSendMessage(
-            base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(height=520, width=520),
-            actions=[
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/',
-                    area=ImagemapArea(
-                        x=174, y=65, width=707, height=416
-                    )
-                ),
-                MessageImagemapAction(
-                    text='嗨老師',
-                    area=ImagemapArea(
-                        x=520, y=0, width=520, height=520
-                    )
-                )
-            ]
-        )
-        replay_message(event,Imagemap_Message)
-        return 0
+    # if event.message.text == "講義":
+    #  	Imagemap_Message = ImagemapSendMessage(
+    #         base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
+    #         alt_text='this is an imagemap',
+    #         base_size=BaseSize(height=520, width=520),
+    #         actions=[
+    #             URIImagemapAction(
+    #                 link_uri='https://www.youtube.com/',
+    #                 area=ImagemapArea(
+    #                     x=174, y=65, width=707, height=416
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='嗨老師',
+    #                 area=ImagemapArea(
+    #                     x=520, y=0, width=520, height=520
+    #                 )
+    #             )
+    #         ]
+    #     )
+    #     replay_message(event,Imagemap_Message)
+    #     return 0
 
-    if event.message.text == "嗨老師":
-    	Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text='這就是ConfirmTemplate,用於兩種按鈕選擇',
-                actions=[                              
-                    PostbackTemplateAction(
-                       label='Y',
-                       text='Y',
-                       data='action=buy&itemid=1'
-                    ),
-                    MessageTemplateAction(
-                        label='N',
-                        text='N'
-                    )
-                ]
-            )  
-        )
-        replay_message(event,Confirm_Template)
-        return 0
+    # if event.message.text == "嗨老師":
+    # 	Confirm_Template = TemplateSendMessage(
+    #         alt_text='目錄 template',
+    #         template=ConfirmTemplate(
+    #             title='這是ConfirmTemplate',
+    #             text='這就是ConfirmTemplate,用於兩種按鈕選擇',
+    #             actions=[                              
+    #                 PostbackTemplateAction(
+    #                    label='Y',
+    #                    text='Y',
+    #                    data='action=buy&itemid=1'
+    #                 ),
+    #                 MessageTemplateAction(
+    #                     label='N',
+    #                     text='N'
+    #                 )
+    #             ]
+    #         )  
+    #     )
+    #     replay_message(event,Confirm_Template)
+    #     return 0
 
 
 
