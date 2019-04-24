@@ -72,24 +72,24 @@ def handle_message(event):
         text2 = "彭振昌老師的專長為動態系統，辦公室在理工大樓八樓A16-822，辦公室電話05-271-7878。"
 
     
-    #傳送文字
-    message = TextSendMessage(text=text2) 
+    # #傳送文字
+    # message = TextSendMessage(text=text2) 
     
     
-    #傳送貼圖
-    Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
+    # #傳送貼圖
+    # Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
     
-    #傳送圖片
-    Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
+    # #傳送圖片
+    # Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
 
-    # 傳送影片
-    Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4', preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
+    # # 傳送影片
+    # Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4', preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
 
-    #傳送音訊
-    Audio_Message = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a', duration=100000)
+    # #傳送音訊
+    # Audio_Message = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a', duration=100000)
 
-    #傳送位址
-    Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
+    # #傳送位址
+    # Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
 
     #傳送圖片
     # Imagemap_Message = ImagemapSendMessage(
@@ -205,6 +205,7 @@ def handle_message(event):
         )
         replay_message(event,Imagemap_Message)
         return 0
+        
     if event.message.text == "嗨老師":
     	Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
