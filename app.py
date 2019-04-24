@@ -8,9 +8,9 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-# from linebot.models import (
-#    MessageEvent,TextMessage,TextSendMessage,StickerSendMessage,ImageSendMessage,TemplateSendMessage,ButtonsTemplate,Imagemap_Message,PostbackTemplateAction
-# )
+#from linebot.models import (
+#    MessageEvent,TextMessage,TextSendMessage,StickerSendMessage,ImageSendMessage,TemplateSendMessage,ButtonsTemplate,PostbackTemplateAction
+#)
 
 from linebot.models import *
 
@@ -72,47 +72,43 @@ def handle_message(event):
         text2 = "彭振昌老師的專長為動態系統，辦公室在理工大樓八樓A16-822，辦公室電話05-271-7878。"
 
     
-    # #傳送文字
-    # message = TextSendMessage(text=text2) 
+
+    message = TextSendMessage(text=text2) 
     
     
-    # #傳送貼圖
+    #傳送貼圖
     Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
     
-    # #傳送圖片
-    # Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
-
-    # # 傳送影片
-    # Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4', preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
-
-    # #傳送音訊
-    # Audio_Message = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a', duration=100000)
-
-    # #傳送位址
-    # Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
-
     #傳送圖片
-    # Imagemap_Message = ImagemapSendMessage(
-    #     base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-    #     alt_text='this is an imagemap',
-    #     base_size=BaseSize(height=520, width=520),
-    #     actions=[
-    #         URIImagemapAction(
-    #             link_uri='https://www.youtube.com/',
-    #             area=ImagemapArea(
-    #                 x=174, y=65, width=707, height=416
-    #             )
-    #         ),
-    #         MessageImagemapAction(
-    #             text='hello',
-    #             area=ImagemapArea(
-    #                 x=520, y=0, width=520, height=520
-    #             )
-    #         )
-    #     ]
-    # )
+    Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
 
-    #單一按鈕模板
+    Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4', preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
+
+    Audio_Message = AudioSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.m4a', duration=100000)
+
+    #Location_Message = LocationSendMessage(title='my location', address='Tainan', latitude=22.994821, longitude=120.196452)
+
+    Imagemap_Message = ImagemapSendMessage(
+        base_url='https://www.kamigo.tw/assets/kamigo-c3b10dff4cdb60fa447496b22edad6c32fffde96de20262efba690892e4461e8.png#',
+        alt_text='this is an imagemap',
+        base_size=BaseSize(height=1040, width=1040),
+        actions=[
+            URIImagemapAction(
+                link_uri='https://ithelp.ithome.com.tw/m/articles/10198142',
+                area=ImagemapArea(
+                    x=0, y=0, width=520, height=1040
+                )
+            ),
+            MessageImagemapAction(
+                text='hello',
+                area=ImagemapArea(
+                    x=520, y=0, width=520, height=1040
+                )
+            )
+        ]
+    )
+
+
     # Buttons_Template = TemplateSendMessage(
     #     alt_text='Buttons Template',
     #     template=ButtonsTemplate(
@@ -121,116 +117,23 @@ def handle_message(event):
     #         thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
     #         actions=[
     #             MessageTemplateAction(
-    #                 label='專題海報',
-    #                 text='專題海報'
+    #                 label='ButtonsTemplate',
+    #                 text='ButtonsTemplate'
     #             ),
-    #             MessageTemplateAction(
-    #                 label='微積分習題',
-    #                 text='微積分習題'
+    #             URITemplateAction(
+    #                 label='VIDEO1',
+    #                 uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
     #             ),
-    #             MessageTemplateAction(
-    #                 label='講義',
-    #                 text='講義'
+    #             PostbackTemplateAction(
+    #                 label='postback',
+    #                 text='postback text',
+    #                 data='postback1'
     #             )
     #         ]
     #     )
     # )
 
-    # if event.message.text == "專題海報":
-    #     Imagemap_Message = ImagemapSendMessage(
-    #         base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-    #         alt_text='this is an imagemap',
-    #         base_size=BaseSize(height=520, width=520),
-    #         actions=[
-    #             URIImagemapAction(
-    #                 link_uri='https://www.youtube.com/',
-    #                 area=ImagemapArea(
-    #                     x=174, y=65, width=707, height=416
-    #                 )
-    #             ),
-    #             MessageImagemapAction(
-    #                 text='hello',
-    #                 area=ImagemapArea(
-    #                     x=520, y=0, width=520, height=520
-    #                 )
-    #             )
-    #         ]
-    #     )
-    #     replay_message(event,Imagemap_Message)
-    #     return 0
-
-    # if event.message.text == "微積分習題":
-    #  	Imagemap_Message = ImagemapSendMessage(
-    #         base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-    #         alt_text='this is an imagemap',
-    #         base_size=BaseSize(height=520, width=520),
-    #         actions=[
-    #             URIImagemapAction(
-    #                 link_uri='https://www.youtube.com/',
-    #                 area=ImagemapArea(
-    #                     x=174, y=65, width=707, height=416
-    #                 )
-    #             ),
-    #             MessageImagemapAction(
-    #                 text='hello',
-    #                 area=ImagemapArea(
-    #                     x=520, y=0, width=520, height=520
-    #                 )
-    #             )
-    #         ]
-    #     )
-    #     replay_message(event,Imagemap_Message)
-    #     return 0
-
-    # if event.message.text == "講義":
-    #  	Imagemap_Message = ImagemapSendMessage(
-    #         base_url='https://ithelp.ithome.com.tw/upload/imagess/20180103/20107144nFRc5tsPkp.png#',
-    #         alt_text='this is an imagemap',
-    #         base_size=BaseSize(height=520, width=520),
-    #         actions=[
-    #             URIImagemapAction(
-    #                 link_uri='https://www.youtube.com/',
-    #                 area=ImagemapArea(
-    #                     x=174, y=65, width=707, height=416
-    #                 )
-    #             ),
-    #             MessageImagemapAction(
-    #                 text='嗨老師',
-    #                 area=ImagemapArea(
-    #                     x=520, y=0, width=520, height=520
-    #                 )
-    #             )
-    #         ]
-    #     )
-    #     replay_message(event,Imagemap_Message)
-    #     return 0
-
-    # if event.message.text == "嗨老師":
-    # 	Confirm_Template = TemplateSendMessage(
-    #         alt_text='目錄 template',
-    #         template=ConfirmTemplate(
-    #             title='這是ConfirmTemplate',
-    #             text='這就是ConfirmTemplate,用於兩種按鈕選擇',
-    #             actions=[                              
-    #                 PostbackTemplateAction(
-    #                    label='Y',
-    #                    text='Y',
-    #                    data='action=buy&itemid=1'
-    #                 ),
-    #                 MessageTemplateAction(
-    #                     label='N',
-    #                     text='N'
-    #                 )
-    #             ]
-    #         )  
-    #     )
-    #     replay_message(event,Confirm_Template)
-    #     return 0
-
-
-
-
-    #兩種按鈕選擇Y OR N
+      
     # Confirm_Template = TemplateSendMessage(
     #     alt_text='目錄 template',
     #     template=ConfirmTemplate(
@@ -251,7 +154,6 @@ def handle_message(event):
     #     )
     # )
 
-    #兩個按鈕模板，多增加一個模板APP CRACHED
     # Carousel_Template = TemplateSendMessage(
     #     alt_text='Carousel template',
     #     template=CarouselTemplate(
@@ -300,7 +202,6 @@ def handle_message(event):
     #     )
     # )
 
-    #多張圖片
     # Image_Carousel = TemplateSendMessage(
     #     alt_text='目錄 template',
     #     template=ImageCarouselTemplate(
@@ -325,7 +226,7 @@ def handle_message(event):
     #     )
     # )
 
-    replay_message(event,Sticker_Message)
+    replay_message(event,Imagemap_Message)
 
  
 def replay_message(event,text):
