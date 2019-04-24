@@ -121,7 +121,6 @@ def handle_message(event):
             thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
             actions=[
                 MessageTemplateAction(
-
                     label='專題海報',
                     text='專題海報'
                 ),
@@ -205,7 +204,7 @@ def handle_message(event):
         )
         replay_message(event,Imagemap_Message)
         return 0
-        
+
     if event.message.text == "嗨老師":
     	Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
