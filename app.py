@@ -73,14 +73,14 @@ def handle_message(event):
 
     
 
-    message = TextSendMessage(text=text2) 
+    # message = TextSendMessage(text=text2) 
     
     
-    #傳送貼圖
-    #Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
+    # #傳送貼圖
+    # Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
     
     # #傳送圖片
-    Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
+    # Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
 
     # Video_Message = VideoSendMessage(original_content_url='https://jylin.myqnapcloud.com/test.mp4', preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
 
@@ -197,6 +197,26 @@ def handle_message(event):
     #                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
     #                     )
     #                 ]
+    #             ),
+    #             CarouselColumn(
+    #                 thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+    #                 title='this is menu3',
+    #                 text='description2',
+    #                 actions=[
+    #                     PostbackTemplateAction(
+    #                         label='postback3',
+    #                         text='postback text2',
+    #                         data='action=buy&itemid=2'
+    #                     ),
+    #                     MessageTemplateAction(
+    #                         label='message3',
+    #                         text='message text2'
+    #                     ),
+    #                     URITemplateAction(
+    #                         label='連結3',
+    #                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
+    #                     )
+    #                 ]
     #             )
     #         ]
     #     )
@@ -226,9 +246,232 @@ def handle_message(event):
     #     )
     # )
 
-    replay_message(event,Image_Message)
+    # replay_message(event,Image_Carousel)
 
- 
+
+
+
+    Buttons_Template = TemplateSendMessage(
+        alt_text='Buttons Template',
+        template=ButtonsTemplate(
+            title='這是ButtonsTemplate',
+            text='ButtonsTemplate可以傳送text,uri',
+            thumbnail_image_url='https://math-2019.000webhostapp.com/logo.jpg',
+            actions=[
+                MessageTemplateAction(
+                    label='海報(<-解答點我)',
+                    text='海報(<-解答點我)'
+                ),
+                MessageTemplateAction(
+                    label='微積分習題',
+                    text='微積分習題'
+                ),
+                MessageTemplateAction(
+                    label='講義',
+                    text='講義'
+                )
+            ]
+        )
+    )
+
+
+    if event.message.text == "海報(<-解答點我)":
+        Imagemap_Message = ImagemapSendMessage(
+            base_url='https://math-2019.000webhostapp.com/Poster.png?',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(width=1080, height=500),
+            actions=[
+                MessageImagemapAction(
+                    text='第一題',
+                    area=ImagemapArea(
+                        x=25, y=25, width=265, height=90
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第二題',
+                    area=ImagemapArea(
+                        x=345, y=25, width=265, height=90
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第三題',
+                    area=ImagemapArea(
+                        x=665, y=25, width=265, height=90
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第四題',
+                    area=ImagemapArea(
+                        x=25, y=145, width=265, height=90
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第五題',
+                    area=ImagemapArea(
+                        x=345, y=145, width=265, height=90
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第六題',
+                    area=ImagemapArea(
+                        x=665, y=145, width=265, height=90
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第七題',
+                    area=ImagemapArea(
+                        x=25, y=265, width=265, height=90
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第八題',
+                    area=ImagemapArea(
+                        x=345, y=265, width=265, height=90
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第九題',
+                    area=ImagemapArea(
+                        x=665, y=265, width=265, height=90
+                    )
+                )
+            ]
+        )
+        replay_message(event,Imagemap_Message)
+        return 0
+
+    if event.message.text == "講義":
+        Imagemap_Message = ImagemapSendMessage(
+            base_url='https://math-2019.000webhostapp.com/teacherlist.png?',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(width=1010, height=520),
+            actions=[
+                MessageImagemapAction(
+                    text='林仁彥老師',
+                    area=ImagemapArea(
+                        x=50, y=40, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='陳嘉文老師',
+                    area=ImagemapArea(
+                        x=380, y=40, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='陳琴韻老師',
+                    area=ImagemapArea(
+                        x=708, y=40, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='彭振昌老師',
+                    area=ImagemapArea(
+                        x=50, y=163, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='鄭富國老師',
+                    area=ImagemapArea(
+                        x=380, y=163, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='陳榮治老師',
+                    area=ImagemapArea(
+                        x=708, y=163, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='莊智升老師',
+                    area=ImagemapArea(
+                        x=50, y=286, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='吳忠武老師',
+                    area=ImagemapArea(
+                        x=380, y=286, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='陳昇國老師',
+                    area=ImagemapArea(
+                        x=708, y=286, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='顏志弘老師',
+                    area=ImagemapArea(
+                        x=50, y=410, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='胡承方老師',
+                    area=ImagemapArea(
+                        x=380, y=410, width=288, height=95
+                    )
+                ),
+                MessageImagemapAction(
+                    text='鄭博仁老師',
+                    area=ImagemapArea(
+                        x=708, y=410, width=288, height=95
+                    )
+                )
+            ]
+        )
+        replay_message(event,Imagemap_Message)
+        return 0
+
+    if event.message.text == "微積分習題":
+        Imagemap_Message = ImagemapSendMessage(
+            base_url='https://math-2019.000webhostapp.com/HandOut.png?',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(height=560, width=1040),
+            actions=[
+                URIImagemapAction(
+                    link_uri='https://ithelp.ithome.com.tw/m/articles/10198142',
+                    area=ImagemapArea(
+                        x=0, y=0, height=120,width=300
+                    )
+                ),
+                URIImagemapAction(
+                    link_uri='https://ithelp.ithome.com.tw/m/articles/10198142',
+                    area=ImagemapArea(
+                        x=600, y=360, height=120, width=300
+                    )
+                )
+            ]
+        )
+        replay_message(event,Imagemap_Message)
+        return 0
+
+
+    if event.message.text == "嗨老師":
+        Confirm_Template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ConfirmTemplate(
+                title='這是ConfirmTemplate',
+                text='嗨老師',
+                actions=[                              
+                    URITemplateAction(
+                        label='看教學影片',
+                        uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ'
+
+                    ),
+                    URITemplateAction(
+                        label='去雲端找講義',
+                        uri='https://www.youtube.com/watch?v=GuqY5OViunk'
+                    )
+                ]
+            )
+        )
+        replay_message(event,Confirm_Template)
+        return 0
+
+
+    replay_message(event,Buttons_Template)
+
 def replay_message(event,text):
     #text = 'According to your input, my answer is ' + text
     line_bot_api.reply_message(
