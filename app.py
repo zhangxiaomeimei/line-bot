@@ -519,7 +519,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label='雲端找講義',
                         uri='https://drive.google.com/drive/u/1/folders/1Qs_CzVp4xqymmYveDV9IqSwYApjgzjfb'
                     )
                 ]
@@ -541,7 +541,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -563,7 +563,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -585,7 +585,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -607,7 +607,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -629,7 +629,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -651,7 +651,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -673,7 +673,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -695,7 +695,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -717,7 +717,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -739,7 +739,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -761,7 +761,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端講義',
+                        label='雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
