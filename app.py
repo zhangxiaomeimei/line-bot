@@ -401,7 +401,7 @@ def handle_message(event):
                     )
                 ),
                 MessageImagemapAction(
-                    text='顏志弘老師',
+                    text='嚴志弘老師',
                     area=ImagemapArea(
                         x=50, y=410, width=288, height=95
                     )
