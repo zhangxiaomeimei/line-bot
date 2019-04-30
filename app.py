@@ -347,7 +347,7 @@ def handle_message(event):
             base_size=BaseSize(width=1061, height=540),
             actions=[
                 MessageImagemapAction(
-                    text='林仁彥老師',
+                    text='彭振昌老師',
                     area=ImagemapArea(
                         x=50, y=40, width=288, height=95
                     )
@@ -365,7 +365,7 @@ def handle_message(event):
                     )
                 ),
                 MessageImagemapAction(
-                    text='彭振昌老師',
+                    text='潘宏裕老師',
                     area=ImagemapArea(
                         x=50, y=163, width=288, height=95
                     )
@@ -506,7 +506,7 @@ def handle_message(event):
         replay_message(event,Imagemap_Message)
         return 0
 
-    if event.message.text == "林仁彥老師":
+    if event.message.text == "潘宏裕老師":
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
