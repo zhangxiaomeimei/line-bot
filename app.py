@@ -77,7 +77,7 @@ def handle_message(event):
     
     
     # #傳送貼圖
-     Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
+     #Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
     
     # #傳送圖片
     # Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
