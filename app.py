@@ -77,7 +77,7 @@ def handle_message(event):
     
     
     # #傳送貼圖
-    # Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
+     Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
     
     # #傳送圖片
     # Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
@@ -342,7 +342,7 @@ def handle_message(event):
 
     if event.message.text == "講義":
         Imagemap_Message = ImagemapSendMessage(
-            base_url='https://math-2019.000webhostapp.com/teacherlist.png?',
+            base_url='https://math-2019.000webhostapp.com/Teacherlist.png?',
             alt_text='this is an imagemap',
             base_size=BaseSize(width=1061, height=540),
             actions=[
