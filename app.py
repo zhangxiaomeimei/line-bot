@@ -739,7 +739,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label='雲端講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -761,7 +761,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label='雲端講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
