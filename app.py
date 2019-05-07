@@ -43,8 +43,8 @@ def callback():
 
 
 @handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    print(event)
+def handle_message(event,event):
+    print(event,event)
     
     text2 = "According to your input, my answer is " + event.message.text
     
@@ -343,6 +343,22 @@ def handle_message(event):
         replay_message(event,Imagemap_Message)
         return 0
 
+    if event.message.text == "第一題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+        
     if event.message.text == "第一題":
         sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
