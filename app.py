@@ -77,7 +77,7 @@ def handle_message(event):
     
     
     # #傳送貼圖
-     #Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
+    # Sticker_Message = StickerSendMessage(package_id=1,sticker_id=2) 
     
     # #傳送圖片
     # Image_Message = ImageSendMessage(original_content_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png',preview_image_url='https://ithelp.ithome.com.tw/upload/images/20180103/20107144nFRc5tsPkp.png')
@@ -254,7 +254,7 @@ def handle_message(event):
     Buttons_Template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='Hello我是微微\U0001f600~歡迎問微微各種關於微積分的問題喔\U0001F606~',
+            title='Hello\U0001f600~我是微微~歡迎問我各種關於微積分的問題喔~',
             text=' ',
             thumbnail_image_url='https://math-2019.000webhostapp.com/LOGO.jpg',
             actions=[
@@ -273,6 +273,9 @@ def handle_message(event):
             ]
         )
     )
+
+    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
+    cur = conn.cursor()
 
 
     if event.message.text == "海報(<-解答點我)":
@@ -338,6 +341,150 @@ def handle_message(event):
             ]
         )
         replay_message(event,Imagemap_Message)
+        return 0
+
+    if event.message.text == "第一題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "第二題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "第三題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "第四題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "第五題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "第六題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "第七題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "第八題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "第九題":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+        if text2 == "":
+            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
+        message = TextSendMessage(text=text2)
+        replay_message(event,message)
         return 0
 
     if event.message.text == "講義":
@@ -506,7 +653,20 @@ def handle_message(event):
         replay_message(event,Imagemap_Message)
         return 0
 
-    if event.message.text == "潘宏裕老師":
+    if event.message.text == "彭振昌老師":
+
+        
+        # sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        # cur.execute(sql)
+        # rows = cur.fetchall()
+        # #text2 = "According to your input, my answer is "
+        # text2=""
+
+        # for row in rows:
+        #     text2 = text2 + str(row[2]) 
+        # if text2 == "":
+        #     text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
@@ -515,11 +675,11 @@ def handle_message(event):
                 actions=[                              
                     URITemplateAction(
                         label='看教學影片',
-                        uri='https://www.youtube.com/?gl=TW&hl=zh-tw'
+                        uri='https://drive.google.com/drive/u/1/folders/1Qs_CzVp4xqymmYveDV9IqSwYApjgzjfb'
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://drive.google.com/drive/u/1/folders/1Qs_CzVp4xqymmYveDV9IqSwYApjgzjfb'
                     )
                 ]
@@ -541,7 +701,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -563,7 +723,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -572,7 +732,7 @@ def handle_message(event):
         replay_message(event,Confirm_Template)
         return 0
 
-    if event.message.text == "彭振昌老師":
+    if event.message.text == "潘宏裕老師":
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
@@ -585,7 +745,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -607,7 +767,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -629,7 +789,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -651,7 +811,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -673,7 +833,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -695,7 +855,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -717,7 +877,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -739,7 +899,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
@@ -761,7 +921,7 @@ def handle_message(event):
 
                     ),
                     URITemplateAction(
-                        label='雲端找講義',
+                        label='去雲端找講義',
                         uri='https://www.youtube.com/watch?v=GuqY5OViunk'
                     )
                 ]
