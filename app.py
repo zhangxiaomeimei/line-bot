@@ -662,8 +662,8 @@ def handle_message(event):
         text3=""
 
         for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
+            text3 = text3 + str(row[2]) 
+            text4 = text4 + str(row[3]) 
         if text2 == "":
             text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
 
@@ -676,12 +676,12 @@ def handle_message(event):
                 actions=[                              
                     URITemplateAction(
                         label='看教學影片',
-                        uri=text2
+                        uri=text3
 
                     ),
                     URITemplateAction(
                         label='去雲端找講義',
-                        uri=text3
+                        uri=text4
                     )
                 ]
             )
