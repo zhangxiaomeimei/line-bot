@@ -667,9 +667,6 @@ def handle_message(event):
         if text2 == "":
             text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
 
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
