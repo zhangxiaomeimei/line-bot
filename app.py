@@ -654,7 +654,7 @@ def handle_message(event):
         return 0
 
     if event.message.text == "彭振昌老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."TalkingList" WHERE "Teacherlist" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
@@ -662,11 +662,10 @@ def handle_message(event):
         text3=""
 
         for row in rows:
-            text3 = text3 + str(row[2]) 
-            text4 = text4 + str(row[3]) 
+            text2 = text2 + str(row[2]) 
+            text3 = text3 + str(row[3]) 
         if text2 == "":
             text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
@@ -676,12 +675,12 @@ def handle_message(event):
                 actions=[                              
                     URITemplateAction(
                         label='看教學影片',
-                        uri=text3
+                        uri=text2
 
                     ),
                     URITemplateAction(
                         label='去雲端找講義',
-                        uri=text4
+                        uri=text3
                     )
                 ]
             )
