@@ -651,6 +651,7 @@ def handle_message(event):
             ]
         )
         replay_message(event,Imagemap_Message)
+        push_message(event, TextSendMessage(text='請輸入題號'))
         return 0
 
     if event.message.text == "彭振昌老師":
@@ -692,7 +693,6 @@ def handle_message(event):
             )
         )
         replay_message(event,Confirm_Template)
-        push_message(event, TextSendMessage(text='請輸入題號'))
         return 0
 
     if event.message.text == "陳嘉文老師":
