@@ -654,32 +654,38 @@ def handle_message(event):
         return 0
 
     if event.message.text == "彭振昌老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -689,32 +695,38 @@ def handle_message(event):
         return 0
 
     if event.message.text == "陳嘉文老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -724,32 +736,38 @@ def handle_message(event):
         return 0
 
     if event.message.text == "陳琴韻老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -757,33 +775,40 @@ def handle_message(event):
         )
         replay_message(event,Confirm_Template)
         return 0
+
     if event.message.text == "潘宏裕老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -793,32 +818,38 @@ def handle_message(event):
         return 0
 
     if event.message.text == "鄭富國老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -828,32 +859,38 @@ def handle_message(event):
         return 0
 
     if event.message.text == "陳榮治老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -863,32 +900,38 @@ def handle_message(event):
         return 0
 
     if event.message.text == "莊智升老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -898,32 +941,38 @@ def handle_message(event):
         return 0
 
     if event.message.text == "吳忠武老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -933,32 +982,38 @@ def handle_message(event):
         return 0
 
     if event.message.text == "陳昇國老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -966,33 +1021,40 @@ def handle_message(event):
         )
         replay_message(event,Confirm_Template)
         return 0
+
     if event.message.text == "嚴志弘老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -1000,33 +1062,40 @@ def handle_message(event):
         )
         replay_message(event,Confirm_Template)
         return 0
+        
     if event.message.text == "胡承方老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
@@ -1036,40 +1105,45 @@ def handle_message(event):
         return 0
 
     if event.message.text == "鄭博仁老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
         text2=""
         text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text4 + str(row[5])
+            text6 = text4 + str(row[6])
+
+
 
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='您有什麼需求？',
+                text=text4,
                 actions=[                              
                     URITemplateAction(
-                        label='看教學影片',
+                        label=text5,
                         uri=text2
 
                     ),
                     URITemplateAction(
-                        label='去雲端找講義',
+                        label=text6,
                         uri=text3
                     )
                 ]
             )
         )
         replay_message(event,Confirm_Template)
-        return 0
-
+        return 0        
 
     replay_message(event,Buttons_Template)
 
