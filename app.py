@@ -1156,7 +1156,7 @@ def replay_message(event,text):
         
 def push_message(event,text):
     #text = 'According to your input, my answer is ' + text
-    line_bot_api.reply_message(
+    line_bot_api.push_message(
         event.source.user_id,
         text)        
     
