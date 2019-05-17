@@ -630,6 +630,22 @@ def handle_message(event):
         return 0
     
     if event.message.text == "取ln":
+        sql = """SELECT "ID", "messageList", "replyList", "ButtonText", "ButtonImage", "ButtonLabel-1", "ButtonLabel-2" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+        text3=""
+        text4=""
+        text5=""
+        text6=""
+
+        for row in rows:
+            text2 = text2 + str(row[2])
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text5 + str(row[5])
+            text6 = text6 + str(row[6])
         message = TextSendMessage(text='正確!!!')
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png')
         Confirm_Template = TemplateSendMessage(
@@ -639,12 +655,12 @@ def handle_message(event):
             text='分數型態',
             actions=[                              
                 URITemplateAction(
-                    label='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left.png',
+                    label=text5,
                     text='left',
 
                 ),
                 URITemplateAction(
-                    label='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right.png',
+                    label=text6,
                     text='right'
                 )
             ]
