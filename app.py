@@ -654,12 +654,12 @@ def handle_message(event):
             title='這是ConfirmTemplate',
             text='分數型態',
             actions=[                              
-                URITemplateAction(
+                MessageTemplateAction(
                     label=text5,
                     text='left',
 
                 ),
-                URITemplateAction(
+                MessageTemplateAction(
                     label=text6,
                     text='right'
                 )
