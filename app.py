@@ -639,12 +639,12 @@ def handle_message(event):
             text='分數型態',
             actions=[                              
                 URITemplateAction(
-                    uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left.png',
+                    label='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left.png',
                     text='left',
 
                 ),
                 URITemplateAction(
-                    uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right.png',
+                    label='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right.png',
                     text='right'
                 )
             ]
