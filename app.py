@@ -598,22 +598,70 @@ def handle_message(event):
         return 0
 
     
-    if event.message.text == "第二題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
+    if event.message.text == "第二題":       
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/題目.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/題目.png')
+        Confirm_Template = TemplateSendMessage(
+        alt_text='目錄 template',
+        template=ConfirmTemplate(
+            title='這是ConfirmTemplate',
+            text='第一步如何做?',
+            actions=[                              
+                MessageTemplateAction(
+                    label='取ln',
+                    text='取ln',
 
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
+                ),
+                MessageTemplateAction(
+                    label='x=0帶入',
+                    text='x=0帶入'
+                )
+            ]
+        )
+    )
+        replay_message(event,Image_Message)
+        push_message(event,Confirm_Template)
         return 0
 
+    if event.message.text == "x=0帶入":
+        message1 = TextSendMessage(text='錯誤!!!')
+        message2 = TextSendMessage(text='因為0的0次方是無意義!!!')
+        replay_message(event,message1)
+        push_message(event,message2)
+        return 0
+    
+    if event.message.text == "取ln":
+        message = TextSendMessage(text='正確!!!')
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png')
+        Confirm_Template = TemplateSendMessage(
+        alt_text='目錄 template',
+        template=ConfirmTemplate(
+            title='這是ConfirmTemplate',
+            text='分數型態',
+            actions=[                              
+                URITemplateAction(
+                    uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left.png',
+                    text='left',
+
+                ),
+                URITemplateAction(
+                    uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right.png',
+                    text='right'
+                )
+            ]
+        )
+    )
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        push_message(event,Confirm_Template)
+        return 0
+    if event.message.text == "left":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left-ans.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left-ans.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "right":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right-ans.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right-ans.png')
+        replay_message(event,Image_Message)
+        return 0
     if event.message.text == "第三題":
         sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
