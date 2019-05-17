@@ -599,7 +599,7 @@ def handle_message(event):
 
     
     if event.message.text == "第二題":       
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/題目.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/題目.png')
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/problem.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/problem.png')
         Confirm_Template = TemplateSendMessage(
         alt_text='目錄 template',
         template=ConfirmTemplate(
