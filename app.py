@@ -371,7 +371,7 @@ def handle_message(event):
             base_size=BaseSize(width=1040, height=170),
             actions=[
                 MessageImagemapAction(
-                    text='呼叫海報第一題解答',
+                    text='海報第一題解答',
                     area=ImagemapArea(
                         x=177, y=26, width=336, height=92
                     )
@@ -382,7 +382,7 @@ def handle_message(event):
         push_message(event, Imagemap_Message)
         return 0
 
-    if event.message.text == "呼叫海報第一題解答":
+    if event.message.text == "海報第一題解答":
         sql = """SELECT "ID", "messageList", "replyList", "ButtonText", "ButtonImage", "ButtonLabel-1", "ButtonLabel-2" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
