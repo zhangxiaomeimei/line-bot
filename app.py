@@ -924,7 +924,7 @@ def handle_message(event):
                         uri=text2
 
                     ),
-                    PostbackTemplateAction(label='ping', data='ping'),
+                    PostbackTemplateAction(label='ping', data='ping')
                 ]
             )
         )
