@@ -1395,12 +1395,13 @@ def push_message(event,text):
     line_bot_api.push_message(
         event.source.user_id,
         text)  
-    
+
 @handler.add(PostbackEvent)
 def handle_postback(event):
     if event.postback.data == 'ping':
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text='pong'))      
+        replay_message(event,TextSendMessage(text='pong'))
+        #line_bot_api.reply_message(
+            #event.reply_token, TextSendMessage(text='pong'))      
     
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
