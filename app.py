@@ -1428,8 +1428,7 @@ def handle_postback(event):
                         label=text5,
                         uri=text2
 
-                    ),
-                    PostbackTemplateAction(label='ping', data='ping')
+                    )
                 ]
             )
         )
