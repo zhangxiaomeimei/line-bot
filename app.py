@@ -1,7 +1,13 @@
+from __future__ import unicode_literals
+ 
+import errno
+import os
+import sys
+import tempfile
+from argparse import ArgumentParser
+ 
 from flask import Flask, request, abort
-
-import psycopg2
-
+ 
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -9,36 +15,51 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-   MessageEvent,TextMessage,TextSendMessage,StickerSendMessage,ImageSendMessage,TemplateSendMessage,ButtonsTemplate,PostbackTemplateAction
+    MessageEvent, TextMessage, TextSendMessage,
+    SourceUser, SourceGroup, SourceRoom,
+    TemplateSendMessage, ConfirmTemplate, MessageTemplateAction,
+    ButtonsTemplate, URITemplateAction, PostbackTemplateAction,
+    CarouselTemplate, CarouselColumn, PostbackEvent,
+    StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
+    ImageMessage, VideoMessage, AudioMessage,
+    UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent
 )
-
-from linebot.models import *
-
-import os
+ 
 app = Flask(__name__)
-
+ 
+# get channel_secret and channel_access_token from your environment variable
 # Channel Access Token
 line_bot_api = LineBotApi(os.environ['lineToken'])
 # Channel Secret
 handler = WebhookHandler(os.environ['lineSecret'])
 
-
-# 監聽所有來自 /callback 的 Post Request
+ 
+# function for create tmp dir for download content
+def make_static_tmp_dir():
+    try:
+        os.makedirs(static_tmp_path)
+    except OSError as exc:
+        if exc.errno == errno.EEXIST and os.path.isdir(static_tmp_path):
+            pass
+        else:
+            raise
+ 
+ 
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
-
+ 
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-
+ 
     # handle webhook body
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-
+ 
     return 'OK'
  
  
