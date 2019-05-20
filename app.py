@@ -1396,6 +1396,8 @@ def push_message(event,text):
         event.source.user_id,
         text)  
 
+conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
+    cur = conn.cursor()
 @handler.add(PostbackEvent)
 def handle_postback(event):
     if event.postback.data == 'ping':
