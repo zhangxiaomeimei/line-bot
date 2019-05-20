@@ -1396,10 +1396,11 @@ def push_message(event,text):
         event.source.user_id,
         text)  
 
-conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
-    cur = conn.cursor()
+
 @handler.add(PostbackEvent)
 def handle_postback(event):
+    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
+    cur = conn.cursor()
     if event.postback.data == 'ping':
         sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + "彭振昌老師" + "%'" 
         cur.execute(sql)
