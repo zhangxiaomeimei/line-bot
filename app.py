@@ -1399,7 +1399,7 @@ def push_message(event,text):
 @handler.add(PostbackEvent)
 def handle_postback(event):
     if event.postback.data == 'ping':
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + "彭振昌老師" + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         #text2 = "According to your input, my answer is "
