@@ -1431,6 +1431,11 @@ def handle_postback(event):
                         label=text5,
                         uri=text2
 
+                    ),
+                    URITemplateAction(
+                        label=text5,
+                        uri=text2
+
                     )
                 ]
             )
