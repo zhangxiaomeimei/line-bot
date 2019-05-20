@@ -1399,7 +1399,43 @@ def push_message(event,text):
 @handler.add(PostbackEvent)
 def handle_postback(event):
     if event.postback.data == 'ping':
-        replay_message(event,TextSendMessage(text='pong'))
+        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+        text3=""
+        text4=""
+        text5=""
+        text6=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text5 + str(row[5])
+            text6 = text6 + str(row[6])
+
+
+
+        Confirm_Template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ConfirmTemplate(
+                title='這是ConfirmTemplate',
+                text=text4,
+                actions=[                              
+                    URITemplateAction(
+                        label=text5,
+                        uri=text2
+
+                    ),
+                    PostbackTemplateAction(label='ping', data='ping')
+                ]
+            )
+        )
+        replay_message(event,Confirm_Template)
+        #replay_message(event,TextSendMessage(text='pong'))
+
         #line_bot_api.reply_message(
             #event.reply_token, TextSendMessage(text='pong'))      
     
