@@ -342,7 +342,9 @@ def handle_message(event):
                 )
             ]
         )
-    )    
+    )
+    replay_message(event,Carousel_Template)
+        return 0    
 
     if event.message.text == "講義":
         Imagemap_Message = ImagemapSendMessage(
