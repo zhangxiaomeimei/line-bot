@@ -279,452 +279,70 @@ def handle_message(event):
 
 
     if event.message.text == "海報(<-解答點我)":
-        Imagemap_Message = ImagemapSendMessage(
-            base_url='https://math-2019.000webhostapp.com/poster_.png?',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(width=1090, height=420),
-            actions=[
-                MessageImagemapAction(
-                    text='第一題',
-                    area=ImagemapArea(
-                        x=13, y=15, width=312, height=107
-                    )
+        Carousel_Template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                    thumbnail_image_url='https://math-2019.000webhostapp.com/LOGO.jpg',
+                    title='第一周習題',
+                    text=' ',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='題目',
+                            data='problem1'
+                        ),
+                        PostbackTemplateAction(
+                            label='答案',
+                            data='answer1'
+                        ),
+                        PostbackTemplateAction(
+                            label='返回',
+                            data='按鈕模板'
+                        )
+                    ]
                 ),
-                MessageImagemapAction(
-                    text='第二題',
-                    area=ImagemapArea(
-                        x=392, y=15, width=312, height=107
-                    )
+                CarouselColumn(
+                    thumbnail_image_url='https://math-2019.000webhostapp.com/LOGO.jpg',
+                    title='第二周習題',
+                    text=' ',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='題目',
+                            data='problem2'
+                        ),
+                        PostbackTemplateAction(
+                            label='答案',
+                            data='answer2'
+                        ),
+                        PostbackTemplateAction(
+                            label='返回',
+                            data='按鈕模板'
+                        )
+                    ]
                 ),
-                MessageImagemapAction(
-                    text='第三題',
-                    area=ImagemapArea(
-                        x=765, y=15, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第四題',
-                    area=ImagemapArea(
-                        x=13, y=157, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第五題',
-                    area=ImagemapArea(
-                        x=392, y=157, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第六題',
-                    area=ImagemapArea(
-                        x=765, y=157, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第七題',
-                    area=ImagemapArea(
-                        x=13, y=303, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第八題',
-                    area=ImagemapArea(
-                        x=392, y=303, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第九題',
-                    area=ImagemapArea(
-                        x=765, y=303, width=312, height=107
-                    )
+                CarouselColumn(
+                    thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                    title='第三周習題',
+                    text=' ',
+                    actions=[
+                        PostbackTemplateAction(
+                            label='題目',
+                            data='problem3'
+                        ),
+                        PostbackTemplateAction(
+                            label='答案',
+                            data='answer3'
+                        ),
+                        PostbackTemplateAction(
+                            label='返回',
+                            data='按鈕模板'
+                        )
+                    ]
                 )
             ]
         )
-        replay_message(event,Imagemap_Message)
-        return 0
-
-    if event.message.text == "第一題":
-        sql = """SELECT "ID", "messageList", "replyList", "ImagemapUrl", "basesizeWidth", "basesizeHeight" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        # text4=""
-
-        for row in rows:
-            text2 = text2 + str(row[2])
-            text3 = text3 + str(row[3])
-            # BSwidth = int(row[3])
-            # BSheight = int(row[4])
-            # text4 = text4 + str(rwo[6])
-            # x1 = int(row[7])
-            # y1 = int(row[8])
-            # w1 = int(row[9])
-            # h1 = int(row[10])
-
-        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/f0000-0.png')
-
-        Imagemap_Message = ImagemapSendMessage(
-            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png?',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(width=1040, height=170),
-            actions=[
-                MessageImagemapAction(
-                    text='呼叫海報第一題解答',
-                    area=ImagemapArea(
-                        x=177, y=26, width=336, height=92
-                    )
-                )
-            ]
-        )
-        replay_message(event,Image_Message)
-        push_message(event, Imagemap_Message)
-        return 0
-
-    if event.message.text == "呼叫海報第一題解答":
-        sql = """SELECT "ID", "messageList", "replyList", "ButtonText", "ButtonImage", "ButtonLabel-1", "ButtonLabel-2" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2])
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        Buttons_Template = TemplateSendMessage(
-            alt_text='Buttons Template',
-            template=ButtonsTemplate(
-                title=' ',
-                text=text3,
-                thumbnail_image_url=text4,
-                actions=[
-                    MessageTemplateAction(
-                        label=text5,
-                        text=text5
-                    ),
-                    MessageTemplateAction(
-                        label=text6,
-                        text=text6
-                    )
-                ]
-            )
-        )
-        replay_message(event,Image_Message)
-        push_message(event, Buttons_Template)
-        return 0
-
-    if event.message.text == "什麼是連續函數？":
-        sql = """SELECT "ID", "messageList", "replyList", "ButtonLabel-1", "ButtonLabel-2", "ButtonUrl-1", "ButtonText" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2])
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text6,
-                actions=[                              
-                    URITemplateAction(
-                        label=text3,
-                        uri=text5
-                    ),
-                    MessageTemplateAction(
-                        label=text4,
-                        text=text4
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "下一個問題":
-        sql = """SELECT "ID", "messageList", "replyList", "ButtonText", "ButtonImage", "ButtonLabel-1", "ButtonLabel-2" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2])
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-        Buttons_Template = TemplateSendMessage(
-            alt_text='Buttons Template',
-            template=ButtonsTemplate(
-                title=' ',
-                text=text3,
-                thumbnail_image_url=text4,
-                actions=[
-                    MessageTemplateAction(
-                        label=text5,
-                        text=text5
-                    ),
-                    MessageTemplateAction(
-                        label=text6,
-                        text=text6
-                    )
-                ]
-            )
-        )
-        replay_message(event,Buttons_Template)
-        return 0
-
-    if event.message.text == "什麼是Fubini定理？":
-        sql = """SELECT "ID", "messageList", "replyList", "ButtonText", "ButtonImage", "ButtonLabel-1", "ButtonLabel-2", "ButtonLabel-3", "ButtonText-1", "ButtonText-2", "ButtonText-3" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-        text7=""
-        text8=""
-        text9=""
-        text10=""
-
-        for row in rows:
-            text2 = text2 + str(row[2])
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-            text7 = text7 + str(row[7])
-            text8 = text8 + str(row[8])
-            text9 = text9 + str(row[9])
-            text10 = text10 + str(row[10])
-
-        Buttons_Template = TemplateSendMessage(
-            alt_text='Buttons Template',
-            template=ButtonsTemplate(
-                title='Fubini Theorem',
-                text=text3,
-                thumbnail_image_url=text4,
-                actions=[
-                    MessageTemplateAction(
-                        label=text5,
-                        text=text8
-                    ),
-                    MessageTemplateAction(
-                        label=text6,
-                        text=text9
-                    ),
-                    MessageTemplateAction(
-                        label=text7,
-                        text=text10
-                    )
-                ]
-            )
-        )
-        replay_message(event,Buttons_Template)
-        return 0
-
-    if event.message.text == "Fubini定理敘述":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2])
-
-        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        replay_message(event,Image_Message)
-        return 0
-
-    if event.message.text == "證明Fubini定理":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2])
-
-        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        replay_message(event,Image_Message)
-        return 0
-
-    if event.message.text == "Fubini的相關推論":
-        sql = """SELECT "ID", "messageList", "replyList", "replyList-2" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-
-        for row in rows:
-            text2 = text2 + str(row[2])
-            text3 = text3 + str(row[3])
-
-        Image_Message1 = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        Image_Message2 = ImageSendMessage(original_content_url=text3,preview_image_url=text3)
-        replay_message(event,Image_Message1)
-        push_message(event, Image_Message2)
-        return 0
-
-    
-    if event.message.text == "第二題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
-
-    if event.message.text == "第三題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
-
-    if event.message.text == "第四題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
-
-    if event.message.text == "第五題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
-
-    if event.message.text == "第六題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
-
-    if event.message.text == "第七題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
-
-    if event.message.text == "第八題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
-
-    if event.message.text == "第九題":
-        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-        if text2 == "":
-            text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-
-        message = TextSendMessage(text=text2)
-        replay_message(event,message)
-        return 0
+    )    
 
     if event.message.text == "講義":
         Imagemap_Message = ImagemapSendMessage(
