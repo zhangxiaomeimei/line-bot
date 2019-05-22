@@ -280,8 +280,8 @@ def handle_message(event):
 
     if event.message.text == "海報(<-解答點我)":
         Carousel_Template = TemplateSendMessage(
-        alt_text='Carousel template',
-        template=CarouselTemplate(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
             columns=[
                 CarouselColumn(
                     thumbnail_image_url='https://math-2019.000webhostapp.com/LOGO.jpg',
