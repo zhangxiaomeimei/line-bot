@@ -275,7 +275,6 @@ def handle_message(event):
     conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829") #user=os.environ['改']
     cur = conn.cursor()
 
-
     if event.message.text == "海報(<-解答點我)":
         Imagemap_Message = ImagemapSendMessage(
             base_url='https://math-2019.000webhostapp.com/poster_.png?',
@@ -1106,7 +1105,7 @@ def handle_postback(event):
         Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
         Image_Message = ImageSendMessage(original_content_url=https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png,preview_image_url=https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png)
         replay_message(event,Image_Message)
-        push(event, Image_Message)
+        #push(event, Image_Message)
 
     if  len(event.postback.data) == 6:
         sql = """SELECT "value", "name" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
