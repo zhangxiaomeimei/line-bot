@@ -1,6 +1,7 @@
 from flask import Flask, request, abort
 
 import psycopg2
+import requests
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -9,7 +10,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-   MessageEvent,TextMessage,TextSendMessage,StickerSendMessage, PostbackTemplateAction, PostbackEvent,ImageSendMessage,TemplateSendMessage,ButtonsTemplate,Carousel_Template,PostbackTemplateAction
+   MessageEvent,TextMessage,TextSendMessage,StickerSendMessage, PostbackTemplateAction, PostbackEvent,ImageSendMessage,TemplateSendMessage,ButtonsTemplate,PostbackTemplateAction
 )
 
 from linebot.models import *
@@ -248,9 +249,6 @@ def handle_message(event):
 
     # replay_message(event,Image_Carousel)
 
-
-
-
     Buttons_Template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
@@ -274,79 +272,229 @@ def handle_message(event):
         )
     )
 
-    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
+    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829") #user=os.environ['改']
     cur = conn.cursor()
 
 
     if event.message.text == "海報(<-解答點我)":
-        Carousel_Template = TemplateSendMessage(
-            alt_text='Carousel template',
-            template=CarouselTemplate(
-            columns=[
-                CarouselColumn(
-                    thumbnail_image_url='https://math-2019.000webhostapp.com/LOGO.jpg',
-                    title='第一周習題',
-                    text=' ',
-                    actions=[
-                        PostbackTemplateAction(
-                            label='題目',
-                            data='problem1'
-                        ),
-                        PostbackTemplateAction(
-                            label='答案',
-                            data='answer1'
-                        ),
-                        PostbackTemplateAction(
-                            label='返回',
-                            data='按鈕模板'
-                        )
-                    ]
+        Imagemap_Message = ImagemapSendMessage(
+            base_url='https://math-2019.000webhostapp.com/poster_.png?',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(width=1090, height=420),
+            actions=[
+                MessageImagemapAction(
+                    text='第一題',
+                    area=ImagemapArea(
+                        x=13, y=15, width=312, height=107
+                    )
                 ),
-                CarouselColumn(
-                    thumbnail_image_url='https://math-2019.000webhostapp.com/LOGO.jpg',
-                    title='第二周習題',
-                    text=' ',
-                    actions=[
-                        PostbackTemplateAction(
-                            label='題目',
-                            data='problem2'
-                        ),
-                        PostbackTemplateAction(
-                            label='答案',
-                            data='answer2'
-                        ),
-                        PostbackTemplateAction(
-                            label='返回',
-                            data='按鈕模板'
-                        )
-                    ]
+                MessageImagemapAction(
+                    text='第二題',
+                    area=ImagemapArea(
+                        x=392, y=15, width=312, height=107
+                    )
                 ),
-                CarouselColumn(
-                    thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    title='第三周習題',
-                    text=' ',
-                    actions=[
-                        PostbackTemplateAction(
-                            label='題目',
-                            data='problem3'
-                        ),
-                        PostbackTemplateAction(
-                            label='答案',
-                            data='answer3'
-                        ),
-                        PostbackTemplateAction(
-                            label='返回',
-                            data='按鈕模板'
-                        )
-                    ]
+                MessageImagemapAction(
+                    text='第三題',
+                    area=ImagemapArea(
+                        x=765, y=15, width=312, height=107
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第四題',
+                    area=ImagemapArea(
+                        x=13, y=157, width=312, height=107
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第五題',
+                    area=ImagemapArea(
+                        x=392, y=157, width=312, height=107
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第六題',
+                    area=ImagemapArea(
+                        x=765, y=157, width=312, height=107
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第七題',
+                    area=ImagemapArea(
+                        x=13, y=303, width=312, height=107
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第八題',
+                    area=ImagemapArea(
+                        x=392, y=303, width=312, height=107
+                    )
+                ),
+                MessageImagemapAction(
+                    text='第九題',
+                    area=ImagemapArea(
+                        x=765, y=303, width=312, height=107
+                    )
                 )
             ]
         )
-    )
-    replay_message(event,Carousel_Template)
-    return 0    
+        replay_message(event,Imagemap_Message)
+        return 0
 
-    if event.message.text == "講義":
+    if event.message.text == "微積分習題":
+        Carousel_Template1 = TemplateSendMessage(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='函數極限',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0001'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='連續',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0002'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='微分',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0003'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='微分應用',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0004'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='積分',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0005'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='積分應用',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0006'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='積分技巧',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0007'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='極座標',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0008'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='數列與級數',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0009'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='弧長 表面積',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0010'
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+
+        Carousel_Template2 = TemplateSendMessage(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='多變量微分與應用',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0011'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        title='重積分',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='ex0012'
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        
+        replay_message(event,Carousel_Template1)
+        push_message(event,Carousel_Template2)
+        return 0
+
+        if event.message.text == "講義":
         Imagemap_Message = ImagemapSendMessage(
             base_url='https://math-2019.000webhostapp.com/Teacherlist.png?',
             alt_text='this is an imagemap',
@@ -427,90 +575,6 @@ def handle_message(event):
             ]
         )
         replay_message(event,Imagemap_Message)
-        return 0
-
-    if event.message.text == "微積分習題":
-        Imagemap_Message = ImagemapSendMessage(
-            base_url='https://math-2019.000webhostapp.com/HandOut.png?',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(width=1044, height=570),
-            actions=[
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=_yqhI8HQlOE',
-                    area=ImagemapArea(
-                        x=15, y=27, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=OtEJ6LGCW-U',
-                    area=ImagemapArea(
-                        x=370, y=27, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=bu7nU9Mhpyo',
-                    area=ImagemapArea(
-                        x=720, y=27, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=BVK_Q6KZSUI',
-                    area=ImagemapArea(
-                        x=15, y=166, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=Dnj5Tcpev0Q&list=RDY2ge3KrdeWs&index=5',
-                    area=ImagemapArea(
-                        x=370, y=166, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=ma7r2HGqwXs',
-                    area=ImagemapArea(
-                        x=720, y=166, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=GuqY5OViunk&list=RDma7r2HGqwXs&index=13',
-                    area=ImagemapArea(
-                        x=15, y=307, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=5DKNU34L5DA&list=RDma7r2HGqwXs&index=32',
-                    area=ImagemapArea(
-                        x=370, y=307, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=lUCa4e5Mkrc',
-                    area=ImagemapArea(
-                        x=720, y=307, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=YKiMrg6rgYQ',
-                    area=ImagemapArea(
-                        x=15, y=444, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=GCgvpwLNvtY&list=RDma7r2HGqwXs&index=23',
-                    area=ImagemapArea(
-                        x=370, y=444, width=307, height=102
-                    )
-                ),
-                URIImagemapAction(
-                    link_uri='https://www.youtube.com/watch?v=T4SimnaiktU&list=RDma7r2HGqwXs&index=18',
-                    area=ImagemapArea(
-                        x=720, y=444, width=307, height=102
-                    )
-                )
-            ]
-        )
-        replay_message(event,Imagemap_Message)
-        push_message(event, TextSendMessage(text='請輸入題號'))
         return 0
 
     if event.message.text == "彭振昌老師":
@@ -1021,46 +1085,402 @@ def push_message(event,text):
 def handle_postback(event):
     conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
     cur = conn.cursor()
-    if event.postback.data == 'ping':
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + "彭振昌老師" + "%'" 
+    if  len(event.postback.data) == 10:
+        sql = """SELECT "value" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
+        # #text2 = "According to your input, my answer is "
         text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
+        # text3=""
+        # text4=""
+        # text5=""
+        # text6=""
 
         for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
+            text2 = text2 + str(row[0]) 
+        #     text3 = text3 + str(row[3])
+        #     text4 = text4 + str(row[4])
+        #     text5 = text5 + str(row[5])
+        #     text6 = text6 + str(row[6])
+
+        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        replay_message(event,Image_Message)
+        push(enent,Image_Message = ImageSendMessage(original_content_url=https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png,preview_image_url=https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png))
+
+    if  len(event.postback.data) == 6:
+        sql = """SELECT "value", "name" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        # #text2 = "According to your input, my answer is "
+        text2=""
+        text3=""
+        # text4=""
+        # text5=""
+        # text6=""
+
+        for row in rows:
+            text2 = text2 + str(row[0]) 
+            text3 = text3 + str(row[1])
+        #     text4 = text4 + str(row[4])
+        #     text5 = text5 + str(row[5])
+        #     text6 = text6 + str(row[6])
 
 
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    )
-                ]
+        if text2 == '1' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第一題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0001"
+                                )
+                            ]
+                        )
+                    ]
+                )
             )
-        )
-        replay_message(event,Confirm_Template)
+        elif text2 == '2' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第一題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0001"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第二題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0002"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '3' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第一題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0001"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第二題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0002"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第三題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0003"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '4' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第一題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0001"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第二題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0002"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第三題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0003"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第四題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0004"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '5' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第一題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0001"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第二題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0002"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第三題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0003"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第四題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0004"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第五題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0005"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '6' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第一題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0001"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第二題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0002"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第三題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0003"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第四題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0004"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第五題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0005"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第六題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0006"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        else:
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第一題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0001"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第二題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0002"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第三題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0003"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第四題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0004"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第五題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0005"
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            title=text3,
+                            text='第六題',
+                            actions=[
+                                PostbackTemplateAction(
+                                    label='題目',
+                                    data=str(event.postback.data) + "0006"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+
+        replay_message(event,Carousel_Template)
         #replay_message(event,TextSendMessage(text='pong'))
 
         #line_bot_api.reply_message(
