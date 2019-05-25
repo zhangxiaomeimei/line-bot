@@ -494,7 +494,7 @@ def handle_message(event):
         push_message(event,Carousel_Template2)
         return 0
 
-        if event.message.text == "講義":
+    if event.message.text == "講義":
         Imagemap_Message = ImagemapSendMessage(
             base_url='https://math-2019.000webhostapp.com/Teacherlist.png?',
             alt_text='this is an imagemap',
