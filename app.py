@@ -341,7 +341,7 @@ def handle_message(event):
         return 0
 
     if event.message.text == "微積分習題":
-        sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         # #text2 = "According to your input, my answer is "
