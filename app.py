@@ -1102,10 +1102,10 @@ def handle_postback(event):
         #     text5 = text5 + str(row[5])
         #     text6 = text6 + str(row[6])
 
-        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png')
-        replay_message(event,Image_Message)
-        push_message(event, Image_Message)
+        Image_Message1 = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png')
+        replay_message(event,Image_Message1)
+        push_message(event, Image_Message2)
 
     if  len(event.postback.data) == 6:
         sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
