@@ -1102,26 +1102,26 @@ def handle_postback(event):
         #     text5 = text5 + str(row[5])
         #     text6 = text6 + str(row[6])
 
-        Image_Message1 = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png')
-        replay_message(event,Image_Message1)
-        push_message(event, Image_Message2)
+        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png')
+        replay_message(event,Image_Message)
+        push_message(event, Image_Message)
 
     if  len(event.postback.data) == 6:
-        sql = """SELECT "value", "name" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         # #text2 = "According to your input, my answer is "
         text2=""
         text3=""
-        # text4=""
+        text4=""
         # text5=""
         # text6=""
 
         for row in rows:
             text2 = text2 + str(row[0]) 
             text3 = text3 + str(row[1])
-        #     text4 = text4 + str(row[4])
+            text4 = text4 + str(row[2])
         #     text5 = text5 + str(row[5])
         #     text6 = text6 + str(row[6])
 
@@ -1132,7 +1132,7 @@ def handle_postback(event):
                 template=CarouselTemplate(
                     columns=[
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第一題',
                             actions=[
@@ -1151,7 +1151,7 @@ def handle_postback(event):
                 template=CarouselTemplate(
                     columns=[
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第一題',
                             actions=[
@@ -1162,7 +1162,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第二題',
                             actions=[
@@ -1181,7 +1181,7 @@ def handle_postback(event):
                 template=CarouselTemplate(
                     columns=[
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第一題',
                             actions=[
@@ -1192,7 +1192,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第二題',
                             actions=[
@@ -1203,7 +1203,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第三題',
                             actions=[
@@ -1222,7 +1222,7 @@ def handle_postback(event):
                 template=CarouselTemplate(
                     columns=[
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第一題',
                             actions=[
@@ -1233,7 +1233,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第二題',
                             actions=[
@@ -1244,7 +1244,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第三題',
                             actions=[
@@ -1255,7 +1255,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第四題',
                             actions=[
@@ -1274,7 +1274,7 @@ def handle_postback(event):
                 template=CarouselTemplate(
                     columns=[
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第一題',
                             actions=[
@@ -1285,7 +1285,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第二題',
                             actions=[
@@ -1296,7 +1296,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第三題',
                             actions=[
@@ -1307,7 +1307,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第四題',
                             actions=[
@@ -1318,7 +1318,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第五題',
                             actions=[
@@ -1337,7 +1337,7 @@ def handle_postback(event):
                 template=CarouselTemplate(
                     columns=[
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第一題',
                             actions=[
@@ -1348,7 +1348,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第二題',
                             actions=[
@@ -1359,7 +1359,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第三題',
                             actions=[
@@ -1370,7 +1370,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第四題',
                             actions=[
@@ -1381,7 +1381,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第五題',
                             actions=[
@@ -1392,7 +1392,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第六題',
                             actions=[
@@ -1411,7 +1411,7 @@ def handle_postback(event):
                 template=CarouselTemplate(
                     columns=[
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第一題',
                             actions=[
@@ -1422,7 +1422,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第二題',
                             actions=[
@@ -1433,7 +1433,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第三題',
                             actions=[
@@ -1444,7 +1444,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第四題',
                             actions=[
@@ -1455,7 +1455,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第五題',
                             actions=[
@@ -1466,7 +1466,7 @@ def handle_postback(event):
                             ]
                         ),
                         CarouselColumn(
-                            thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                            thumbnail_image_url=text4,
                             title=text3,
                             text='第六題',
                             actions=[
