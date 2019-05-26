@@ -341,12 +341,23 @@ def handle_message(event):
         return 0
 
     if event.message.text == "微積分習題":
+        sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        # #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+
+
+
         Carousel_Template1 = TemplateSendMessage(
             alt_text='Carousel template',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='函數極限',
                         text=' ',
                         actions=[
@@ -357,7 +368,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='連續',
                         text=' ',
                         actions=[
@@ -368,7 +379,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='微分',
                         text=' ',
                         actions=[
@@ -379,7 +390,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='微分應用',
                         text=' ',
                         actions=[
@@ -390,7 +401,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='積分',
                         text=' ',
                         actions=[
@@ -401,7 +412,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='積分應用',
                         text=' ',
                         actions=[
@@ -412,7 +423,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='積分技巧',
                         text=' ',
                         actions=[
@@ -423,7 +434,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='極座標',
                         text=' ',
                         actions=[
@@ -434,7 +445,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='數列與級數',
                         text=' ',
                         actions=[
@@ -445,7 +456,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='弧長 表面積',
                         text=' ',
                         actions=[
@@ -464,7 +475,7 @@ def handle_message(event):
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='多變量微分與應用',
                         text=' ',
                         actions=[
@@ -475,7 +486,7 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                        thumbnail_image_url=text2,
                         title='重積分',
                         text=' ',
                         actions=[
