@@ -341,13 +341,24 @@ def handle_message(event):
         return 0
 
     if event.message.text == "微積分習題":
+        sql = """SELECT "number" , "value" , "name", "picture" FROM public."chapter" WHERE "name" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        # #text2 = "According to your input, my answer is "
+        text2=""
+        text3=""
+
+        for row in rows:
+            text2 = text2 + str(row[2]) 
+            text3 = text3 + str(row[3])
+
         Carousel_Template1 = TemplateSendMessage(
             alt_text='Carousel template',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0011.jpg',
-                        title='函數極限',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -358,7 +369,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0008.jpg',
-                        title='連續',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -369,7 +380,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0007.jpg',
-                        title='微分',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -380,7 +391,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0006.jpg',
-                        title='微分應用',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -391,7 +402,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0003.jpg',
-                        title='積分',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -402,7 +413,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0001.jpg',
-                        title='積分應用',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -413,7 +424,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0002.jpg',
-                        title='積分技巧',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -424,7 +435,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0005.jpg',
-                        title='極座標',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -435,7 +446,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0004.jpg',
-                        title='數列與級數',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -446,7 +457,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0010.jpg',
-                        title='弧長 表面積',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -465,7 +476,7 @@ def handle_message(event):
                 columns=[
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0012.jpg',
-                        title='多變量微分與應用',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -476,7 +487,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0009.jpg',
-                        title='重積分',
+                        title=text2,
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
