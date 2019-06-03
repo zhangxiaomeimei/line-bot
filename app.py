@@ -985,7 +985,7 @@ def push_message(event,text):
 def handle_postback(event):
     conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
     cur = conn.cursor()
-    #微積分習題
+
     if  len(event.postback.data) == 6:
         sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
@@ -1003,7 +1003,7 @@ def handle_postback(event):
             text4 = text4 + str(row[2])
         #     text5 = text5 + str(row[5])
         #     text6 = text6 + str(row[6])
-
+    #微積分習題
     if  len(event.postback.data) == 10:
         sql = """SELECT "value" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
@@ -1015,26 +1015,25 @@ def handle_postback(event):
             text2 = text2 + str(row[0])
 
         Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        # Confirm_Template = TemplateSendMessage(
-        #     alt_text='目錄 template',
-        #     template=ConfirmTemplate(
-        #         title='這是ConfirmTemplate',
-        #         text='第一步如何做?',
-        #         actions=[                              
-        #             MessageTemplateAction(
-        #                 label='取ln',
-        #                 text='取ln正確!!!'
-        #             ),
-        #             MessageTemplateAction(
-        #                 label='x=0帶入',
-        #                 text='x=0帶入錯誤!!!'
-        #             )
-        #         ]
-        #     )
-        # )
+        Confirm_Template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ConfirmTemplate(
+                title='這是ConfirmTemplate',
+                text='第一步如何做?',
+                actions=[                              
+                    MessageTemplateAction(
+                        label='取ln',
+                        text='取ln正確!!!'
+                    ),
+                    MessageTemplateAction(
+                        label='x=0帶入',
+                        text='x=0帶入錯誤!!!'
+                    )
+                ]
+            )
+        )
         replay_message(event,Image_Message)
-        #push_message(event,Confirm_Template)
-        return 0
+        push_message(event, Confirm_Template)
 
         if text2 == '1' :
             Carousel_Template = TemplateSendMessage(
