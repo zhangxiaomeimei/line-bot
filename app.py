@@ -46,34 +46,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print(event)
-    
-    text2 = "According to your input, my answer is " + event.message.text
-    
-    if event.message.text.find("bye")>=0 or event.message.text.find("Bye")>=0 or event.message.text.find("拜拜")>=0:
-        text2 = "謝謝您的詢問，希望有機會能再為您服務。"
-    if event.message.text.find("你好")>=0 or event.message.text.find("您好")>=0 or event.message.text.find("妳好")>=0:
-        text2 = "您好!!很高興跟您傳訊息!"
-    if event.message.text.find("會考")>=0:
-        text2 = "請找陳昇國!"
-    if event.message.text.find("喝酒")>=0:
-        text2 = "請找彭振昌，他會灌到你，讓你不要不要的!"
-    if event.message.text.find("ChiChi")>=0:
-        text2 = "Please find ID:cliff135。"
-    if event.message.text.find("助教")>=0:
-        text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
-    if event.message.text.find("線性代數")>=0:
-        text2 = "目前教授線性代數的老師有陳嘉文、彭振昌、陳昇國、林仁彥，但是大多數老師都可以、也有可能會教授此門課。"
-    if event.message.text.find("微積分")>=0:
-        text2 = "目前全體老師均有教授微積分的經驗。"
-    if event.message.text.find("高等微積分")>=0:
-        text2 = "今年教授高等微積分的老師為陳嘉文教授。"
-    if event.message.text.find("林仁彥")>=0:
-        text2 = "林仁彥老師的專長為最佳化，辦公室在理工大樓八樓A16-815，辦公室電話05-271-7880。"
-    if event.message.text.find("彭振昌")>=0:
-        text2 = "彭振昌老師的專長為動態系統，辦公室在理工大樓八樓A16-822，辦公室電話05-271-7878。"
-
-    
-
     # message = TextSendMessage(text=text2) 
     
     
@@ -249,6 +221,9 @@ def handle_message(event):
 
     # replay_message(event,Image_Carousel)
 
+
+
+
     Buttons_Template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
@@ -275,90 +250,339 @@ def handle_message(event):
     conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829") #user=os.environ['改']
     cur = conn.cursor()
 
+
     if event.message.text == "海報(<-解答點我)":
-        Imagemap_Message = ImagemapSendMessage(
-            base_url='https://math-2019.000webhostapp.com/poster_.png?',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(width=1090, height=420),
-            actions=[
-                MessageImagemapAction(
-                    text='第一題',
-                    area=ImagemapArea(
-                        x=13, y=15, width=312, height=107
+        Carousel_Template1 = TemplateSendMessage(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第一題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster01'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA01'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第二題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster02'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA02'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第三題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster03'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA03'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第四題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster04'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA04'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第五題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster05'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA05'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第六題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster06'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA06'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第七題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster07'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA07'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第八題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster08'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA08'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.how-to-study.com/images/study-skills-assessments.jpg',
+                        title='第九題',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='題目',
+                                data='poster09'
+                            ),
+                            PostbackTemplateAction(
+                                label='解答',
+                                data='posterA09'
+                            )
+                        ]
                     )
-                ),
-                MessageImagemapAction(
-                    text='第二題',
-                    area=ImagemapArea(
-                        x=392, y=15, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第三題',
-                    area=ImagemapArea(
-                        x=765, y=15, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第四題',
-                    area=ImagemapArea(
-                        x=13, y=157, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第五題',
-                    area=ImagemapArea(
-                        x=392, y=157, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第六題',
-                    area=ImagemapArea(
-                        x=765, y=157, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第七題',
-                    area=ImagemapArea(
-                        x=13, y=303, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第八題',
-                    area=ImagemapArea(
-                        x=392, y=303, width=312, height=107
-                    )
-                ),
-                MessageImagemapAction(
-                    text='第九題',
-                    area=ImagemapArea(
-                        x=765, y=303, width=312, height=107
-                    )
-                )
-            ]
+                ]
+            )
         )
-        replay_message(event,Imagemap_Message)
+        replay_message(event,Carousel_Template1)
         return 0
 
-    if event.message.text == "微積分習題":
-        sql = """SELECT "number" , "value" , "name", "picture" FROM public."chapter" WHERE "name" LIKE '%""" + event.message.text + "%'" 
+    if event.message.text == "什麼是連續函數？":
+        sql = """SELECT "ID", "messageList", "replyList", "ButtonLabel-1", "ButtonLabel-2", "ButtonUrl-1", "ButtonText" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
-        # #text2 = "According to your input, my answer is "
+        #text2 = "According to your input, my answer is "
+        text2=""
+        text3=""
+        text4=""
+        text5=""
+        text6=""
+
+        for row in rows:
+            text2 = text2 + str(row[2])
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text5 + str(row[5])
+            text6 = text6 + str(row[6])
+
+        Confirm_Template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ConfirmTemplate(
+                title='這是ConfirmTemplate',
+                text=text6,
+                actions=[                              
+                    URITemplateAction(
+                        label=text3,
+                        uri=text5
+                    ),
+                    MessageTemplateAction(
+                        label=text4,
+                        text=text4
+                    )
+                ]
+            )
+        )
+        replay_message(event,Confirm_Template)
+        return 0
+
+    if event.message.text == "下一個問題":
+        sql = """SELECT "ID", "messageList", "replyList", "ButtonText", "ButtonImage", "ButtonLabel-1", "ButtonLabel-2" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+        text3=""
+        text4=""
+        text5=""
+        text6=""
+
+        for row in rows:
+            text2 = text2 + str(row[2])
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text5 + str(row[5])
+            text6 = text6 + str(row[6])
+
+        Buttons_Template = TemplateSendMessage(
+            alt_text='Buttons Template',
+            template=ButtonsTemplate(
+                title=' ',
+                text=text3,
+                thumbnail_image_url=text4,
+                actions=[
+                    MessageTemplateAction(
+                        label=text5,
+                        text=text5
+                    ),
+                    MessageTemplateAction(
+                        label=text6,
+                        text=text6
+                    )
+                ]
+            )
+        )
+        replay_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "什麼是Fubini定理？":
+        sql = """SELECT "ID", "messageList", "replyList", "ButtonText", "ButtonImage", "ButtonLabel-1", "ButtonLabel-2", "ButtonLabel-3", "ButtonText-1", "ButtonText-2", "ButtonText-3" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+        text3=""
+        text4=""
+        text5=""
+        text6=""
+        text7=""
+        text8=""
+        text9=""
+        text10=""
+
+        for row in rows:
+            text2 = text2 + str(row[2])
+            text3 = text3 + str(row[3])
+            text4 = text4 + str(row[4])
+            text5 = text5 + str(row[5])
+            text6 = text6 + str(row[6])
+            text7 = text7 + str(row[7])
+            text8 = text8 + str(row[8])
+            text9 = text9 + str(row[9])
+            text10 = text10 + str(row[10])
+
+        Buttons_Template = TemplateSendMessage(
+            alt_text='Buttons Template',
+            template=ButtonsTemplate(
+                title='Fubini Theorem',
+                text=text3,
+                thumbnail_image_url=text4,
+                actions=[
+                    MessageTemplateAction(
+                        label=text5,
+                        text=text8
+                    ),
+                    MessageTemplateAction(
+                        label=text6,
+                        text=text9
+                    ),
+                    MessageTemplateAction(
+                        label=text7,
+                        text=text10
+                    )
+                ]
+            )
+        )
+        replay_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "Fubini定理敘述":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2])
+
+        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "證明Fubini定理":
+        sql = """SELECT "ID", "messageList", "replyList" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
+        text2=""
+
+        for row in rows:
+            text2 = text2 + str(row[2])
+
+        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "Fubini的相關推論":
+        sql = """SELECT "ID", "messageList", "replyList", "replyList-2" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        #text2 = "According to your input, my answer is "
         text2=""
         text3=""
 
         for row in rows:
-            text2 = text2 + str(row[2]) 
+            text2 = text2 + str(row[2])
             text3 = text3 + str(row[3])
 
+        Image_Message1 = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        Image_Message2 = ImageSendMessage(original_content_url=text3,preview_image_url=text3)
+        replay_message(event,Image_Message1)
+        push_message(event, Image_Message2)
+        return 0
+
+    
+    
+
+
+    if event.message.text == "微積分習題":
         Carousel_Template1 = TemplateSendMessage(
             alt_text='Carousel template',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0011.jpg',
-                        title=text2,
+                        title='函數極限',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -369,7 +593,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0008.jpg',
-                        title=text2,
+                        title='連續',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -380,7 +604,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0007.jpg',
-                        title=text2,
+                        title='微分',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -391,7 +615,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0006.jpg',
-                        title=text2,
+                        title='微分應用',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -402,7 +626,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0003.jpg',
-                        title=text2,
+                        title='積分',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -413,7 +637,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0001.jpg',
-                        title=text2,
+                        title='積分應用',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -424,7 +648,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0002.jpg',
-                        title=text2,
+                        title='積分技巧',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -435,7 +659,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0005.jpg',
-                        title=text2,
+                        title='極座標',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -446,7 +670,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0004.jpg',
-                        title=text2,
+                        title='數列與級數',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -457,7 +681,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0010.jpg',
-                        title=text2,
+                        title='弧長 表面積',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -476,7 +700,7 @@ def handle_message(event):
                 columns=[
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0012.jpg',
-                        title=text2,
+                        title='多變量微分與應用',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -487,7 +711,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/微積分習題_190526_0009.jpg',
-                        title=text2,
+                        title='重積分',
                         text=' ',
                         actions=[
                             PostbackTemplateAction(
@@ -504,577 +728,243 @@ def handle_message(event):
         push_message(event,Carousel_Template2)
         return 0
 
-    if event.message.text == "講義":
-        Imagemap_Message = ImagemapSendMessage(
-            base_url='https://math-2019.000webhostapp.com/Teacherlist.png?',
+    if event.message.text == "取ln正確!!!":
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png')
+        Imagemap_Message2 = ImagemapSendMessage(
+            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/chose.png#',
             alt_text='this is an imagemap',
-            base_size=BaseSize(width=1061, height=540),
+            base_size=BaseSize(width=1040,height=424),
             actions=[
                 MessageImagemapAction(
-                    text='彭振昌老師',
+                    text='左邊分數型態',
                     area=ImagemapArea(
-                        x=50, y=40, width=288, height=95
+                        x=0, y=172, width=530, height=252
                     )
-                ),
+                ) 
                 MessageImagemapAction(
-                    text='陳嘉文老師',
+                    text='右邊分數型態',
                     area=ImagemapArea(
-                        x=380, y=40, width=288, height=95
+                        x=530, y=172, width=510, height=252
                     )
-                ),
-                MessageImagemapAction(
-                    text='陳琴韻老師',
-                    area=ImagemapArea(
-                        x=708, y=40, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='潘宏裕老師',
-                    area=ImagemapArea(
-                        x=50, y=163, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='鄭富國老師',
-                    area=ImagemapArea(
-                        x=380, y=163, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='陳榮治老師',
-                    area=ImagemapArea(
-                        x=708, y=163, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='莊智升老師',
-                    area=ImagemapArea(
-                        x=50, y=286, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='吳忠武老師',
-                    area=ImagemapArea(
-                        x=380, y=286, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='陳昇國老師',
-                    area=ImagemapArea(
-                        x=708, y=286, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='嚴志弘老師',
-                    area=ImagemapArea(
-                        x=50, y=410, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='胡承方老師',
-                    area=ImagemapArea(
-                        x=380, y=410, width=288, height=95
-                    )
-                ),
-                MessageImagemapAction(
-                    text='鄭博仁老師',
-                    area=ImagemapArea(
-                        x=708, y=410, width=288, height=95
-                    )
-                )
+                ) 
             ]
         )
-        replay_message(event,Imagemap_Message)
+        replay_message(event,Image_Message1)
+        push_message(event,Image_Message2)
+        return 0
+    
+    if event.message.text == "左邊分數型態":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left-ans.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left-ans.png')
+        replay_message(event,Image_Message)
         return 0
 
-    if event.message.text == "彭振昌老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
+    if event.message.text == "右邊分數型態":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right-ans.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right-ans.png')
+        replay_message(event,Image_Message)
+        return 0   
 
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    PostbackTemplateAction(label='ping', data='ping')
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
+    if event.message.text == "x=0帶入錯誤!!!":
+        message = TextSendMessage(text="因為0的0次方是無意義!!!")
+        replay_message(event,message)
         return 0
 
-    if event.message.text == "陳嘉文老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
+    if event.message.text == "講義":
+        Carousel_Template1 = TemplateSendMessage(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://applealmond.com/wp-content/uploads/2018/11/1541078537-090bd6987af814bfa1d1a0bfd919f47d.png',
+                        title='Preparation for Calculus',
+                        text=' ',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch00'
+                            )
+                        ]
                     ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
+                    CarouselColumn(
+                        thumbnail_image_url='https://www.itaste168.com/Uploads/Document/33/636667442060636366.jpg',
+                        title='Chapter1',
+                        text='Limits and Their Properties',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch01'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pooh-800x800-4-1547120194.jpg?crop=1.00xw:0.746xh;0,0&resize=480:*',
+                        title='Chapter2',
+                        text='Differentiation',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch02'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pooh-800x800-2-1547120140.jpg?crop=1.00xw:0.751xh;0,0&resize=480:*',
+                        title='Chapter3',
+                        text='Applications of Differentiation',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch03'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://icrvb3jy.xinmedia.com/solomo/article/160769/A630FC9A-B215-6038-DA34-52280F785AB1.jpeg',
+                        title='chapter4',
+                        text='Integration',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch04'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://pic.pimg.tw/yannshiuan/114111989450.bmp_n.jpg',
+                        title='chapter5',
+                        text='Logarithmic,Exponential,and Other Transcendental Functions',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch05'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://wallpaper.gamme.com.tw/wp/514/download/1024x768',
+                        title='chapter6',
+                        text='Differetial Equations',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch06'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://images.chinatimes.com/newsphoto/2017-01-26/900/20170126004408.jpg',
+                        title='chapter7',
+                        text='Applications of Integration',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch07'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt2Jmz1oUfg38IFd_ohJao4PZfQzrQs-pidgMLRzneQmXuzPH2',
+                        title='chapter8',
+                        text='Integration Techniques and Improper Integrals',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch08'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://stickershop.line-scdn.net/stickershop/v1/sticker/12458515/ANDROID/sticker.png',
+                        title='chapter9',
+                        text='Infinite Series',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch09'
+                            )
+                        ]
                     )
                 ]
             )
         )
-        replay_message(event,Confirm_Template)
-        return 0
 
-    if event.message.text == "陳琴韻老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
+        Carousel_Template2 = TemplateSendMessage(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYda8vHxZVOnqjMC9BWTjq0IhMctvHh5DhQBywzTFDvAcLTzQ6',
+                        title='chapter10',
+                        text='Conics,Parametric Equations,and Polar Coordinates',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch10'
+                            )
+                        ]
                     ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
+                    CarouselColumn(
+                        thumbnail_image_url='https://wallpapercave.com/wp/wp2491155.jpg',
+                        title='chapter11',
+                        text='Vectors and the Geometry of Space',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch11'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://ae01.alicdn.com/kf/HTB1Qj.JRFXXXXXwapXXq6xXFXXXb/7x5FT-Hijau-Rumput-Taman-Winnie-Tiger-Bunga-Sky-Photo-Studio-Backdrop-Latar-Belakang-Vinyl-220-Cm.jpg',
+                        title='chapter12',
+                        text='Vector-Valued Functions',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch12'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://stmed.net/sites/default/files/winnie-the-pooh-wallpapers-26330-478526.jpg',
+                        title='chapter13',
+                        text='Functions of Several Variables',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch13'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://cdn.newsapi.com.au/image/v1/e5a2fa8d705134aebee222ba8218cadb',
+                        title='chapter14',
+                        text='Multiple Integration',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch14'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://i0.wp.com/clipart-library.com/img1/417460.png?w=600',
+                        title='chapter15',
+                        text='Vector Analysis',
+                        actions=[
+                            PostbackTemplateAction(
+                                label='講義',
+                                data='ch15'
+                            )
+                        ]
                     )
                 ]
             )
         )
-        replay_message(event,Confirm_Template)
+
+        replay_message(event,Carousel_Template1)
+        push_message(event,Carousel_Template2)
         return 0
-
-    if event.message.text == "潘宏裕老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "鄭富國老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "陳榮治老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "莊智升老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "吳忠武老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "陳昇國老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "嚴志弘老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "胡承方老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0
-
-    if event.message.text == "鄭博仁老師":
-        sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[2]) 
-            text3 = text3 + str(row[3])
-            text4 = text4 + str(row[4])
-            text5 = text5 + str(row[5])
-            text6 = text6 + str(row[6])
-
-
-
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text=text4,
-                actions=[                              
-                    URITemplateAction(
-                        label=text5,
-                        uri=text2
-
-                    ),
-                    URITemplateAction(
-                        label=text6,
-                        uri=text3
-                    )
-                ]
-            )
-        )
-        replay_message(event,Confirm_Template)
-        return 0        
+      
 
     replay_message(event,Buttons_Template)
 
@@ -1095,29 +985,7 @@ def push_message(event,text):
 def handle_postback(event):
     conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
     cur = conn.cursor()
-    if  len(event.postback.data) == 10:
-        sql = """SELECT "value" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        # #text2 = "According to your input, my answer is "
-        text2=""
-        # text3=""
-        # text4=""
-        # text5=""
-        # text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[0]) 
-        #     text3 = text3 + str(row[3])
-        #     text4 = text4 + str(row[4])
-        #     text5 = text5 + str(row[5])
-        #     text6 = text6 + str(row[6])
-
-        Image_Message1 = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/Ex001.png')
-        replay_message(event,Image_Message1)
-        push_message(event, Image_Message2)
-
+    #微積分習題
     if  len(event.postback.data) == 6:
         sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
@@ -1136,6 +1004,36 @@ def handle_postback(event):
         #     text5 = text5 + str(row[5])
         #     text6 = text6 + str(row[6])
 
+    if  len(event.postback.data) == 10:
+        sql = """SELECT "value" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        text2=""
+
+
+        for row in rows:
+            text2 = text2 + str(row[0])
+
+        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        Confirm_Template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ConfirmTemplate(
+                title='這是ConfirmTemplate',
+                text='第一步如何做?',
+                actions=[                              
+                    MessageTemplateAction(
+                        label='取ln',
+                        text='取ln正確!!!'
+                    ),
+                    MessageTemplateAction(
+                        label='x=0帶入',
+                        text='x=0帶入錯誤!!!'
+                    )
+                ]
+            )
+        )
+        replay_message(event,Image_Message)
+        push(event,Confirm_Template)
 
         if text2 == '1' :
             Carousel_Template = TemplateSendMessage(
@@ -1492,6 +1390,803 @@ def handle_postback(event):
             )
 
         replay_message(event,Carousel_Template)
+
+    if  len(event.postback.data) == 8:
+        sql = """SELECT "value" FROM public."poster" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        # #text2 = "According to your input, my answer is "
+        text2=""
+        # text3=""
+        # text4=""
+        # text5=""
+        # text6=""
+
+        for row in rows:
+            text2 = text2 + str(row[0]) 
+        #     text3 = text3 + str(row[3])
+        #     text4 = text4 + str(row[4])
+        #     text5 = text5 + str(row[5])
+        #     text6 = text6 + str(row[6])
+
+        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        replay_message(event,Image_Message)  
+
+    if  len(event.postback.data) == 9:
+        sql = """SELECT "value" FROM public."posterAnswer" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        # #text2 = "According to your input, my answer is "
+        text2=""
+        # text3=""
+        # text4=""
+        # text5=""
+        # text6=""
+
+        for row in rows:
+            text2 = text2 + str(row[0]) 
+        #     text3 = text3 + str(row[3])
+        #     text4 = text4 + str(row[4])
+        #     text5 = text5 + str(row[5])
+        #     text6 = text6 + str(row[6])
+
+        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        
+        
+        Buttons_Template = TemplateSendMessage(
+            alt_text='Buttons Template',
+            template=ButtonsTemplate(
+                title=' ',
+                text='你可能會遇到的問題：',
+                thumbnail_image_url='https://media.istockphoto.com/vectors/collection-of-colurful-stickmen-with-question-mark-icon-vector-vector-id936398386',
+                actions=[
+                    MessageTemplateAction(
+                        label='什麼是連續函數？',
+                        text='什麼是連續函數？'
+                    ),
+                    MessageTemplateAction(
+                        label='什麼是Fubini定理？',
+                        text='什麼是Fubini定理？'
+                    )
+                ]
+            )
+        )
+
+        replay_message(event,Image_Message)
+        push_message(event, Buttons_Template)
+
+
+    if  len(event.postback.data) == 4:
+        sql = """SELECT "value", "name", "picture", "chapter", "part1", "part2", "part3", "part4", "part5", "part6", "part7", "part8", "part9", "part10" FROM public."handoutChapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        cur.execute(sql)
+        rows = cur.fetchall()
+        # #text2 = "According to your input, my answer is "
+        text2=""
+        text3=""
+        text4=""
+        text5=""
+        text6=""
+        text7=""
+        text8=""
+        text9=""
+        text10=""
+        text11=""
+        text12=""
+        text13=""
+        text14=""
+        text15=""
+
+        for row in rows:
+            text2 = text2 + str(row[0]) 
+            text3 = text3 + str(row[1])
+            text4 = text4 + str(row[2])
+            text5 = text5 + str(row[3])
+            text6 = text6 + str(row[4])
+            text7 = text7 + str(row[5])
+            text8 = text8 + str(row[6])
+            text9 = text9 + str(row[7])
+            text10 = text10 + str(row[8])
+            text11 = text11 + str(row[9])
+            text12 = text12 + str(row[10])
+            text13 = text13 + str(row[11])
+            text14 = text14 + str(row[12])
+            text15 = text15 + str(row[13])
+
+
+        if text2 == '1' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '2' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '3' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part3',
+                                    uri=text8
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '4' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part3',
+                                    uri=text8
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part4',
+                                    uri=text9
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '5' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part3',
+                                    uri=text8
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part4',
+                                    uri=text9
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part5',
+                                    uri=text10
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '6' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part3',
+                                    uri=text8
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part4',
+                                    uri=text9
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part5',
+                                    uri=text10
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part6',
+                                    uri=text11
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '7' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                       CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part3',
+                                    uri=text8
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part4',
+                                    uri=text9
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part5',
+                                    uri=text10
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part6',
+                                    uri=text11
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part7',
+                                    uri=text12
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '8' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part3',
+                                    uri=text8
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part4',
+                                    uri=text9
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part5',
+                                    uri=text10
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part6',
+                                    uri=text11
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part7',
+                                    uri=text12
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part8',
+                                    uri=text13
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '9' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part3',
+                                    uri=text8
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part4',
+                                    uri=text9
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part5',
+                                    uri=text10
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part6',
+                                    uri=text11
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part7',
+                                    uri=text12
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part8',
+                                    uri=text13
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part9',
+                                    uri=text14
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+        elif text2 == '10' :
+            Carousel_Template = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(
+                    columns=[
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part1',
+                                    uri=text6
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part2',
+                                    uri=text7
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part3',
+                                    uri=text8
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part4',
+                                    uri=text9
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part5',
+                                    uri=text10
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part6',
+                                    uri=text11
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part7',
+                                    uri=text12
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part8',
+                                    uri=text13
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part9',
+                                    uri=text14
+                                )
+                            ]
+                        ),
+                        CarouselColumn(
+                            thumbnail_image_url=text4,
+                            title=text5,
+                            text=text3,
+                            actions=[
+                                URITemplateAction(
+                                    label='part10',
+                                    uri=text15
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+
+        replay_message(event,Carousel_Template)
+
+
+
+
+
+
+
         #replay_message(event,TextSendMessage(text='pong'))
 
         #line_bot_api.reply_message(
