@@ -740,7 +740,7 @@ def handle_message(event):
                     area=ImagemapArea(
                         x=0, y=172, width=530, height=252
                     )
-                ) 
+                ), 
                 MessageImagemapAction(
                     text='右邊分數型態',
                     area=ImagemapArea(
