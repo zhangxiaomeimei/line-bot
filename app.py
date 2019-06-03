@@ -731,9 +731,9 @@ def handle_message(event):
     if event.message.text == "取ln正確!!!":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png')
         Imagemap_Message = ImagemapSendMessage(
-            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/chose.png?',
+            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/06/chose.png?',
             alt_text='this is an imagemap',
-            base_size=BaseSize(width=1040,height=1040),
+            base_size=BaseSize(width=1040,height=424),
             actions=[
                 MessageImagemapAction(
                     text='左邊分數型態',
