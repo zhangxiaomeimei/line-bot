@@ -728,45 +728,45 @@ def handle_message(event):
         push_message(event,Carousel_Template2)
         return 0
 
-    # if event.message.text == "取ln正確!!!":
-    #     Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png')
-    #     Imagemap_Message2 = ImagemapSendMessage(
-    #         base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/chose.png#',
-    #         alt_text='this is an imagemap',
-    #         base_size=BaseSize(width=1040,height=424),
-    #         actions=[
-    #             MessageImagemapAction(
-    #                 text='左邊分數型態',
-    #                 area=ImagemapArea(
-    #                     x=0, y=172, width=530, height=252
-    #                 )
-    #             ), 
-    #             MessageImagemapAction(
-    #                 text='右邊分數型態',
-    #                 area=ImagemapArea(
-    #                     x=530, y=172, width=510, height=252
-    #                 )
-    #             ) 
-    #         ]
-    #     )
-    #     replay_message(event,Image_Message1)
-    #     push_message(event,Image_Message2)
-    #     return 0
+    if event.message.text == "取ln正確!!!":
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png')
+        Imagemap_Message2 = ImagemapSendMessage(
+            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/chose.png#',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(width=1040,height=424),
+            actions=[
+                MessageImagemapAction(
+                    text='左邊分數型態',
+                    area=ImagemapArea(
+                        x=0, y=172, width=530, height=252
+                    )
+                ), 
+                MessageImagemapAction(
+                    text='右邊分數型態',
+                    area=ImagemapArea(
+                        x=530, y=172, width=510, height=252
+                    )
+                ) 
+            ]
+        )
+        replay_message(event,Image_Message1)
+        push_message(event,Image_Message2)
+        return 0
     
-    # if event.message.text == "左邊分數型態":
-    #     Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left-ans.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left-ans.png')
-    #     replay_message(event,Image_Message)
-    #     return 0
+    if event.message.text == "左邊分數型態":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left-ans.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/left-ans.png')
+        replay_message(event,Image_Message)
+        return 0
 
-    # if event.message.text == "右邊分數型態":
-    #     Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right-ans.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right-ans.png')
-    #     replay_message(event,Image_Message)
-    #     return 0   
+    if event.message.text == "右邊分數型態":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right-ans.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/right-ans.png')
+        replay_message(event,Image_Message)
+        return 0   
 
-    # if event.message.text == "x=0帶入錯誤!!!":
-    #     message = TextSendMessage(text="因為0的0次方是無意義!!!")
-    #     replay_message(event,message)
-    #     return 0
+    if event.message.text == "x=0帶入錯誤!!!":
+        message = TextSendMessage(text="因為0的0次方是無意義!!!")
+        replay_message(event,message)
+        return 0
 
     if event.message.text == "講義":
         Carousel_Template1 = TemplateSendMessage(
