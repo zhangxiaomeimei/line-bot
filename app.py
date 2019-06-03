@@ -733,7 +733,7 @@ def handle_message(event):
         Imagemap_Message = ImagemapSendMessage(
             base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/chose.png?',
             alt_text='this is an imagemap',
-            base_size=BaseSize(width=1040,height=424),
+            base_size=BaseSize(width=1040,height=1040),
             actions=[
                 MessageImagemapAction(
                     text='左邊分數型態',
