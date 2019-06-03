@@ -1006,9 +1006,26 @@ def handle_postback(event):
         #     text6 = text6 + str(row[6])
 
         Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
+        Confirm_Template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ConfirmTemplate(
+                title='這是ConfirmTemplate',
+                text='第一步如何做?',
+                actions=[                              
+                    MessageTemplateAction(
+                        label='取ln',
+                        text='取ln正確!!!'
+                    ),
+                    MessageTemplateAction(
+                        label='x=0帶入',
+                        text='x=0帶入錯誤!!!'
+                    )
+                ]
+            )
+        )
         replay_message(event,Image_Message)
-
-        #push()
+        push_message(event, Confirm_Template)
+        
 
     if  len(event.postback.data) == 6:
         sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
