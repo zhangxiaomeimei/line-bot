@@ -1015,25 +1015,25 @@ def handle_postback(event):
             text2 = text2 + str(row[0])
 
         Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text='第一步如何做?',
-                actions=[                              
-                    MessageTemplateAction(
-                        label='取ln',
-                        text='取ln正確!!!'
-                    ),
-                    MessageTemplateAction(
-                        label='x=0帶入',
-                        text='x=0帶入錯誤!!!'
-                    )
-                ]
-            )
-        )
+        # Confirm_Template = TemplateSendMessage(
+        #     alt_text='目錄 template',
+        #     template=ConfirmTemplate(
+        #         title='這是ConfirmTemplate',
+        #         text='第一步如何做?',
+        #         actions=[                              
+        #             MessageTemplateAction(
+        #                 label='取ln',
+        #                 text='取ln正確!!!'
+        #             ),
+        #             MessageTemplateAction(
+        #                 label='x=0帶入',
+        #                 text='x=0帶入錯誤!!!'
+        #             )
+        #         ]
+        #     )
+        # )
         replay_message(event,Image_Message)
-        push_message(event,Confirm_Template)
+        #push_message(event,Confirm_Template)
         return 0
 
         if text2 == '1' :
