@@ -750,7 +750,7 @@ def handle_message(event):
             ]
         )
         replay_message(event,Image_Message)
-        push_message(event,Image_Message)
+        push_message(event,Imagemap_Message)
         return 0
     
     if event.message.text == "左邊分數型態":
