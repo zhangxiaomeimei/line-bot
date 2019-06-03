@@ -1034,6 +1034,7 @@ def handle_postback(event):
         )
         replay_message(event,Image_Message)
         push_message(event,Confirm_Template)
+        return 0
 
         if text2 == '1' :
             Carousel_Template = TemplateSendMessage(
