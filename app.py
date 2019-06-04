@@ -980,7 +980,25 @@ def push_message(event,text):
         event.source.user_id,
         text)  
 
+def create_rich_menu(self, rich_menu, timeout=None):
+        """Call create rich menu API.
+        https://developers.line.me/en/docs/messaging-api/reference/#create-rich-menu
+        :param rich_menu: Inquired to create a rich menu object.
+        :type rich_menu: T <= :py:class:`linebot.models.rich_menu.RichMenu`
+        :param timeout: (optional) How long to wait for the server
+            to send data before giving up, as a float,
+            or a (connect timeout, read timeout) float tuple.
+            Default is self.http_client.timeout
+        :type timeout: float | tuple(float, float)
+        :rtype: str
+        :return: rich menu id
+        """
+        response = self._post(
+            '/v2/bot/richmenu', data=rich_menu.as_json_string(), timeout=timeout
+        )
 
+        return response.json.get('richMenuId')
+        
 @handler.add(PostbackEvent)
 def handle_postback(event):
     conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
