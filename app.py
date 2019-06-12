@@ -62,8 +62,8 @@ app = Flask(__name__)
 # Channel Access Token
 line_bot_api = LineBotApi(os.environ['lineToken'])
 
-with open("control.jpg", 'rb') as f:
-    line_bot_api.set_rich_menu_image("a1e3f215-360a-41fb-b56e-a1a7098a50d6", "image/jpeg", f)
+# with open("control.jpg", 'rb') as f:
+#     line_bot_api.set_rich_menu_image("a1e3f215-360a-41fb-b56e-a1a7098a50d6", "image/jpeg", f)
 # Channel Secret
 handler = WebhookHandler(os.environ['lineSecret'])
 
