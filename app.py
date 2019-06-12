@@ -4,45 +4,45 @@ import psycopg2
 import requests
 import json
 
-headers = {"Authorization":"Di+vp5N6et5xs0RfdcQzHuBeAyCLGH3hG5fvixX/eDd0GeylI2H7fs9xsiANFMfdO/32cFInKFjH/MuvsI/mgtwWtFByruuxfUTNAiF5U0SYvBa4dGpfNQgEf2GMQfUwPZdkEyCw0aJ+bt6Nk15NSgdB04t89/1O/w1cDnyilFU=","Content-Type":"application/json"}
+# headers = {"Authorization":"Di+vp5N6et5xs0RfdcQzHuBeAyCLGH3hG5fvixX/eDd0GeylI2H7fs9xsiANFMfdO/32cFInKFjH/MuvsI/mgtwWtFByruuxfUTNAiF5U0SYvBa4dGpfNQgEf2GMQfUwPZdkEyCw0aJ+bt6Nk15NSgdB04t89/1O/w1cDnyilFU=","Content-Type":"application/json"}
 
-body = {
-    "size": {"width": 2500, "height": 1686},
-    "selected": "true",
-    "name": "Controller",
-    "chatBarText": "Controller",
-    "areas":[
-        {
-          "bounds": {"x": 551, "y": 325, "width": 321, "height": 321},
-          "action": {"type": "message", "text": "up"}
-        },
-        {
-          "bounds": {"x": 876, "y": 651, "width": 321, "height": 321},
-          "action": {"type": "message", "text": "right"}
-        },
-        {
-          "bounds": {"x": 551, "y": 972, "width": 321, "height": 321},
-          "action": {"type": "message", "text": "down"}
-        },
-        {
-          "bounds": {"x": 225, "y": 651, "width": 321, "height": 321},
-          "action": {"type": "message", "text": "left"}
-        },
-        {
-          "bounds": {"x": 1433, "y": 657, "width": 367, "height": 367},
-          "action": {"type": "message", "text": "btn b"}
-        },
-        {
-          "bounds": {"x": 1907, "y": 657, "width": 367, "height": 367},
-          "action": {"type": "message", "text": "btn a"}
-        }
-    ]
-  }
+# body = {
+#     "size": {"width": 2500, "height": 1686},
+#     "selected": "true",
+#     "name": "Controller",
+#     "chatBarText": "Controller",
+#     "areas":[
+#         {
+#           "bounds": {"x": 551, "y": 325, "width": 321, "height": 321},
+#           "action": {"type": "message", "text": "up"}
+#         },
+#         {
+#           "bounds": {"x": 876, "y": 651, "width": 321, "height": 321},
+#           "action": {"type": "message", "text": "right"}
+#         },
+#         {
+#           "bounds": {"x": 551, "y": 972, "width": 321, "height": 321},
+#           "action": {"type": "message", "text": "down"}
+#         },
+#         {
+#           "bounds": {"x": 225, "y": 651, "width": 321, "height": 321},
+#           "action": {"type": "message", "text": "left"}
+#         },
+#         {
+#           "bounds": {"x": 1433, "y": 657, "width": 367, "height": 367},
+#           "action": {"type": "message", "text": "btn b"}
+#         },
+#         {
+#           "bounds": {"x": 1907, "y": 657, "width": 367, "height": 367},
+#           "action": {"type": "message", "text": "btn a"}
+#         }
+#     ]
+#   }
 
-req = requests.request('POST', 'https://api.line.me/v2/bot/richmenu/', 
-                       headers=headers,data=json.dumps(body).encode('utf-8'))
+# req = requests.request('POST', 'https://api.line.me/v2/bot/richmenu/', 
+#                        headers=headers,data=json.dumps(body).encode('utf-8'))
 
-print(req.text)
+# print(req.text)
 
 from linebot import (
     LineBotApi, WebhookHandler
