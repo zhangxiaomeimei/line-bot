@@ -2,47 +2,6 @@ from flask import Flask, request, abort
 
 import psycopg2
 import requests
-import json
-
-# headers = {"Authorization":"Di+vp5N6et5xs0RfdcQzHuBeAyCLGH3hG5fvixX/eDd0GeylI2H7fs9xsiANFMfdO/32cFInKFjH/MuvsI/mgtwWtFByruuxfUTNAiF5U0SYvBa4dGpfNQgEf2GMQfUwPZdkEyCw0aJ+bt6Nk15NSgdB04t89/1O/w1cDnyilFU=","Content-Type":"application/json"}
-
-# body = {
-#     "size": {"width": 2500, "height": 1686},
-#     "selected": "true",
-#     "name": "Controller",
-#     "chatBarText": "Controller",
-#     "areas":[
-#         {
-#           "bounds": {"x": 551, "y": 325, "width": 321, "height": 321},
-#           "action": {"type": "message", "text": "up"}
-#         },
-#         {
-#           "bounds": {"x": 876, "y": 651, "width": 321, "height": 321},
-#           "action": {"type": "message", "text": "right"}
-#         },
-#         {
-#           "bounds": {"x": 551, "y": 972, "width": 321, "height": 321},
-#           "action": {"type": "message", "text": "down"}
-#         },
-#         {
-#           "bounds": {"x": 225, "y": 651, "width": 321, "height": 321},
-#           "action": {"type": "message", "text": "left"}
-#         },
-#         {
-#           "bounds": {"x": 1433, "y": 657, "width": 367, "height": 367},
-#           "action": {"type": "message", "text": "btn b"}
-#         },
-#         {
-#           "bounds": {"x": 1907, "y": 657, "width": 367, "height": 367},
-#           "action": {"type": "message", "text": "btn a"}
-#         }
-#     ]
-#   }
-
-# req = requests.request('POST', 'https://api.line.me/v2/bot/richmenu/', 
-#                        headers=headers,data=json.dumps(body).encode('utf-8'))
-
-# print(req.text)
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -61,9 +20,6 @@ app = Flask(__name__)
 
 # Channel Access Token
 line_bot_api = LineBotApi(os.environ['lineToken'])
-
-# with open("control.jpg", 'rb') as f:
-#     line_bot_api.set_rich_menu_image("a1e3f215-360a-41fb-b56e-a1a7098a50d6", "image/jpeg", f)
 # Channel Secret
 handler = WebhookHandler(os.environ['lineSecret'])
 
@@ -90,6 +46,34 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print(event)
+    
+    text2 = "According to your input, my answer is " + event.message.text
+    
+    if event.message.text.find("bye")>=0 or event.message.text.find("Bye")>=0 or event.message.text.find("拜拜")>=0:
+        text2 = "謝謝您的詢問，希望有機會能再為您服務。"
+    if event.message.text.find("你好")>=0 or event.message.text.find("您好")>=0 or event.message.text.find("妳好")>=0:
+        text2 = "您好!!很高興跟您傳訊息!"
+    if event.message.text.find("會考")>=0:
+        text2 = "請找陳昇國!"
+    if event.message.text.find("喝酒")>=0:
+        text2 = "請找彭振昌，他會灌到你，讓你不要不要的!"
+    if event.message.text.find("ChiChi")>=0:
+        text2 = "Please find ID:cliff135。"
+    if event.message.text.find("助教")>=0:
+        text2 = "嘉義大學應用數學系有一個熱心的曾采雯助教，她的辦公室電話是05-2717861"
+    if event.message.text.find("線性代數")>=0:
+        text2 = "目前教授線性代數的老師有陳嘉文、彭振昌、陳昇國、林仁彥，但是大多數老師都可以、也有可能會教授此門課。"
+    if event.message.text.find("微積分")>=0:
+        text2 = "目前全體老師均有教授微積分的經驗。"
+    if event.message.text.find("高等微積分")>=0:
+        text2 = "今年教授高等微積分的老師為陳嘉文教授。"
+    if event.message.text.find("林仁彥")>=0:
+        text2 = "林仁彥老師的專長為最佳化，辦公室在理工大樓八樓A16-815，辦公室電話05-271-7880。"
+    if event.message.text.find("彭振昌")>=0:
+        text2 = "彭振昌老師的專長為動態系統，辦公室在理工大樓八樓A16-822，辦公室電話05-271-7878。"
+
+    
+
     # message = TextSendMessage(text=text2) 
     
     
@@ -812,6 +796,7 @@ def handle_message(event):
         replay_message(event,message)
         return 0
 
+
     if event.message.text == "講義":
         Carousel_Template1 = TemplateSendMessage(
             alt_text='Carousel template',
@@ -1008,1244 +993,270 @@ def handle_message(event):
         replay_message(event,Carousel_Template1)
         push_message(event,Carousel_Template2)
         return 0
-      
-
-    replay_message(event,Buttons_Template)
-
-def replay_message(event,text):
-    #text = 'According to your input, my answer is ' + text
-    line_bot_api.reply_message(
-        event.reply_token,
-         text)
-        
-def push_message(event,text):
-    #text = 'According to your input, my answer is ' + text
-    line_bot_api.push_message(
-        event.source.user_id,
-        text)  
-
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
-    cur = conn.cursor()
-    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
-    cur = conn.cursor()
-    if  len(event.postback.data) == 10:
-        sql = """SELECT "value" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        # #text2 = "According to your input, my answer is "
-        text2=""
-        # text3=""
-        # text4=""
-        # text5=""
-        # text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[0]) 
-        #     text3 = text3 + str(row[3])
-        #     text4 = text4 + str(row[4])
-        #     text5 = text5 + str(row[5])
-        #     text6 = text6 + str(row[6])
-
-        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        Confirm_Template = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ConfirmTemplate(
-                title='這是ConfirmTemplate',
-                text='第一步如何做?',
-                actions=[                              
-                    MessageTemplateAction(
-                        label='取ln',
-                        text='取ln正確!!!'
-                    ),
-                    MessageTemplateAction(
-                        label='x=0帶入',
-                        text='x=0帶入錯誤!!!'
-                    )
-                ]
-            )
-        )
-        replay_message(event,Image_Message)
-        push_message(event, Confirm_Template)
-        
-
-    if  len(event.postback.data) == 6:
-        sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        # #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        # text5=""
-        # text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[0]) 
-            text3 = text3 + str(row[1])
-            text4 = text4 + str(row[2])
-        #     text5 = text5 + str(row[5])
-        #     text6 = text6 + str(row[6])
 
 
-        if text2 == '1' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第一題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0001"
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '2' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第一題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0001"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第二題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0002"
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '3' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第一題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0001"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第二題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0002"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第三題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0003"
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '4' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第一題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0001"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第二題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0002"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第三題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0003"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第四題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0004"
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '5' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第一題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0001"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第二題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0002"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第三題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0003"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第四題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0004"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第五題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0005"
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '6' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第一題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0001"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第二題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0002"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第三題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0003"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第四題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0004"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第五題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0005"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第六題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0006"
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        else:
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第一題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0001"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第二題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0002"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第三題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0003"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第四題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0004"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第五題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0005"
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text3,
-                            text='第六題',
-                            actions=[
-                                PostbackTemplateAction(
-                                    label='題目',
-                                    data=str(event.postback.data) + "0006"
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
+    # if event.message.text == "講義":
+    #     Imagemap_Message = ImagemapSendMessage(
+    #         base_url='https://math-2019.000webhostapp.com/Teacherlist.png?',
+    #         alt_text='this is an imagemap',
+    #         base_size=BaseSize(width=1061, height=540),
+    #         actions=[
+    #             MessageImagemapAction(
+    #                 text='彭振昌老師',
+    #                 area=ImagemapArea(
+    #                     x=50, y=40, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='陳嘉文老師',
+    #                 area=ImagemapArea(
+    #                     x=380, y=40, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='陳琴韻老師',
+    #                 area=ImagemapArea(
+    #                     x=708, y=40, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='潘宏裕老師',
+    #                 area=ImagemapArea(
+    #                     x=50, y=163, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='鄭富國老師',
+    #                 area=ImagemapArea(
+    #                     x=380, y=163, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='陳榮治老師',
+    #                 area=ImagemapArea(
+    #                     x=708, y=163, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='莊智升老師',
+    #                 area=ImagemapArea(
+    #                     x=50, y=286, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='吳忠武老師',
+    #                 area=ImagemapArea(
+    #                     x=380, y=286, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='陳昇國老師',
+    #                 area=ImagemapArea(
+    #                     x=708, y=286, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='嚴志弘老師',
+    #                 area=ImagemapArea(
+    #                     x=50, y=410, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='胡承方老師',
+    #                 area=ImagemapArea(
+    #                     x=380, y=410, width=288, height=95
+    #                 )
+    #             ),
+    #             MessageImagemapAction(
+    #                 text='鄭博仁老師',
+    #                 area=ImagemapArea(
+    #                     x=708, y=410, width=288, height=95
+    #                 )
+    #             )
+    #         ]
+    #     )
+    #     replay_message(event,Imagemap_Message)
+    #     return 0
 
-        replay_message(event,Carousel_Template)
+    # if event.message.text == "彭振昌老師":
+    #     sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+    #     cur.execute(sql)
+    #     rows = cur.fetchall()
+    #     #text2 = "According to your input, my answer is "
+    #     text2=""
+    #     text3=""
+    #     text4=""
+    #     text5=""
+    #     text6=""
 
-    if  len(event.postback.data) == 8:
-        sql = """SELECT "value" FROM public."poster" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        # #text2 = "According to your input, my answer is "
-        text2=""
-        # text3=""
-        # text4=""
-        # text5=""
-        # text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[0]) 
-        #     text3 = text3 + str(row[3])
-        #     text4 = text4 + str(row[4])
-        #     text5 = text5 + str(row[5])
-        #     text6 = text6 + str(row[6])
-
-        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        replay_message(event,Image_Message)  
-
-    if  len(event.postback.data) == 9:
-        sql = """SELECT "value" FROM public."posterAnswer" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        # #text2 = "According to your input, my answer is "
-        text2=""
-        # text3=""
-        # text4=""
-        # text5=""
-        # text6=""
-
-        for row in rows:
-            text2 = text2 + str(row[0]) 
-        #     text3 = text3 + str(row[3])
-        #     text4 = text4 + str(row[4])
-        #     text5 = text5 + str(row[5])
-        #     text6 = text6 + str(row[6])
-
-        Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
-        
-        
-        Buttons_Template = TemplateSendMessage(
-            alt_text='Buttons Template',
-            template=ButtonsTemplate(
-                title=' ',
-                text='你可能會遇到的問題：',
-                thumbnail_image_url='https://media.istockphoto.com/vectors/collection-of-colurful-stickmen-with-question-mark-icon-vector-vector-id936398386',
-                actions=[
-                    MessageTemplateAction(
-                        label='什麼是連續函數？',
-                        text='什麼是連續函數？'
-                    ),
-                    MessageTemplateAction(
-                        label='什麼是Fubini定理？',
-                        text='什麼是Fubini定理？'
-                    )
-                ]
-            )
-        )
-
-        replay_message(event,Image_Message)
-        push_message(event, Buttons_Template)
-
-
-    if  len(event.postback.data) == 4:
-        sql = """SELECT "value", "name", "picture", "chapter", "part1", "part2", "part3", "part4", "part5", "part6", "part7", "part8", "part9", "part10" FROM public."handoutChapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
-        cur.execute(sql)
-        rows = cur.fetchall()
-        # #text2 = "According to your input, my answer is "
-        text2=""
-        text3=""
-        text4=""
-        text5=""
-        text6=""
-        text7=""
-        text8=""
-        text9=""
-        text10=""
-        text11=""
-        text12=""
-        text13=""
-        text14=""
-        text15=""
-
-        for row in rows:
-            text2 = text2 + str(row[0]) 
-            text3 = text3 + str(row[1])
-            text4 = text4 + str(row[2])
-            text5 = text5 + str(row[3])
-            text6 = text6 + str(row[4])
-            text7 = text7 + str(row[5])
-            text8 = text8 + str(row[6])
-            text9 = text9 + str(row[7])
-            text10 = text10 + str(row[8])
-            text11 = text11 + str(row[9])
-            text12 = text12 + str(row[10])
-            text13 = text13 + str(row[11])
-            text14 = text14 + str(row[12])
-            text15 = text15 + str(row[13])
-
-
-        if text2 == '1' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '2' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '3' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part3',
-                                    uri=text8
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '4' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part3',
-                                    uri=text8
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part4',
-                                    uri=text9
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '5' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part3',
-                                    uri=text8
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part4',
-                                    uri=text9
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part5',
-                                    uri=text10
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '6' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part3',
-                                    uri=text8
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part4',
-                                    uri=text9
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part5',
-                                    uri=text10
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part6',
-                                    uri=text11
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '7' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                       CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part3',
-                                    uri=text8
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part4',
-                                    uri=text9
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part5',
-                                    uri=text10
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part6',
-                                    uri=text11
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part7',
-                                    uri=text12
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '8' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part3',
-                                    uri=text8
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part4',
-                                    uri=text9
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part5',
-                                    uri=text10
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part6',
-                                    uri=text11
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part7',
-                                    uri=text12
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part8',
-                                    uri=text13
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '9' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part3',
-                                    uri=text8
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part4',
-                                    uri=text9
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part5',
-                                    uri=text10
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part6',
-                                    uri=text11
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part7',
-                                    uri=text12
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part8',
-                                    uri=text13
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part9',
-                                    uri=text14
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-        elif text2 == '10' :
-            Carousel_Template = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(
-                    columns=[
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part1',
-                                    uri=text6
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part2',
-                                    uri=text7
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part3',
-                                    uri=text8
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part4',
-                                    uri=text9
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part5',
-                                    uri=text10
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part6',
-                                    uri=text11
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part7',
-                                    uri=text12
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part8',
-                                    uri=text13
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part9',
-                                    uri=text14
-                                )
-                            ]
-                        ),
-                        CarouselColumn(
-                            thumbnail_image_url=text4,
-                            title=text5,
-                            text=text3,
-                            actions=[
-                                URITemplateAction(
-                                    label='part10',
-                                    uri=text15
-                                )
-                            ]
-                        )
-                    ]
-                )
-            )
-
-        replay_message(event,Carousel_Template)
+    #     for row in rows:
+    #         text2 = text2 + str(row[2]) 
+    #         text3 = text3 + str(row[3])
+    #         text4 = text4 + str(row[4])
+    #         text5 = text5 + str(row[5])
+    #         text6 = text6 + str(row[6])
 
 
 
+    #     Confirm_Template = TemplateSendMessage(
+    #         alt_text='目錄 template',
+    #         template=ConfirmTemplate(
+    #             title='這是ConfirmTemplate',
+    #             text=text4,
+    #             actions=[                              
+    #                 URITemplateAction(
+    #                     label=text5,
+    #                     uri=text2
+
+    #                 ),
+    #                 URITemplateAction(
+    #                     label=text6,
+    #                     uri=text3
+    #                 )
+    #             ]
+    #         )
+    #     )
+    #     replay_message(event,Confirm_Template)
+    #     return 0
+
+    # if event.message.text == "陳嘉文老師":
+    #     sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+    #     cur.execute(sql)
+    #     rows = cur.fetchall()
+    #     #text2 = "According to your input, my answer is "
+    #     text2=""
+    #     text3=""
+    #     text4=""
+    #     text5=""
+    #     text6=""
+
+    #     for row in rows:
+    #         text2 = text2 + str(row[2]) 
+    #         text3 = text3 + str(row[3])
+    #         text4 = text4 + str(row[4])
+    #         text5 = text5 + str(row[5])
+    #         text6 = text6 + str(row[6])
 
 
 
+    #     Confirm_Template = TemplateSendMessage(
+    #         alt_text='目錄 template',
+    #         template=ConfirmTemplate(
+    #             title='這是ConfirmTemplate',
+    #             text=text4,
+    #             actions=[                              
+    #                 URITemplateAction(
+    #                     label=text5,
+    #                     uri=text2
 
-        #replay_message(event,TextSendMessage(text='pong'))
+    #                 ),
+    #                 URITemplateAction(
+    #                     label=text6,
+    #                     uri=text3
+    #                 )
+    #             ]
+    #         )
+    #     )
+    #     replay_message(event,Confirm_Template)
+    #     return 0
 
-        #line_bot_api.reply_message(
-            #event.reply_token, TextSendMessage(text='pong'))      
-    
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    # if event.message.text == "陳琴韻老師":
+    #     sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+    #     cur.execute(sql)
+    #     rows = cur.fetchall()
+    #     #text2 = "According to your input, my answer is "
+    #     text2=""
+    #     text3=""
+    #     text4=""
+    #     text5=""
+    #     text6=""
+
+    #     for row in rows:
+    #         text2 = text2 + str(row[2]) 
+    #         text3 = text3 + str(row[3])
+    #         text4 = text4 + str(row[4])
+    #         text5 = text5 + str(row[5])
+    #         text6 = text6 + str(row[6])
+
+
+
+    #     Confirm_Template = TemplateSendMessage(
+    #         alt_text='目錄 template',
+    #         template=ConfirmTemplate(
+    #             title='這是ConfirmTemplate',
+    #             text=text4,
+    #             actions=[                              
+    #                 URITemplateAction(
+    #                     label=text5,
+    #                     uri=text2
+
+    #                 ),
+    #                 URITemplateAction(
+    #                     label=text6,
+    #                     uri=text3
+    #                 )
+    #             ]
+    #         )
+    #     )
+    #     replay_message(event,Confirm_Template)
+    #     return 0
+
+    # if event.message.text == "潘宏裕老師":
+    #     sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+    #     cur.execute(sql)
+    #     rows = cur.fetchall()
+    #     #text2 = "According to your input, my answer is "
+    #     text2=""
+    #     text3=""
+    #     text4=""
+    #     text5=""
+    #     text6=""
+
+    #     for row in rows:
+    #         text2 = text2 + str(row[2]) 
+    #         text3 = text3 + str(row[3])
+    #         text4 = text4 + str(row[4])
+    #         text5 = text5 + str(row[5])
+    #         text6 = text6 + str(row[6])
+
+
+
+    #     Confirm_Template = TemplateSendMessage(
+    #         alt_text='目錄 template',
+    #         template=ConfirmTemplate(
+    #             title='這是ConfirmTemplate',
+    #             text=text4,
+    #             actions=[                              
+    #                 URITemplateAction(
+    #                     label=text5,
+    #                     uri=text2
+
+    #                 ),
+    #                 URITemplateAction(
+    #                     label=text6,
+    #                     uri=text3
+    #                 )
+    #             ]
+    #         )
+    #     )
+    #     replay_message(event,Confirm_Template)
+    #     return 0
+
+    # if event.message.text == "鄭富國老師":
+    #     sql = """SELECT "ID", "messageList", "replyList-1", "replyList-2", "Question", "label-1", "label-2" FROM public."Teacherlist" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
+    #     cur.execute(sql)
+    #     rows = cur.fetchall()
+    #     #text2 = "According to your input, my answer is "
+    #     text2=""
+    #     text3=""
+    #     text4=""
+    #     text5=""
+    #     text6=""
+
+    #     for row in rows:
+    #         text2 = text2 + str(row[2]) 
+    #         text3 = text3 + str(row[3])
+    #         text4 = text4 + str(row[4])
+    #         text5 = text5 + str(row[5])
+    #         text6 = text6 + str(row[6])
+
