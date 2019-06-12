@@ -2,6 +2,47 @@ from flask import Flask, request, abort
 
 import psycopg2
 import requests
+import json
+
+headers = {"Authorization":"Di+vp5N6et5xs0RfdcQzHuBeAyCLGH3hG5fvixX/eDd0GeylI2H7fs9xsiANFMfdO/32cFInKFjH/MuvsI/mgtwWtFByruuxfUTNAiF5U0SYvBa4dGpfNQgEf2GMQfUwPZdkEyCw0aJ+bt6Nk15NSgdB04t89/1O/w1cDnyilFU=","Content-Type":"application/json"}
+
+body = {
+    "size": {"width": 2500, "height": 1686},
+    "selected": "true",
+    "name": "Controller",
+    "chatBarText": "Controller",
+    "areas":[
+        {
+          "bounds": {"x": 551, "y": 325, "width": 321, "height": 321},
+          "action": {"type": "message", "text": "up"}
+        },
+        {
+          "bounds": {"x": 876, "y": 651, "width": 321, "height": 321},
+          "action": {"type": "message", "text": "right"}
+        },
+        {
+          "bounds": {"x": 551, "y": 972, "width": 321, "height": 321},
+          "action": {"type": "message", "text": "down"}
+        },
+        {
+          "bounds": {"x": 225, "y": 651, "width": 321, "height": 321},
+          "action": {"type": "message", "text": "left"}
+        },
+        {
+          "bounds": {"x": 1433, "y": 657, "width": 367, "height": 367},
+          "action": {"type": "message", "text": "btn b"}
+        },
+        {
+          "bounds": {"x": 1907, "y": 657, "width": 367, "height": 367},
+          "action": {"type": "message", "text": "btn a"}
+        }
+    ]
+  }
+
+req = requests.request('POST', 'https://api.line.me/v2/bot/richmenu/', 
+                       headers=headers,data=json.dumps(body).encode('utf-8'))
+
+print(req.text)
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -20,6 +61,9 @@ app = Flask(__name__)
 
 # Channel Access Token
 line_bot_api = LineBotApi(os.environ['lineToken'])
+
+with open("control.jpg", 'rb') as f:
+    line_bot_api.set_rich_menu_image("a1e3f215-360a-41fb-b56e-a1a7098a50d6", "image/jpeg", f)
 # Channel Secret
 handler = WebhookHandler(os.environ['lineSecret'])
 
@@ -980,25 +1024,6 @@ def push_message(event,text):
         event.source.user_id,
         text)  
 
-def create_rich_menu(self, rich_menu, timeout=None):
-        """Call create rich menu API.
-        https://developers.line.me/en/docs/messaging-api/reference/#create-rich-menu
-        :param rich_menu: Inquired to create a rich menu object.
-        :type rich_menu: T <= :py:class:`linebot.models.rich_menu.RichMenu`
-        :param timeout: (optional) How long to wait for the server
-            to send data before giving up, as a float,
-            or a (connect timeout, read timeout) float tuple.
-            Default is self.http_client.timeout
-        :type timeout: float | tuple(float, float)
-        :rtype: str
-        :return: rich menu id
-        """
-        response = self._post(
-            '/v2/bot/richmenu', data=rich_menu.as_json_string(), timeout=timeout
-        )
-
-        return response.json.get('richMenuId')
-        
 @handler.add(PostbackEvent)
 def handle_postback(event):
     conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
