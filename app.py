@@ -907,7 +907,7 @@ def handle_message(event):
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b1.gif')
         replay_message(event,Image_Message)
         return 0
-    if event.message.text == "solution1":
+    if event.message.text == "solution2":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b2.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b2.gif')
         replay_message(event,Image_Message)
         return 0
