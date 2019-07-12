@@ -855,8 +855,63 @@ def handle_message(event):
         push_message(event,Buttons_Template)
         return 0
 
-    #習題第六章第一題-----------------------------------------------------------------------------------------------
-    #習題第七章第一題-----------------------------------------------------------------------------------------------
+    #習題第六章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "a":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-a.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-a.gif')
+        Buttons_Template = TemplateSendMessage(
+            alt_text='Buttons Template',
+            template=ButtonsTemplate(
+                title='這是ButtonsTemplate',
+                text='ButtonsTemplate可以傳送text,uri',
+                thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                actions=[
+                    URITemplateAction(
+                        label='旋轉體公式',
+                        uri='https://zh.wikipedia.org/zh-tw/%E6%97%8B%E8%BD%AC%E4%BD%93'
+                    ),
+                    URITemplateAction(
+                        label='教學影片1',
+                        uri='https://www.youtube.com/watch?v=cbmGB3MI96w'
+                    ),
+                    URITemplateAction(
+                        label='教學影片2',
+                        uri='https://www.youtube.com/watch?v=Y4A1k7FNIus'
+                    ),
+                ]
+            )
+        )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
+    if event.message.text == "b":
+        Confirm_Template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ConfirmTemplate(
+                title='這是ConfirmTemplate',
+                text='此題有兩種解，請選擇',
+                actions=[                              
+                    PostbackTemplateAction(
+                        label='solution1',
+                        text='solution1',
+                    ),
+                    MessageTemplateAction(
+                        label='solution2',
+                        text='solution2'
+                    )
+                ]
+            )
+        )
+        replay_message(event,Confirm_Template)
+        return 0
+    if event.message.text == "solution1":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b1.gif')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "solution1":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b2.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b2.gif')
+        replay_message(event,Image_Message)
+        return 0
+    #習題第七章第一題------------------------------------------------------------------------------------------------
     #習題第二章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "計算極限值":
         message = TextSendMessage(text="正確的第一步！")
