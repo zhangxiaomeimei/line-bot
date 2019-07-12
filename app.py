@@ -26,7 +26,7 @@ import requests
 
 headers = {"Authorization":"Bearer " + os.environ['lineToken'] + "\"","Content-Type":"application/json"}
 
-req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/richmenu-ee38ee351b2011ec154d412b225a8f65', 
+req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/richmenu-1bbc439c8565a487708dec4f59871f76', 
                        headers=headers)
 
 print(req.text)
@@ -255,7 +255,12 @@ def handle_message(event):
     #   ]
     # }
 
+    #連接資料庫---------------------------------------------------------------------------------------------------------
+    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829") #user=os.environ['改']
+    cur = conn.cursor()
 
+
+    #微微---------------------------------------------------------------------------------------------------------------
     Buttons_Template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
@@ -279,6 +284,7 @@ def handle_message(event):
         )
     )
 
+    #點RichMenu的"我要找微微"--------------------------------------------------------------------------------------------
     if event.message.text == "Hello, WeiWei~":
         Buttons_Template = TemplateSendMessage(
             alt_text='Buttons Template',
@@ -304,10 +310,7 @@ def handle_message(event):
         )
         replay_message(event,Buttons_Template)
 
-    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829") #user=os.environ['改']
-    cur = conn.cursor()
-
-
+    #海報---------------------------------------------------------------------------------------------------------------
     if event.message.text == "海報(<-解答點我)":
         Carousel_Template1 = TemplateSendMessage(
             alt_text='Carousel template',
@@ -454,6 +457,7 @@ def handle_message(event):
         replay_message(event,Carousel_Template1)
         return 0
 
+    #海報第一題----------------------------------------------------------------------------------------------------------
     if event.message.text == "什麼是連續函數？":
         sql = """SELECT "ID", "messageList", "replyList", "ButtonLabel-1", "ButtonLabel-2", "ButtonUrl-1", "ButtonText" FROM public."TalkingList" WHERE "messageList" LIKE '%""" + event.message.text + "%'" 
         cur.execute(sql)
@@ -628,10 +632,7 @@ def handle_message(event):
         push_message(event, Image_Message2)
         return 0
 
-    
-    
-
-
+    #習題---------------------------------------------------------------------------------------------------------------
     if event.message.text == "微積分習題":
         Carousel_Template1 = TemplateSendMessage(
             alt_text='Carousel template',
@@ -785,6 +786,7 @@ def handle_message(event):
         push_message(event,Carousel_Template2)
         return 0
 
+    #習題第一章第一題-----------------------------------------------------------------------------------------------
     if event.message.text == "取ln正確!!!":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/ans-1.png')
         Imagemap_Message = ImagemapSendMessage(
@@ -824,7 +826,70 @@ def handle_message(event):
         message = TextSendMessage(text="因為0的0次方是無意義!!!")
         replay_message(event,message)
         return 0
+    #習題第五章第一題-----------------------------------------------------------------------------------------------
+    if event.message.text == "第一步":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans000500001-1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans000500001-1.gif')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "第二步":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00050001-2.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00050001-2.gif')
+        Buttons_Template = TemplateSendMessage(
+            alt_text='Buttons Template',
+            template=ButtonsTemplate(
+                title='這是ButtonsTemplate',
+                text='ButtonsTemplate可以傳送text,uri',
+                thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                actions=[
+                    URITemplateAction(
+                        label='何謂"代換積分法"',
+                        uri='https://learningcalculus.hol.es/cswei/%EF%BC%83%E4%BB%A3%E6%8F%9B%E7%A9%8D%E5%88%86%E6%B3%95/'
+                    ),
+                    URITemplateAction(
+                        label='三角積分公式表',
+                        uri='https://zh.wikipedia.org/zh-tw/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E8%A1%A8'
+                    )
+                ]
+            )
+        )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
 
+    #習題第六章第一題-----------------------------------------------------------------------------------------------
+    #習題第七章第一題-----------------------------------------------------------------------------------------------
+    #習題第二章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "計算極限值":
+        message = TextSendMessage(text="正確的第一步！")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562069251935.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562069251935.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "解方程式":
+        message = TextSendMessage(text="好像不對呦！讓我們先來了解一下判斷函數是否連續需要注意的事情：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562070062061.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562070062061.jpg')
+        message2 = TextSendMessage(text="此題的極限值不等於函數值，所以不是連續函數")
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        push_message(event,message2)
+        return 0
+
+    #習題第三章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "上下各別微分":
+        message = TextSendMessage(text="對於除法模式的微分是有公式的呦，分子分母各別微分是不對的！")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562424192384.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562424192384.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "利用除法微分公式":
+        message = TextSendMessage(text="沒錯！利用除法微分公式對函數進行微分，且過程中需特別注意鏈鎖律(Chain-Rule)！！！解題過程如下：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562423294456.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562423294456.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    #講義-----------------------------------------------------------------------------------------------------------
     if event.message.text == "講義":
         Carousel_Template1 = TemplateSendMessage(
             alt_text='Carousel template',
@@ -1043,27 +1108,29 @@ def push_message(event,text):
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
+
+    #連接資料庫--------------------------------------------------------------------------------------------------
     conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
     cur = conn.cursor()
-    conn=psycopg2.connect("host=120.113.174.17 port=5432 dbname=project201901 user=project201901 password=postgresqllinebotA16829")
-    cur = conn.cursor()
+
+    #習題題目格式------------------------------------------------------------------------------------------------
     if  len(event.postback.data) == 10:
-        sql = """SELECT "value" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        sql = """SELECT "value", "Llabel", "Ltext", "Rlabel", "Rtext" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         # #text2 = "According to your input, my answer is "
         text2=""
-        # text3=""
-        # text4=""
-        # text5=""
-        # text6=""
+        text3=""
+        text4=""
+        text5=""
+        text6=""
 
         for row in rows:
             text2 = text2 + str(row[0]) 
-        #     text3 = text3 + str(row[3])
-        #     text4 = text4 + str(row[4])
-        #     text5 = text5 + str(row[5])
-        #     text6 = text6 + str(row[6])
+            text3 = text3 + str(row[1])
+            text4 = text4 + str(row[2])
+            text5 = text5 + str(row[3])
+            text6 = text6 + str(row[4])
 
         Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
         Confirm_Template = TemplateSendMessage(
@@ -1073,12 +1140,12 @@ def handle_postback(event):
                 text='第一步如何做?',
                 actions=[                              
                     MessageTemplateAction(
-                        label='取ln',
-                        text='取ln正確!!!'
+                        label=text3,
+                        text=text4
                     ),
                     MessageTemplateAction(
-                        label='x=0帶入',
-                        text='x=0帶入錯誤!!!'
+                        label=text5,
+                        text=text6
                     )
                 ]
             )
@@ -1086,7 +1153,7 @@ def handle_postback(event):
         replay_message(event,Image_Message)
         push_message(event, Confirm_Template)
         
-
+    #習題章節--------------------------------------------------------------------------------------------------------
     if  len(event.postback.data) == 6:
         sql = """SELECT "value", "name", "picture" FROM public."chapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
@@ -1462,6 +1529,7 @@ def handle_postback(event):
 
         replay_message(event,Carousel_Template)
 
+    #海報題目-----------------------------------------------------------------------------------------------------------------------
     if  len(event.postback.data) == 8:
         sql = """SELECT "value" FROM public."poster" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
@@ -1483,50 +1551,55 @@ def handle_postback(event):
         Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
         replay_message(event,Image_Message)  
 
+    #海報---------------------------------------------------------------------------------------------------------------------------
     if  len(event.postback.data) == 9:
-        sql = """SELECT "value" FROM public."posterAnswer" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        sql = """SELECT "value", "problem", "label1", "text1", "label2", "text2" FROM public."posterAnswer" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         # #text2 = "According to your input, my answer is "
         text2=""
-        # text3=""
-        # text4=""
-        # text5=""
-        # text6=""
+        text3=""
+        text4=""
+        text5=""
+        text6=""
+        text7=""
 
         for row in rows:
             text2 = text2 + str(row[0]) 
-        #     text3 = text3 + str(row[3])
-        #     text4 = text4 + str(row[4])
-        #     text5 = text5 + str(row[5])
-        #     text6 = text6 + str(row[6])
+            text3 = text3 + str(row[1])
+            text4 = text4 + str(row[2])
+            text5 = text5 + str(row[3])
+            text6 = text6 + str(row[4])
+            text7 = text6 + str(row[5])
 
         Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
         
-        
-        Buttons_Template = TemplateSendMessage(
-            alt_text='Buttons Template',
-            template=ButtonsTemplate(
-                title=' ',
-                text='你可能會遇到的問題：',
-                thumbnail_image_url='https://media.istockphoto.com/vectors/collection-of-colurful-stickmen-with-question-mark-icon-vector-vector-id936398386',
-                actions=[
-                    MessageTemplateAction(
-                        label='什麼是連續函數？',
-                        text='什麼是連續函數？'
-                    ),
-                    MessageTemplateAction(
-                        label='什麼是Fubini定理？',
-                        text='什麼是Fubini定理？'
-                    )
-                ]
+        if text3 == "Y":
+            Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你可能會遇到的問題：',
+                    thumbnail_image_url='https://media.istockphoto.com/vectors/collection-of-colurful-stickmen-with-question-mark-icon-vector-vector-id936398386',
+                    actions=[
+                        MessageTemplateAction(
+                            label=text4,
+                            text=text5
+                        ),
+                        MessageTemplateAction(
+                            label=text6,
+                            text=text7
+                        )
+                    ]
+                )
             )
-        )
+            replay_message(event,Image_Message)
+            push_message(event, Buttons_Template)
 
         replay_message(event,Image_Message)
-        push_message(event, Buttons_Template)
+        
 
-
+    #講義-------------------------------------------------------------------------------------------------------------------------------
     if  len(event.postback.data) == 4:
         sql = """SELECT "value", "name", "picture", "chapter", "part1", "part2", "part3", "part4", "part5", "part6", "part7", "part8", "part9", "part10" FROM public."handoutChapter" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
