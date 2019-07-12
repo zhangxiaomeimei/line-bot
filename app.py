@@ -890,9 +890,9 @@ def handle_message(event):
                 title='這是ConfirmTemplate',
                 text='此題有兩種解，請選擇',
                 actions=[                              
-                    PostbackTemplateAction(
+                    MessageTemplateAction(
                         label='solution1',
-                        text='solution1',
+                        text='solution1'
                     ),
                     MessageTemplateAction(
                         label='solution2',
