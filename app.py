@@ -837,7 +837,7 @@ def handle_message(event):
             alt_text='Buttons Template',
             template=ButtonsTemplate(
                 title='了解更多',
-                text='',
+                text=' ',
                 thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/11.jpg',
                 actions=[
                     URITemplateAction(
@@ -862,7 +862,7 @@ def handle_message(event):
             alt_text='Buttons Template',
             template=ButtonsTemplate(
                 title='了解更多旋轉體體積運算!!!',
-                text='',
+                text=' ',
                 thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/10.jpg',
                 actions=[
                     URITemplateAction(
