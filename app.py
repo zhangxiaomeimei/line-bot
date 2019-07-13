@@ -917,8 +917,8 @@ def handle_message(event):
         replay_message(event,message)
         return 0
     if event.message.text == "瑕積分":
-        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00070001-1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00070001-1.gif')
-        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00070001-2.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00070001-2.gif')
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00070001-1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00070001-1.gif')
+        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00070001-2.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00070001-2.gif')
         replay_message(event,Image_Message1)
         push_message(event,Image_Message2)
         return 0
