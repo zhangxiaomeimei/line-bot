@@ -838,7 +838,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='這是ButtonsTemplate',
                 text='ButtonsTemplate可以傳送text,uri',
-                thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/11.jpg',
                 actions=[
                     URITemplateAction(
                         label='何謂"代換積分法"',
@@ -863,7 +863,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='這是ButtonsTemplate',
                 text='ButtonsTemplate可以傳送text,uri',
-                thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/10.jpg',
                 actions=[
                     URITemplateAction(
                         label='旋轉體公式',
