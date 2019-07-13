@@ -904,12 +904,12 @@ def handle_message(event):
         replay_message(event,Confirm_Template)
         return 0
     if event.message.text == "solution1":
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-b1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-b1.gif')
-        replay_message(event,Image_Message)
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-b1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-b1.gif')
+        replay_message(event,Image_Message1)
         return 0
     if event.message.text == "solution2":
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b2.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b2.gif')
-        replay_message(event,Image_Message)
+        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b2.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b2.gif')
+        replay_message(event,Image_Message2)
         return 0
     #習題第七章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "積分代換法":
