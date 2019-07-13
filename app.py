@@ -861,8 +861,8 @@ def handle_message(event):
         Buttons_Template = TemplateSendMessage(
             alt_text='Buttons Template',
             template=ButtonsTemplate(
-                title='這是ButtonsTemplate',
-                text='ButtonsTemplate可以傳送text,uri',
+                title='',
+                text='了解更多旋轉體體積運算!!!',
                 thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/10.jpg',
                 actions=[
                     URITemplateAction(
