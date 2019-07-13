@@ -836,8 +836,8 @@ def handle_message(event):
         Buttons_Template = TemplateSendMessage(
             alt_text='Buttons Template',
             template=ButtonsTemplate(
-                title='這是ButtonsTemplate',
-                text='ButtonsTemplate可以傳送text,uri',
+                title='',
+                text='了解更多',
                 thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/11.jpg',
                 actions=[
                     URITemplateAction(
@@ -904,7 +904,7 @@ def handle_message(event):
         replay_message(event,Confirm_Template)
         return 0
     if event.message.text == "solution1":
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ex00060001-b1.gif')
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-b1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-b1.gif')
         replay_message(event,Image_Message)
         return 0
     if event.message.text == "solution2":
