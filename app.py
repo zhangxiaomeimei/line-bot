@@ -826,6 +826,54 @@ def handle_message(event):
         message = TextSendMessage(text="因為0的0次方是無意義!!!")
         replay_message(event,message)
         return 0
+    
+    #習題第二章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "計算極限值":
+        message = TextSendMessage(text="正確的第一步！")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562069251935.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562069251935.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "解方程式":
+        message = TextSendMessage(text="好像不對呦！讓我們先來了解一下判斷函數是否連續需要注意的事情：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562070062061.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562070062061.jpg')
+        message2 = TextSendMessage(text="此題的極限值不等於函數值，所以不是連續函數")
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        push_message(event,message2)
+        return 0
+
+    #習題第三章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "上下各別微分":
+        message = TextSendMessage(text="對於除法模式的微分是有公式的呦，分子分母各別微分是不對的！")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562424192384.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562424192384.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "利用除法微分公式":
+        message = TextSendMessage(text="沒錯！利用除法微分公式對函數進行微分，且過程中需特別注意鏈鎖律(Chain-Rule)！！！解題過程如下：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562423294456.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562423294456.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    #習題第四章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "利用中間值定理":
+        message = TextSendMessage(text="沒錯！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562568755853.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562568755853.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "化簡平方根":
+        message = TextSendMessage(text="利用中間值定理(Mean Value Theorem)會更棒喔！")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562570556071.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562570556071.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
     #習題第五章第一題-----------------------------------------------------------------------------------------------
     if event.message.text == "第一步":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans000500001-1.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans000500001-1.gif')
@@ -922,38 +970,78 @@ def handle_message(event):
         replay_message(event,Image_Message1)
         push_message(event,Image_Message2)
         return 0
-    #習題第二章第一題------------------------------------------------------------------------------------------------
-    if event.message.text == "計算極限值":
-        message = TextSendMessage(text="正確的第一步！")
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562069251935.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562069251935.jpg')
+
+    #習題第八章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "sqrt(r1平方+r2平方)":
+        message = TextSendMessage(text="錯誤！未考慮兩個半徑的夾角")
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "sqrt(r1平方+r2平方-2r1r2cos(theta1-theta2))":
+        message = TextSendMessage(text="沒錯！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/polar-coordinate-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/polar-coordinate-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0   
+
+    #習題第九章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "使用Root Test":
+        message = TextSendMessage(text="錯誤！因為(2n)!無法開根號")
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "使用Ratio Test":
+        message = TextSendMessage(text="沒錯！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/series-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/series-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0 
+
+    #習題第十章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "r微分一次的平方+r微分二次的平方":
+        message = TextSendMessage(text="錯誤！正確解答如下")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/surface-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/surface-answer.png')
         replay_message(event,message)
         push_message(event,Image_Message)
         return 0
 
-    if event.message.text == "解方程式":
-        message = TextSendMessage(text="好像不對呦！讓我們先來了解一下判斷函數是否連續需要注意的事情：")
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562070062061.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562070062061.jpg')
-        message2 = TextSendMessage(text="此題的極限值不等於函數值，所以不是連續函數")
+    if event.message.text == "r平方+r微分一次的平方":
+        message = TextSendMessage(text="沒錯！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/surface-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/surface-answer.png')
         replay_message(event,message)
         push_message(event,Image_Message)
-        push_message(event,message2)
-        return 0
+        return 0 
 
-    #習題第三章第一題------------------------------------------------------------------------------------------------
-    if event.message.text == "上下各別微分":
-        message = TextSendMessage(text="對於除法模式的微分是有公式的呦，分子分母各別微分是不對的！")
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562424192384.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562424192384.jpg')
-        replay_message(event,message)
-        push_message(event,Image_Message)
-        return 0
-
-    if event.message.text == "利用除法微分公式":
-        message = TextSendMessage(text="沒錯！利用除法微分公式對函數進行微分，且過程中需特別注意鏈鎖律(Chain-Rule)！！！解題過程如下：")
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562423294456.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/04/1562423294456.jpg')
+    #習題第十一章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "做偏微分":
+        message = TextSendMessage(text="沒錯！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/several-variables-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/several-variables-answer.png')
         replay_message(event,message)
         push_message(event,Image_Message)
         return 0
 
+    if event.message.text == "直接將點帶入":
+        message = TextSendMessage(text="直接將點帶入無法求出切平面喔")
+        replay_message(event,message)
+        return 0
+
+    #習題第十二章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "先做dy再dx":
+        message = TextSendMessage(text="沒錯！來看一下解題過程：")
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/iterated-integral-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/iterated-integral-answer.png')
+        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/iterated-integral-answer-plot.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/iterated-integral-answer-plot.png')
+        replay_message(event,message)
+        push_message(event,Image_Message1)
+        push_message(event,Image_Message2)
+        return 0
+
+    if event.message.text == "先做dx再dy":
+        message = TextSendMessage(text="先對x積分需對根號x及sin(x)積分，如果做iterated integral，可以先將根號x及sin(x)當成常數對y積分，然後再對x積分")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/iterated-integral-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/iterated-integral-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+        
     #講義-----------------------------------------------------------------------------------------------------------
     if event.message.text == "講義":
         Carousel_Template1 = TemplateSendMessage(
