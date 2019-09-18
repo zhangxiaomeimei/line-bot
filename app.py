@@ -23,6 +23,7 @@ line_bot_api = LineBotApi(os.environ['lineToken'])
 handler = WebhookHandler(os.environ['lineSecret'])
 
 import requests
+#import test1
 
 headers = {"Authorization":"Bearer " + os.environ['lineToken'] + "\"","Content-Type":"application/json"}
 
@@ -48,6 +49,15 @@ def callback():
         abort(400)
 
     return 'OK'
+
+
+@handler.add(MessageEvent, message=ImageMessage)
+def handle_message(event):
+    print(event)
+
+    message = TextSendMessage(text="收到圖片")  
+    replay_message(event,message)
+
 
 
 @handler.add(MessageEvent, message=TextMessage)
