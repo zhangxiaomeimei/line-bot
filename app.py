@@ -59,7 +59,6 @@ def handle_message(event):
     replay_message(event,message)
 
 
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print(event)
@@ -1051,7 +1050,84 @@ def handle_message(event):
         replay_message(event,message)
         push_message(event,Image_Message)
         return 0
-        
+    
+    #習題第十二章第二題------------------------------------------------------------------------------------------------ 
+    if event.message.text == "Change of Variables to Polar Coordinates":
+        message = TextSendMessage(text="沒錯！你可能會遇到的問題：")
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='什麼是Change of Variables to Polar Coordinates：',
+                    thumbnail_image_url='https://sites.google.com/a/lsps.ptc.edu.tw/lsps/_/rsrc/1470837072195/home/shu-xue-ke/math.png',
+                    actions=[
+                        MessageTemplateAction(
+                            label='定理',
+                            text='Change of Variables to Polar Coordinates定理'
+                        ),
+                        MessageTemplateAction(
+                            label='證明',
+                            text='Change of Variables to Polar Coordinates證明'
+                        ),
+                        MessageTemplateAction(
+                            label='點我看答案',
+                            text='ch12-2'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,message)
+        push_message(event,Buttons_Template)
+        return 0
+    
+    if event.message.text == "Change of Variables to Polar Coordinates定理":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "Change of Variables to Polar Coordinates證明":
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1-1.png')
+        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1-11.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1-11.png')        
+        replay_message(event,Image_Message1)
+        push_message(event,Image_Message2)
+        return 0
+    if event.message.text == "ch12-2":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-2.png')
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "利用旋轉體體積":
+        message = TextSendMessage(text="沒錯！旋轉體體積也是一種方法")
+        Confirm_Template = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ConfirmTemplate(
+                title='這是ConfirmTemplate',
+                text='了解定理，運算方面能更加清楚喔!!',
+                actions=[                              
+                    MessageTemplateAction(
+                        label='旋轉體體積定理',
+                        text='旋轉體體積定理'
+                    ),
+                    MessageTemplateAction(
+                        label='點我看答案',
+                        text='ch12-3'
+                    )
+                ]
+            )
+        )
+        replay_message(event,message)
+        push_message(event,Confirm_Template)
+        return 0
+
+    if event.message.text == "旋轉體體積定理":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "ch12-3":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-2.png')
+        replay_message(event,Image_Message)
+        return 0
+    #習題第十二章第三題------------------------------------------------------------------------------------------------ 
+
     #講義-----------------------------------------------------------------------------------------------------------
     if event.message.text == "講義":
         Carousel_Template1 = TemplateSendMessage(
