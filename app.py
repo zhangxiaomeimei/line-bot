@@ -1005,7 +1005,58 @@ def handle_message(event):
         replay_message(event,message)
         push_message(event,Image_Message)
         return 0 
-
+    
+    #習題第九章第三題------------------------------------------------------------------------------------------------
+    if event.message.text == "第(1)題":
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你會遇到的問題：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        URITemplateAction(
+                            label='影片教學',
+                            uri='https://tw.video.search.yahoo.com/search/video?fr=mcafee&p=L%E2%80%99Hopital%E2%80%99s+Rule#id=2&vid=2e18a89dfab2dcae2d0b1ecbff038754&action=click'
+                        ),
+                        MessageTemplateAction(
+                            label='點我看答案',
+                            text='ch9-3-1'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Buttons_Template)
+        return 0
+    if event.message.text == "第(2)題":   
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你會遇到的問題：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        URITemplateAction(
+                            label='L’Hopital’s Rule',
+                            uri='https://zh.wikipedia.org/zh-tw/%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99'
+                        ),
+                        MessageTemplateAction(
+                            label='點我看答案',
+                            text='ch9-3-2'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Buttons_Template)
+        return 0
+    if event.message.text == "ch9-3-1":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090003-1-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090003-1-1.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "ch9-3-2":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090003-2-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090003-2-1.png')
+        replay_message(event,Image_Message)
+        return 0
     #習題第十章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "r微分一次的平方+r微分二次的平方":
         message = TextSendMessage(text="錯誤！正確解答如下")
@@ -1020,7 +1071,30 @@ def handle_message(event):
         replay_message(event,message)
         push_message(event,Image_Message)
         return 0 
-
+    
+    #習題第十章第三題------------------------------------------------------------------------------------------------
+    if event.message.text == "利用弧長公式":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-1.png')
+        push_message(event,Image_Message)
+        return 0
+    if event.message.text == "弧長定理":
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-2.png')
+        # Imagemap_Message2 = ImagemapSendMessage(
+        #     base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png#',
+        #     alt_text='this is an imagemap',
+        #     base_size=BaseSize(height=85, width=298),
+        #     actions=[
+        #         MessageImagemapAction(
+        #             text='利用弧長公式',
+        #             area=ImagemapArea(
+        #                 x=0, y=0, width=298, height=85
+        #             )
+        #         )
+        #     ]
+        # )
+        replay_message(event,Image_Message1)
+        #push_message(event,Image_Message2)
+        return 0
     #習題第十一章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "做偏微分":
         message = TextSendMessage(text="沒錯！來看一下解題過程：")
@@ -1033,6 +1107,7 @@ def handle_message(event):
         message = TextSendMessage(text="直接將點帶入無法求出切平面喔")
         replay_message(event,message)
         return 0
+    
     #習題第十一章第三題------------------------------------------------------------------------------------------------
     if event.message.text == "第一小題":
         Buttons_Template = TemplateSendMessage(
