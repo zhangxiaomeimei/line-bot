@@ -1080,7 +1080,7 @@ def handle_message(event):
     if event.message.text == "弧長定理":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-2.png')
         Imagemap_Message = ImagemapSendMessage(
-            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png#',
+            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png?',
             alt_text='this is an imagemap',
             base_size=BaseSize(height=85, width=298),
             actions=[
