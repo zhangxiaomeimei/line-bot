@@ -1130,7 +1130,7 @@ def handle_message(event):
     if event.message.text == "參數變更極坐標":
         message = TextSendMessage(text="錯誤!!極座標只有兩個參數!!所以需先寫出參數範圍再化簡成兩個參數，就可以將參數更改為極座標!!!")
         Imagemap_Message = ImagemapSendMessage(
-            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png',
+            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png#',
             alt_text='this is an imagemap',
             base_size=BaseSize(height=85, width=298),
             actions=[
