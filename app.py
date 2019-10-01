@@ -1127,7 +1127,44 @@ def handle_message(event):
         replay_message(event,Image_Message)
         return 0
     #習題第十二章第三題------------------------------------------------------------------------------------------------ 
+    if event.message.text == "參數變更極坐標":
+        message = TextSendMessage(text="錯誤!!極座標只有兩個參數!!所以需先寫出參數範圍再化簡成兩個參數，就可以將參數更改為極座標!!!")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+    if event.message.text == "寫出參數範圍": 
+        message = TextSendMessage(text="正確!!")
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='我們將解題步驟分為兩個：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='步驟一',
+                            text='參數範圍'
+                        ),
+                        MessageTemplateAction(
+                            label='步驟二',
+                            text='參數轉為極座標'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,message)
+        push_message(event,Buttons_Template)
+        return 0 
 
+    if event.message.text == "步驟一":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120003-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120003-1.png')
+        replay_message(event,Image_Message)
+        return 0 
+    if event.message.text == "步驟二":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120003-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120003-2.png')   
+        replay_message(event,Image_Message)
+        return 0 
     #講義-----------------------------------------------------------------------------------------------------------
     if event.message.text == "講義":
         Carousel_Template1 = TemplateSendMessage(
