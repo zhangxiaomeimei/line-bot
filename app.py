@@ -1079,19 +1079,19 @@ def handle_message(event):
         return 0
     if event.message.text == "弧長定理":
         Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-2.png')
-        # Imagemap_Message2 = ImagemapSendMessage(
-        #     base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png#',
-        #     alt_text='this is an imagemap',
-        #     base_size=BaseSize(height=85, width=298),
-        #     actions=[
-        #         MessageImagemapAction(
-        #             text='利用弧長公式',
-        #             area=ImagemapArea(
-        #                 x=0, y=0, width=298, height=85
-        #             )
-        #         )
-        #     ]
-        # )
+        Imagemap_Message2 = ImagemapSendMessage(
+            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png#',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(height=85, width=298),
+            actions=[
+                MessageImagemapAction(
+                    text='利用弧長公式',
+                    area=ImagemapArea(
+                        x=0, y=0, width=298, height=85
+                    )
+                )
+            ]
+        )
         replay_message(event,Image_Message1)
         #push_message(event,Image_Message2)
         return 0
