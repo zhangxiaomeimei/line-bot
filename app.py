@@ -1052,22 +1052,22 @@ def handle_message(event):
         return 0
     
     #習題第十二章第二題------------------------------------------------------------------------------------------------ 
-    if event.message.text == "Change of Variables to Polar Coordinates":
+    if event.message.text == "將參數更改為極坐標":
         message = TextSendMessage(text="沒錯！你可能會遇到的問題：")
         Buttons_Template = TemplateSendMessage(
                 alt_text='Buttons Template',
                 template=ButtonsTemplate(
                     title=' ',
-                    text='什麼是Change of Variables to Polar Coordinates：',
+                    text='如何將參數更改為極坐標：',
                     thumbnail_image_url='https://sites.google.com/a/lsps.ptc.edu.tw/lsps/_/rsrc/1470837072195/home/shu-xue-ke/math.png',
                     actions=[
                         MessageTemplateAction(
                             label='定理',
-                            text='Change of Variables to Polar Coordinates定理'
+                            text='變換極坐標定理'
                         ),
                         MessageTemplateAction(
                             label='證明',
-                            text='Change of Variables to Polar Coordinates證明'
+                            text='變換極坐標定理證明'
                         ),
                         MessageTemplateAction(
                             label='點我看答案',
@@ -1080,11 +1080,11 @@ def handle_message(event):
         push_message(event,Buttons_Template)
         return 0
     
-    if event.message.text == "Change of Variables to Polar Coordinates定理":
+    if event.message.text == "變換極坐標定理":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1.png')
         replay_message(event,Image_Message)
         return 0
-    if event.message.text == "Change of Variables to Polar Coordinates證明":
+    if event.message.text == "變換極坐標定理證明":
         Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1-1.png')
         Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1-11.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120002-1-11.png')        
         replay_message(event,Image_Message1)
