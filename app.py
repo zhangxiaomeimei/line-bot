@@ -1074,8 +1074,8 @@ def handle_message(event):
                     ]
                 )
             )
-            replay_message(event,Buttons_Template)
-            return 0
+        replay_message(event,Buttons_Template)
+        return 0
     if event.message.text == "ch11-3-1":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110003-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110003-1.png')
         replay_message(event,Image_Message)
