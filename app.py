@@ -1033,7 +1033,61 @@ def handle_message(event):
         message = TextSendMessage(text="直接將點帶入無法求出切平面喔")
         replay_message(event,message)
         return 0
-
+    #習題第十一章第三題------------------------------------------------------------------------------------------------
+    if event.message.text == "第一小題":
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你會遇到的問題：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='定理',
+                            text='偏微分'
+                        ),
+                        MessageTemplateAction(
+                            label='點我看答案',
+                            text='ch11-3-1'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Buttons_Template)
+        return 0
+    if event.message.text == "第二小題":
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你會遇到的問題：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='定理',
+                            text='偏微分'
+                        ),
+                        MessageTemplateAction(
+                            label='點我看答案',
+                            text='ch11-3-2'
+                        )
+                    ]
+                )
+            )
+            replay_message(event,Buttons_Template)
+            return 0
+    if event.message.text == "ch11-3-1":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110003-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110003-1.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "ch11-3-2":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110003-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110003-2.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "偏微分":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110003-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110003-3.png')
+        replay_message(event,Image_Message)
+        return 0    
     #習題第十二章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "先做dy再dx":
         message = TextSendMessage(text="沒錯！來看一下解題過程：")
@@ -1129,21 +1183,21 @@ def handle_message(event):
     #習題第十二章第三題------------------------------------------------------------------------------------------------ 
     if event.message.text == "參數變更極坐標":
         message = TextSendMessage(text="錯誤!!極座標只有兩個參數!!所以需先寫出參數範圍再化簡成兩個參數，就可以將參數更改為極座標!!!")
-        Imagemap_Message = ImagemapSendMessage(
-            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png#',
-            alt_text='this is an imagemap',
-            base_size=BaseSize(height=85, width=298),
-            actions=[
-                MessageImagemapAction(
-                    text='變換極坐標定理',
-                    area=ImagemapArea(
-                        x=0, y=0, width=298, height=85
-                    )
-                )
-            ]
-        )
+        # Imagemap_Message = ImagemapSendMessage(
+        #     base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png#',
+        #     alt_text='this is an imagemap',
+        #     base_size=BaseSize(height=85, width=298),
+        #     actions=[
+        #         MessageImagemapAction(
+        #             text='變換極坐標定理',
+        #             area=ImagemapArea(
+        #                 x=0, y=0, width=298, height=85
+        #             )
+        #         )
+        #     ]
+        # )
         replay_message(event,message)
-        push_message(event,Image_Message)
+        #push_message(event,Image_Message)
         return 0
     if event.message.text == "寫出參數範圍": 
         message = TextSendMessage(text="正確!!")
