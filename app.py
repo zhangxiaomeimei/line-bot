@@ -1196,12 +1196,12 @@ def handle_message(event):
         Imagemap_Message = ImagemapSendMessage(
             base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png?',
             alt_text='this is an imagemap',
-            base_size=BaseSize(height=600, width=200),
+            base_size=BaseSize(height=450, width=1000),
             actions=[
                 MessageImagemapAction(
                     text='利用弧長公式',
                     area=ImagemapArea(
-                        x=0, y=0, width=600, height=200
+                        x=0, y=0, width=1000, height=450
                     )
                 )
             ]
