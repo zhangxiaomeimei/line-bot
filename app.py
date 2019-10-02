@@ -1201,7 +1201,7 @@ def handle_message(event):
                 MessageImagemapAction(
                     text='利用弧長公式',
                     area=ImagemapArea(
-                        x=0, y=0, width=1000, height=450
+                        x=100, y=0, width=1000, height=450
                     )
                 )
             ]
