@@ -853,6 +853,21 @@ def handle_message(event):
         push_message(event,message2)
         return 0
 
+    #習題第二章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "求極限值":
+        message = TextSendMessage(text="正確！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/continuous-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/continuous-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "將三式相等解a和b":
+        message = TextSendMessage(text="錯誤！題目說明要使此函數為連續函數，應該使用下面方法解題：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/continuous-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/continuous-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
     #習題第三章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "上下各別微分":
         message = TextSendMessage(text="對於除法模式的微分是有公式的呦，分子分母各別微分是不對的！")
@@ -867,6 +882,19 @@ def handle_message(event):
         replay_message(event,message)
         push_message(event,Image_Message)
         return 0
+    
+    #習題第三章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "先做Chain-Rule":
+        message = TextSendMessage(text="第一步正確！")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/differential-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/differential-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "將數字直接代入":
+        message = TextSendMessage(text="錯誤！14代入函數g求出2，再將2代入函數f，但題目沒有定義此值，所以無法求出答案")
+        replay_message(event,message)
+        return 0
 
     #習題第四章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "利用中間值定理":
@@ -879,6 +907,19 @@ def handle_message(event):
     if event.message.text == "化簡平方根":
         message = TextSendMessage(text="利用中間值定理(Mean Value Theorem)會更棒喔！")
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562570556071.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/1562570556071.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    #習題第四章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "一次微分=0":
+        message = TextSendMessage(text="錯誤！反曲點應該要求二次微分等於0")
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "二次微分=0":
+        message = TextSendMessage(text="正確！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/diff-application-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/diff-application-answer.png')
         replay_message(event,message)
         push_message(event,Image_Message)
         return 0
@@ -910,6 +951,19 @@ def handle_message(event):
         )
         replay_message(event,Image_Message)
         push_message(event,Buttons_Template)
+        return 0
+
+    #習題第五章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "分兩範圍積分":
+        message = TextSendMessage(text="正確！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/integral-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/integral-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "直接積分":
+        message = TextSendMessage(text="錯誤！x大於1/2及x小於1/2的函數數不同，需要分成兩個範圍積分")
+        replay_message(event,message)
         return 0
 
     #習題第六章第一題------------------------------------------------------------------------------------------------
@@ -968,6 +1022,22 @@ def handle_message(event):
         Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-b2.gif',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/ans00060001-b2.gif')
         replay_message(event,Image_Message2)
         return 0
+
+    #習題第六章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "取極限值":
+        message = TextSendMessage(text="錯誤！應該求積分，來看一下正確解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/int-application-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/int-application-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "求積分":
+        message = TextSendMessage(text="正確！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/int-application-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/int-application-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+            
     #習題第七章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "積分代換法":
         message = TextSendMessage(text="因為無法消去x")
@@ -979,6 +1049,17 @@ def handle_message(event):
         replay_message(event,Image_Message1)
         push_message(event,Image_Message2)
         return 0
+    
+    #習題第七章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "方法一":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000201.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000201.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "方法二":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000202.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000202.jpg')
+        replay_message(event,Image_Message)
+        return 0 
 
     #習題第八章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "sqrt(r1平方+r2平方)":
@@ -993,6 +1074,17 @@ def handle_message(event):
         push_message(event,Image_Message)
         return 0   
 
+    #習題第八章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "第(1)題":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0008000201.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0008000201.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "第(2)題":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0008000202.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0008000202.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
     #習題第九章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "使用Root Test":
         message = TextSendMessage(text="錯誤！因為(2n)!無法開根號")
@@ -1006,6 +1098,17 @@ def handle_message(event):
         push_message(event,Image_Message)
         return 0 
     
+    #習題第九章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "看解題過程":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090002.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090002.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "先了解定理":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00090002.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00090002.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
     #習題第九章第三題------------------------------------------------------------------------------------------------
     if event.message.text == "第(1)題":
         Buttons_Template = TemplateSendMessage(
@@ -1072,6 +1175,17 @@ def handle_message(event):
         push_message(event,Image_Message)
         return 0 
     
+    #習題第十章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "這題所需要用到的定理":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00100002.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00100002.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "解題的過程":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100002.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100002.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
     #習題第十章第三題------------------------------------------------------------------------------------------------
     if event.message.text == "利用弧長公式":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100003-1.png')
@@ -1082,12 +1196,12 @@ def handle_message(event):
         Imagemap_Message = ImagemapSendMessage(
             base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png?',
             alt_text='this is an imagemap',
-            base_size=BaseSize(height=298, width=85),
+            base_size=BaseSize(height=600, width=200),
             actions=[
                 MessageImagemapAction(
                     text='利用弧長公式',
                     area=ImagemapArea(
-                        x=0, y=0, width=85, height=298
+                        x=0, y=0, width=200, height=600
                     )
                 )
             ]
@@ -1108,6 +1222,18 @@ def handle_message(event):
         replay_message(event,message)
         return 0
     
+    #習題第十一章第二題------------------------------------------------------------------------------------------------
+    if event.message.text == "求f一階偏導數為零的解":
+        message = TextSendMessage(text="正確~來看一下完整的解題步驟：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110002.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00110002.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "直接求f的二階偏導數":
+        message = TextSendMessage(text="在要用二階導數極值判別法前，我們要先透過一階導數找出f的臨界值喔！")
+        replay_message(event,message)
+        return 0
     #習題第十一章第三題------------------------------------------------------------------------------------------------
     if event.message.text == "第一小題":
         Buttons_Template = TemplateSendMessage(
@@ -1258,21 +1384,21 @@ def handle_message(event):
     #習題第十二章第三題------------------------------------------------------------------------------------------------ 
     if event.message.text == "參數變更極坐標":
         message = TextSendMessage(text="錯誤!!極座標只有兩個參數!!所以需先寫出參數範圍再化簡成兩個參數，就可以將參數更改為極座標!!!")
-        # Imagemap_Message = ImagemapSendMessage(
-        #     base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png#',
-        #     alt_text='this is an imagemap',
-        #     base_size=BaseSize(height=85, width=298),
-        #     actions=[
-        #         MessageImagemapAction(
-        #             text='變換極坐標定理',
-        #             area=ImagemapArea(
-        #                 x=0, y=0, width=298, height=85
-        #             )
-        #         )
-        #     ]
-        # )
+        Imagemap_Message = ImagemapSendMessage(
+            base_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm.png?',
+            alt_text='this is an imagemap',
+            base_size=BaseSize(height=85, width=298),
+            actions=[
+                MessageImagemapAction(
+                    text='變換極坐標定理',
+                    area=ImagemapArea(
+                        x=0, y=0, width=298, height=85
+                    )
+                )
+            ]
+        )
         replay_message(event,message)
-        #push_message(event,Image_Message)
+        push_message(event,Imagemap_Message)
         return 0
     if event.message.text == "寫出參數範圍": 
         message = TextSendMessage(text="正確!!")
@@ -1532,7 +1658,7 @@ def handle_postback(event):
 
     #習題題目格式------------------------------------------------------------------------------------------------
     if  len(event.postback.data) == 10:
-        sql = """SELECT "value", "Llabel", "Ltext", "Rlabel", "Rtext" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
+        sql = """SELECT "value", "Llabel", "Ltext", "Rlabel", "Rtext","lable" FROM public."temp" WHERE "number" LIKE '%""" + event.postback.data + "%'" 
         cur.execute(sql)
         rows = cur.fetchall()
         # #text2 = "According to your input, my answer is "
@@ -1548,13 +1674,14 @@ def handle_postback(event):
             text4 = text4 + str(row[2])
             text5 = text5 + str(row[3])
             text6 = text6 + str(row[4])
+            text7 = text7 + str(row[5])
 
         Image_Message = ImageSendMessage(original_content_url=text2,preview_image_url=text2)
         Confirm_Template = TemplateSendMessage(
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='第一步如何做?',
+                text='text7',
                 actions=[                              
                     MessageTemplateAction(
                         label=text3,
