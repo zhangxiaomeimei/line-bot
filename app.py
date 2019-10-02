@@ -1681,7 +1681,7 @@ def handle_postback(event):
             alt_text='目錄 template',
             template=ConfirmTemplate(
                 title='這是ConfirmTemplate',
-                text='text7',
+                text=text7,
                 actions=[                              
                     MessageTemplateAction(
                         label=text3,
