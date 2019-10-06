@@ -1722,30 +1722,27 @@ def handle_message(event):
         replay_message(event,Image_Message)
         return 0    
     if event.message.text == "maclaurin series":
-        Image_Carousel = TemplateSendMessage(
-            alt_text='目錄 template',
-            template=ImageCarouselTemplate(
-                columns=[
-                    ImageCarouselColumn(
-                        image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你會遇到的問題：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
                         URITemplateAction(
                             label='定理',
                             uri='https://zh.wikipedia.org/zh-tw/%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
-                        action=PostbackTemplateAction(
-                            label='影片教學',
-                            text='影片教學',
-                            data='https://www.youtube.com/watch?v=kqD10INIkSo'
-                        )
-                    )
-                ]
+                        ),
+                        URITemplateAction(
+                            label='maclaurin series教學影片',
+                            uri='https://www.youtube.com/watch?v=kqD10INIkSo'
+                        ),
+                    ]
+                )
             )
-        )
         replay_message(event,Image_Carousel)
         return 0
+    
     #習題第十章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "r微分一次的平方+r微分二次的平方":
         message = TextSendMessage(text="錯誤！正確解答如下")
