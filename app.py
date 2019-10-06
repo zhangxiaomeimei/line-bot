@@ -1679,13 +1679,13 @@ def handle_message(event):
         return 0
 
     #習題第九章第四題------------------------------------------------------------------------------------------------
-    if event.message.text == "方法一":
+    if event.message.text == "method1":
         Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-1.png')
         Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-3.png')
         replay_message(event,Image_Message1)
         push_message(event,Image_Message2)
         return 0
-    if event.message.text == "方法二":
+    if event.message.text == "method2":
         Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-2.png')
         Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-3.png')
         replay_message(event,Image_Message1)
