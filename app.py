@@ -1677,6 +1677,74 @@ def handle_message(event):
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090003-2-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090003-2-1.png')
         replay_message(event,Image_Message)
         return 0
+
+    #習題第九章第四題------------------------------------------------------------------------------------------------
+    if event.message.text == "方法一":
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-1.png')
+        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-3.png')
+        replay_message(event,Image_Message1)
+        push_message(event,Image_Message2)
+        return 0
+    if event.message.text == "方法二":
+        Image_Message1 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-2.png')
+        Image_Message2 = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090004-3.png')
+        replay_message(event,Image_Message1)
+        push_message(event,Image_Message2)
+        return 0
+    #習題第九章第六題------------------------------------------------------------------------------------------------
+    if event.message.text == "solution":
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你會遇到的問題：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='Answer',
+                            text='Answer'
+                        ),
+                        MessageTemplateAction(
+                            label='Binomial Series',
+                            text='Binomial Series'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message1)
+        return 0
+    if event.message.text == "Answer":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090006-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090006-1.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "Binomial Series":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090006-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090006-2.png')
+        replay_message(event,Image_Message)
+        return 0    
+    if event.message.text == "maclaurin series":
+        Image_Carousel = TemplateSendMessage(
+            alt_text='目錄 template',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                        actions=URITemplateAction(
+                            label='定理',
+                            uri='https://zh.wikipedia.org/zh-tw/%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                        actions=URITemplateAction(
+                            label='教學影片',
+                            uri='https://www.youtube.com/watch?v=kqD10INIkSo'
+                        )
+                    )
+                ]
+            )
+        )
+        replay_message(event,Image_Carousel)
+        return 0
     #習題第十章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "r微分一次的平方+r微分二次的平方":
         message = TextSendMessage(text="錯誤！正確解答如下")
