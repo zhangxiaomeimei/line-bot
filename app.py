@@ -275,7 +275,7 @@ def handle_message(event):
         template=ButtonsTemplate(
             title='Hello\U0001f600~我是微微~歡迎問我各種關於微積分的問題喔~',
             text=' ',
-            thumbnail_image_url='https://math-2019.000webhostapp.com/LOGO.jpg',
+            thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/LOGO.jpg',
             actions=[
                 MessageTemplateAction(
                     label='海報(<-解答點我)',
@@ -896,6 +896,52 @@ def handle_message(event):
         replay_message(event,message)
         return 0
 
+    #習題第三章第三題------------------------------------------------------------------------------------------------
+    if event.message.text == "ch3-3-(1)":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0003000301.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0003000301.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='忘記Chain Rule是什麼嗎？',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='點我了解Chain Rule',
+                            text='了解Chain Rule'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "ch3-3-(2)":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0003000302.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0003000302.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='忘記Chain Rule是什麼嗎？',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='點我了解Chain Rule',
+                            text='了解Chain Rule'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "了解Chain Rule":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00030003.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00030003.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
     #習題第四章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "利用中間值定理":
         message = TextSendMessage(text="沒錯！來看一下解題過程：")
@@ -922,6 +968,32 @@ def handle_message(event):
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/diff-application-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/diff-application-answer.png')
         replay_message(event,message)
         push_message(event,Image_Message)
+        return 0
+    
+    #習題第四章第四題------------------------------------------------------------------------------------------------
+    if event.message.text == "關於asymptote":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/def00040004.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/def00040004.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='想要繼續了解題目的解題過程？',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='點我看解題過程',
+                            text='ch4-4解題過程'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "ch4-4解題過程":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00040004.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00040004.jpg')
+        replay_message(event,Image_Message)
         return 0
 
     #習題第五章第一題-----------------------------------------------------------------------------------------------
@@ -964,6 +1036,82 @@ def handle_message(event):
     if event.message.text == "直接積分":
         message = TextSendMessage(text="錯誤！x大於1/2及x小於1/2的函數數不同，需要分成兩個範圍積分")
         replay_message(event,message)
+        return 0
+
+    #習題第五章第四題------------------------------------------------------------------------------------------------
+    if event.message.text == "ch5-4的定理證明":
+        message = TextSendMessage(text="好的，我們來看一下上面這個定理的證明：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/pf00050004.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/pf00050004.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='繼續來看題目~',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='點我看題目',
+                            text='ch5-4題目'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "ch5-4題目":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ex0005000402.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ex0005000402.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你可能會需要：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='看解題過程',
+                            text='ch5-4解題過程'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "ch5-4解題過程":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00050004.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00050004.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    #習題第五章第五題------------------------------------------------------------------------------------------------
+    if event.message.text == "了解中點法":
+        message = TextSendMessage(text="好的，我們來看一下Midpoint Rule：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00050005.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00050005.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='想要繼續了解題目的解題過程？',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='點我看解題過程',
+                            text='ch5-5解題過程'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "ch5-5解題過程":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00050005.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00050005.jpg')
+        replay_message(event,Image_Message)
         return 0
 
     #習題第六章第一題------------------------------------------------------------------------------------------------
@@ -1037,7 +1185,83 @@ def handle_message(event):
         replay_message(event,message)
         push_message(event,Image_Message)
         return 0
-            
+    
+    #習題第六章第四題------------------------------------------------------------------------------------------------
+    if event.message.text == "了解弧長定義":
+        message = TextSendMessage(text="好的，我們來看一下弧長的定義：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00060004.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00060004.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "ch6-4解答":
+        message = TextSendMessage(text="好的，我們來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00060004.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00060004.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    #習題第六章第五題------------------------------------------------------------------------------------------------
+    if event.message.text == "查看ch6-5圖形":
+        message = TextSendMessage(text="好的，我們來看一下ch6-5圖形：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/picture00060005.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/picture00060005.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "查看ch6-5解題過程":
+        message = TextSendMessage(text="好的，我們來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00060005.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00060005.jpg')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
+
+    #習題第六章第六題------------------------------------------------------------------------------------------------
+    if event.message.text == "ch6-6答案":
+        message = TextSendMessage(text="這題的答案為18")
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你可能會需要：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='看解題過程',
+                            text='ch6-6解題過程'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "ch6-6小提示":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/hint00060006.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/hint00060006.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你可能會需要：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='看解題過程',
+                            text='ch6-6解題過程'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0 
+
+    if event.message.text == "ch6-6解題過程":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00060006.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00060006.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
     #習題第七章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "積分代換法":
         message = TextSendMessage(text="因為無法消去x")
@@ -1060,7 +1284,188 @@ def handle_message(event):
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000202.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000202.jpg')
         replay_message(event,Image_Message)
         return 0 
+    
+    #習題第七章第四題------------------------------------------------------------------------------------------------
+    if event.message.text == "點我看簡答":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000401.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000401.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你可能會需要：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='看解題過程',
+                            text='ch7-4解題過程'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0
 
+    if event.message.text == "第一步小提示":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/hint00070004.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/hint00070004.jpg')
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你可能會需要：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='看解題過程',
+                            text='ch7-4解題過程'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Image_Message)
+        push_message(event,Buttons_Template)
+        return 0 
+
+    if event.message.text == "ch7-4解題過程":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000402.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0007000402.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    #習題第七章第五題------------------------------------------------------------------------------------------------
+    if event.message.text == "定積分代換":
+        message = TextSendMessage(text="好像不對呦！來了解一下定積分代換定理和分部積分法吧~")
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='選擇想了解的選項：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='定積分代換定理',
+                            text='我想了解定積分代換定理'
+                        ),
+                        MessageTemplateAction(
+                            label='分部積分法',
+                            text='我想了解分部積分法'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "分部積分法":
+        message = TextSendMessage(text="正確的選擇！")
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你可能會需要：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='點我看解答',
+                            text='ch7-5解答'
+                        ),
+                        MessageTemplateAction(
+                            label='複習部分積分法',
+                            text='我想了解分部積分法'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,message)
+        push_message(event,Buttons_Template)
+        return 0 
+
+    if event.message.text == "我想了解定積分代換定理":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm0007000501.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm0007000501.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "我想了解分部積分法":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm0007000502.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm0007000502.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "ch7-5解答":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00070005.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00070005.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    #習題第七章第六題------------------------------------------------------------------------------------------------
+    if event.message.text == "運用部分積分法":
+        message = TextSendMessage(text="好像不對呦！來了解一下這兩個方法吧~")
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='選擇想了解的選項：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='瑕積分',
+                            text='我想了解瑕積分'
+                        ),
+                        MessageTemplateAction(
+                            label='分部積分法',
+                            text='我想了解分部積分法'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,message)
+        push_message(event,Buttons_Template)
+        return 0
+
+    if event.message.text == "運用瑕積分":
+        message = TextSendMessage(text="選擇正確！")
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='你可能會需要：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                    actions=[
+                        MessageTemplateAction(
+                            label='點我看解答',
+                            text='ch7-6解答'
+                        ),
+                        MessageTemplateAction(
+                            label='複習瑕積分',
+                            text='我想了解瑕積分'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,message)
+        push_message(event,Buttons_Template)
+        return 0 
+
+    if event.message.text == "我想了解瑕積分":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00070006.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/thm00070006.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    if event.message.text == "ch7-6解答":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00070006.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00070006.jpg')
+        replay_message(event,Image_Message)
+        return 0
+
+    #習題第八章第一題------------------------------------------------------------------------------------------------
+    if event.message.text == "sqrt(r1平方+r2平方)":
+        message = TextSendMessage(text="錯誤！未考慮兩個半徑的夾角")
+        replay_message(event,message)
+        return 0
+
+    if event.message.text == "sqrt(r1平方+r2平方-2r1r2cos(theta1-theta2))":
+        message = TextSendMessage(text="沒錯！來看一下解題過程：")
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/polar-coordinate-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/polar-coordinate-answer.png')
+        replay_message(event,message)
+        push_message(event,Image_Message)
+        return 0
     #習題第八章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "sqrt(r1平方+r2平方)":
         message = TextSendMessage(text="錯誤！未考慮兩個半徑的夾角")
@@ -1084,7 +1489,119 @@ def handle_message(event):
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0008000202.jpg',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans0008000202.jpg')
         replay_message(event,Image_Message)
         return 0
+    
+    #習題第八章第四題------------------------------------------------------------------------------------------------
+    if event.message.text == "圖形":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080004-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080004-1.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "解答":
+        Buttons_Template = TemplateSendMessage(
+            alt_text='Buttons Template',
+            template=ButtonsTemplate(
+                title='這是ButtonsTemplate',
+                text='ButtonsTemplate可以傳送text,uri',
+                thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                actions=[
+                MessageTemplateAction(
+                    label='ch8-4定理',
+                    text='ch8-4定理'
+                ),
+                MessageTemplateAction(
+                    label='答案',
+                    text='答案'
+                )
+            ]
+        )
+    )
+        replay_message(event,Buttons_Template)
+        return 0
+    if event.message.text == "ch8-4定理":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080004-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080004-2.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "答案":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080004-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080004-3.png')
+        replay_message(event,Image_Message)
+        return 0
 
+    #習題第八章第六題------------------------------------------------------------------------------------------------
+    if event.message.text == "心臟線圖形":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-1.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "解題方法":
+        Carousel_Template = TemplateSendMessage(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                        title='解答',
+                        text=' ',
+                        actions=[
+                            MessageTemplateAction(
+                                label='步驟一',
+                                text='步驟一'
+                            ),
+                            MessageTemplateAction(
+                                label='提示',
+                                text='提示'
+                            ),
+                            MessageTemplateAction(
+                                label='步驟二',
+                                text='步驟二'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                        title='定理',
+                        text='ch8-6定理',
+                        actions=[
+                            MessageTemplateAction(
+                                label='ch8-6定理',
+                                text='ch8-6定理'
+                            ),
+                            MessageTemplateAction(
+                                label='定理證明',
+                                text='定理證明'
+                            ),
+                            MessageTemplateAction(
+                                label='證明中引用的定理',
+                                text='證明中引用的定理'
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        replay_message(event,Carousel_Template)
+        return 0
+    if event.message.text == "步驟一":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-2.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "提示":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-3.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "步驟二":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-4.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-4.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "ch8-6定理":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-5.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-5.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "定理證明":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-6.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-6.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "證明中引用的定理":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-7.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00080006-7.png')
+        replay_message(event,Image_Message)
+        return 0
     #習題第九章第一題------------------------------------------------------------------------------------------------
     if event.message.text == "使用Root Test":
         message = TextSendMessage(text="錯誤！因為(2n)!無法開根號")
@@ -1110,7 +1627,7 @@ def handle_message(event):
         return 0
 
     #習題第九章第三題------------------------------------------------------------------------------------------------
-    if event.message.text == "第(1)題":
+    if event.message.text == "(1)":
         Buttons_Template = TemplateSendMessage(
                 alt_text='Buttons Template',
                 template=ButtonsTemplate(
@@ -1131,7 +1648,7 @@ def handle_message(event):
             )
         replay_message(event,Buttons_Template)
         return 0
-    if event.message.text == "第(2)題":   
+    if event.message.text == "(2)":   
         Buttons_Template = TemplateSendMessage(
                 alt_text='Buttons Template',
                 template=ButtonsTemplate(
@@ -1667,6 +2184,7 @@ def handle_postback(event):
         text4=""
         text5=""
         text6=""
+        text7=""
 
         for row in rows:
             text2 = text2 + str(row[0]) 
