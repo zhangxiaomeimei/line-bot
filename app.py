@@ -1711,7 +1711,7 @@ def handle_message(event):
                     ]
                 )
             )
-        replay_message(event,Image_Message1)
+        replay_message(event,Buttons_Template)
         return 0
     if event.message.text == "Answer":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090006-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00090006-1.png')
@@ -1727,17 +1727,19 @@ def handle_message(event):
             template=ImageCarouselTemplate(
                 columns=[
                     ImageCarouselColumn(
-                        image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
-                        actions=URITemplateAction(
+                        image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                        action=PostbackTemplateAction(
                             label='定理',
-                            uri='https://zh.wikipedia.org/zh-tw/%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0'
+                            text='定理',
+                            data='https://zh.wikipedia.org/zh-tw/%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
-                        actions=URITemplateAction(
-                            label='教學影片',
-                            uri='https://www.youtube.com/watch?v=kqD10INIkSo'
+                        image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
+                        action=PostbackTemplateAction(
+                            label='影片教學',
+                            text='影片教學',
+                            data='https://www.youtube.com/watch?v=kqD10INIkSo'
                         )
                     )
                 ]
