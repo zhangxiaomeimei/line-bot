@@ -1740,7 +1740,7 @@ def handle_message(event):
                     ]
                 )
             )
-        replay_message(event,Image_Carousel)
+        replay_message(event,Buttons_Template)
         return 0
     
     #習題第十章第一題------------------------------------------------------------------------------------------------
