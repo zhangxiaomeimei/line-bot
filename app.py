@@ -275,7 +275,7 @@ def handle_message(event):
         template=ButtonsTemplate(
             title='Hello\U0001f600~我是微微~歡迎問我各種關於微積分的問題喔~',
             text=' ',
-            thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/05/LOGO.jpg',
+            thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/logo.jpg',
             actions=[
                 MessageTemplateAction(
                     label='海報(<-解答點我)',
@@ -1501,7 +1501,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='這是ButtonsTemplate',
                 text='ButtonsTemplate可以傳送text,uri',
-                thumbnail_image_url='https://www.google.com.tw/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
+                thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
                 actions=[
                 MessageTemplateAction(
                     label='ch8-4定理',
@@ -1557,7 +1557,7 @@ def handle_message(event):
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
                         title='定理',
-                        text='ch8-6定理',
+                        text=' ',
                         actions=[
                             MessageTemplateAction(
                                 label='ch8-6定理',
