@@ -1731,7 +1731,7 @@ def handle_message(event):
                         URITemplateAction(
                             label='定理',
                             uri='https://zh.wikipedia.org/zh-tw/%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0'
-                        ),
+                        )
                     ),
                     ImageCarouselColumn(
                         image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
