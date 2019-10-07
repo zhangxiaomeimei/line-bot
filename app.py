@@ -2322,8 +2322,8 @@ def handle_message(event):
                             uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-1.png'
                         ),
                         MessageTemplateAction(
-                            label='提示',
-                            text='提示'
+                            label='hint',
+                            text='hint'
                         ),
                         MessageTemplateAction(
                             label='(a)答案',
@@ -2334,7 +2334,7 @@ def handle_message(event):
             )
         replay_message(event,Buttons_Template)
         return 0 
-    if event.message.text == "提示":
+    if event.message.text == "hint":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-4.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-4.png')
         replay_message(event,Image_Message)
         return 0 
