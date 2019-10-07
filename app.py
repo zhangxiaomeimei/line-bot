@@ -2394,26 +2394,26 @@ def handle_message(event):
                 columns=[
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
-                        title='定理',
+                        title='第一步',
                         text=' ',
                         actions=[
                             URITemplateAction(
-                                label='質量相對於x軸',
+                                label='質心相對於x軸',
                                 uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-2.png'
                             ),
                             URITemplateAction(
-                                label='質量相對於y軸',
+                                label='質心相對於y軸',
                                 uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-3.png'
                             ),
                             URITemplateAction(
-                                label='質量相對於z軸',
+                                label='質心相對於z軸',
                                 uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-4.png'
                             )
                         ]
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
-                        title='解答',
+                        title='第二步',
                         text=' ',
                         actions=[
                             MessageTemplateAction(
@@ -2423,6 +2423,10 @@ def handle_message(event):
                             MessageTemplateAction(
                                 label='the center of mass',
                                 text='the center of mass'
+                            ),
+                            MessageTemplateAction(
+                                label='為甚麼"相對於y軸的質量"為0',
+                                text='為甚麼"相對於y軸的質量"為0'
                             )
                         ]
                     )
@@ -2437,6 +2441,10 @@ def handle_message(event):
         return 0
     if event.message.text == "the center of mass":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-5.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-5.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "為甚麼'相對於y軸的質量'為0":
+        message = TextSendMessage(text="圖形對稱x軸,所以y的中心部分會落在x軸上，因此等於0!!")
         replay_message(event,Image_Message)
         return 0
     if event.message.text == "點我看公式":
