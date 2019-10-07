@@ -2083,12 +2083,12 @@ def handle_message(event):
                     thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/13.jpg',
                     actions=[
                         MessageTemplateAction(
-                            label='revolution about x-axis',
-                            text='revolution about x-axis'
+                            label='對x軸旋轉',
+                            text='對x軸旋轉'
                         ),
                         MessageTemplateAction(
-                            label='revolution about y-axis',
-                            text='revolution about y-axis'
+                            label='對y軸旋轉',
+                            text='對y軸旋轉'
                         ),
                         MessageTemplateAction(
                             label='我想看答案',
@@ -2099,11 +2099,11 @@ def handle_message(event):
             )
         replay_message(event,Buttons_Template)
         return 0
-    if event.message.text == "revolution about x-axis":
+    if event.message.text == "對x軸旋轉":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100006-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100006-3.png')
         replay_message(event,Image_Message)
         return 0
-    if event.message.text == "revolution about y-axis":
+    if event.message.text == "對y軸旋轉":
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100006-4.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00100006-4.png')
         replay_message(event,Image_Message)
         return 0
