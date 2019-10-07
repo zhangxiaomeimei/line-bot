@@ -2307,7 +2307,70 @@ def handle_message(event):
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120003-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120003-2.png')   
         replay_message(event,Image_Message)
         return 0 
-
+ 
+    #習題第十二章第四題------------------------------------------------------------------------------------------------ 
+    if event.message.text == "(a)小題": 
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='解題時可能會遇到的問題：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                    actions=[
+                        URITemplateAction(
+                            label='change of variables',
+                            uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-1.png'
+                        ),
+                        MessageTemplateAction(
+                            label='提示',
+                            text='提示'
+                        ),
+                        MessageTemplateAction(
+                            label='(a)答案',
+                            text='(a)答案'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Buttons_Template)
+        return 0 
+    if event.message.text == "提示":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-4.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-4.png')
+        replay_message(event,Image_Message)
+        return 0 
+    if event.message.text == "(a)答案":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-2.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-2.png')   
+        replay_message(event,Image_Message)
+        return 0 
+    if event.message.text == "(b)小題": 
+        Buttons_Template = TemplateSendMessage(
+                alt_text='Buttons Template',
+                template=ButtonsTemplate(
+                    title=' ',
+                    text='我們將解題步驟分為兩個：',
+                    thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                    actions=[
+                        URITemplateAction(
+                            label='change of variables',
+                            uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-1.png'
+                        ),
+                        URITemplateAction(
+                            label='Jacobian',
+                            uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-5.png'
+                        ),
+                        MessageTemplateAction(
+                            label='(b)答案',
+                            text='(b)答案'
+                        )
+                    ]
+                )
+            )
+        replay_message(event,Buttons_Template)
+        return 0
+    if event.message.text == "(b)答案":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-3.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120004-3.png')   
+        replay_message(event,Image_Message)
+        return 0 
     #習題第十二章第五題------------------------------------------------------------------------------------------------
     if event.message.text == "(x,y,z)":
         message = TextSendMessage(text="對(r,theta,z)做更好喔!")
@@ -2323,6 +2386,63 @@ def handle_message(event):
         push_message(event,Image_Message)
         return 0
 
+    #習題第十二章第六題------------------------------------------------------------------------------------------------ 
+    if event.message.text == "解題步驟":
+        Carousel_Template = TemplateSendMessage(
+            alt_text='Carousel template',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                        title='定理',
+                        text=' ',
+                        actions=[
+                            URITemplateAction(
+                                label='質量相對於x軸',
+                                uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-2.png'
+                            ),
+                            URITemplateAction(
+                                label='質量相對於y軸',
+                                uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-3.png'
+                            ),
+                            URITemplateAction(
+                                label='質量相對於z軸',
+                                uri='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-4.png'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
+                        title='解答',
+                        text=' ',
+                        actions=[
+                            MessageTemplateAction(
+                                label='質量',
+                                text='質量'
+                            ),
+                            MessageTemplateAction(
+                                label='the center of mass',
+                                text='the center of mass'
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        replay_message(event,Carousel_Template)
+        return 0
+    if event.message.text == "質量":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-1.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-1.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "the center of mass":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-5.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-5.png')
+        replay_message(event,Image_Message)
+        return 0
+    if event.message.text == "點我看公式":
+        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-6.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-6.png')
+        replay_message(event,Image_Message)
+        return 0
     #講義-----------------------------------------------------------------------------------------------------------
     if event.message.text == "講義":
         Carousel_Template1 = TemplateSendMessage(
