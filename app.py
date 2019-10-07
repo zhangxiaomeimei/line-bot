@@ -2425,8 +2425,8 @@ def handle_message(event):
                                 text='the center of mass'
                             ),
                             MessageTemplateAction(
-                                label='為甚麼"相對於y軸的質量"為0',
-                                text='為甚麼"相對於y軸的質量"為0'
+                                label='為甚麼"相對於y軸的質心"為0',
+                                text='為甚麼"相對於y軸的質心"為0'
                             )
                         ]
                     )
@@ -2443,7 +2443,7 @@ def handle_message(event):
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-5.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/ans00120006-5.png')
         replay_message(event,Image_Message)
         return 0
-    if event.message.text == "為甚麼'相對於y軸的質量'為0":
+    if event.message.text == "為甚麼相對於y軸的質心為0":
         message = TextSendMessage(text="圖形對稱x軸,所以y的中心部分會落在x軸上，因此等於0!!")
         replay_message(event,Image_Message)
         return 0
