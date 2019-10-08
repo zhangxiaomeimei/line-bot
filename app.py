@@ -1584,18 +1584,6 @@ def handle_message(event):
         Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/polar-coordinate-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/polar-coordinate-answer.png')
         replay_message(event,message)
         push_message(event,Image_Message)
-        return 0
-    #習題第八章第一題------------------------------------------------------------------------------------------------
-    if event.message.text == "sqrt(r1平方+r2平方)":
-        message = TextSendMessage(text="錯誤！未考慮兩個半徑的夾角")
-        replay_message(event,message)
-        return 0
-
-    if event.message.text == "sqrt(r1平方+r2平方-2r1r2cos(theta1-theta2))":
-        message = TextSendMessage(text="沒錯！來看一下解題過程：")
-        Image_Message = ImageSendMessage(original_content_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/polar-coordinate-answer.png',preview_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/07/polar-coordinate-answer.png')
-        replay_message(event,message)
-        push_message(event,Image_Message)
         return 0   
 
     #習題第八章第二題------------------------------------------------------------------------------------------------
@@ -1632,8 +1620,8 @@ def handle_message(event):
         Buttons_Template = TemplateSendMessage(
             alt_text='Buttons Template',
             template=ButtonsTemplate(
-                title='這是ButtonsTemplate',
-                text='ButtonsTemplate可以傳送text,uri',
+                title='理解定理能更清楚作答方法!!!',
+                text=' ',
                 thumbnail_image_url='https://jylin.myqnapcloud.com/Projects/year201901/wp-content/uploads/2019/10/12.jpg',
                 actions=[
                 MessageTemplateAction(
