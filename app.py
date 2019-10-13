@@ -51,12 +51,12 @@ def callback():
     return 'OK'
 
 
-# @handler.add(MessageEvent, message=ImageMessage)
-# def handle_message(event):
-#     print(event)
+@handler.add(MessageEvent, message=ImageMessage)
+def handle_message(event):
+    print(event)
 
-#     message = TextSendMessage(text="收到圖片")  
-#     replay_message(event,message)
+    message = TextSendMessage(text="收到圖片")  
+    replay_message(event,message)
 
 
 @handler.add(MessageEvent, message=TextMessage)
